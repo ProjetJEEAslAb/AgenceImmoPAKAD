@@ -53,7 +53,6 @@ public class ClasseDaoImpl implements IClasseDao {
 
 	@Override
 	public void deleteClasse(Classe c) {
-		System.out.println("Je suis dans la DAO de la suppression");
 		Session s=sf.getCurrentSession();
 		Classe cOut=(Classe) s.get(Classe.class, c.getId_cl());
 		s.delete(cOut);
