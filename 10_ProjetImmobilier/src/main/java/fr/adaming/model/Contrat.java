@@ -8,7 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name="contrats")
@@ -25,6 +29,8 @@ public class Contrat implements Serializable {
 	private double prixFinal;
 	
 	//Liaisons UML en Java
+	@ManyToOne
+	@JoinColumn(name="cl_id", referencedColumnName="id_client")
 	private Client client;
 
 	//Constructeurs

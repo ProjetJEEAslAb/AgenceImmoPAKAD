@@ -4,19 +4,25 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="biens")
-public class Bien implements Serializable {
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class Bien implements Serializable {
 	
 	//Declaration des attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ref")
 	protected int id_b;
 	
@@ -31,15 +37,23 @@ public class Bien implements Serializable {
 	protected double superficie;
 	
 	//Liaisons UML en Java
-	
+	@ManyToOne
+	@JoinColumn(name="cl_id", referencedColumnName="code")
 	protected Classe classe;
 	
+	@ManyToOne
+	@JoinColumn(name="ag_id", referencedColumnName="identifiant")
 	protected Agent agent;
 	
+	@OneToOne
+	@JoinColumn(name="co_id", referencedColumnName="num")
 	protected Contrat contrat;
 	
+	@Embedded
 	protected Adresse adresse;
 	
+	@ManyToOne
+	@JoinColumn(name="p_id", referencedColumnName="id_p")
 	protected Proprietaire proprio;
 
 	//Constructeurs
@@ -61,7 +75,7 @@ public class Bien implements Serializable {
 	public Bien(int ref, String statut, Date dateSoumission, Date dateDisponibilite, double revenuCadastral,
 			double superficie) {
 		super();
-		this.ref = ref;
+		this.id_b = ref;
 		this.statut = statut;
 		this.dateSoumission = dateSoumission;
 		this.dateDisponibilite = dateDisponibilite;

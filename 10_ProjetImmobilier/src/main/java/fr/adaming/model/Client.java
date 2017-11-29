@@ -1,17 +1,20 @@
 package fr.adaming.model;
 
-import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="clients")
-public class Client implements Serializable {
+public class Client  {
 	
 	//Declaration des attributs
 	@Id
@@ -23,10 +26,14 @@ public class Client implements Serializable {
 	private String num;
 	
 	//Liaisons UML en Java
+	@Embedded
 	private Adresse adresse;
 	
+	@OneToMany(mappedBy="client")
 	private List<Contrat> listeContrats;
 	
+	@ManyToMany
+	@JoinColumn(name="classes")
 	private List<Classe> listeClasses;
 
 	

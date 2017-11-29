@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +29,7 @@ public class Classe implements Serializable {
 	private double superficieMin;
 	
 	//Liaisons UML en Java
+	@OneToMany(mappedBy = "classe")
 	private List<Bien> listeBiens;
 
 	//Constructeurs

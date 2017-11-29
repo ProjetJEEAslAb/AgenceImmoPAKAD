@@ -1,12 +1,14 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +20,10 @@ public class Agent implements Serializable {
 	private int identifiant;
 	
 	private String mdp;
-
+	
+	//Liaisons UML en Java
+	@OneToMany(mappedBy="agent")
+	private List<Bien> listeBiens;
 	
 	//Constructeurs
 	public Agent() {
@@ -52,10 +57,21 @@ public class Agent implements Serializable {
 		this.mdp = mdp;
 	}
 
+	
+	public List<Bien> getListeBiens() {
+		return listeBiens;
+	}
+
+	public void setListeBiens(List<Bien> listeBiens) {
+		this.listeBiens = listeBiens;
+	}
+
 	@Override
 	public String toString() {
-		return "Agent [identifiant=" + identifiant + ", mdp=" + mdp + "]";
+		return "Agent [identifiant=" + identifiant + ", mdp=" + mdp + ", listeBiens=" + listeBiens + "]";
 	}
+
+	
 	
 	
 
