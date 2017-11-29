@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="classes")
@@ -30,11 +33,11 @@ public class Classe implements Serializable {
 	private double superficieMin;
 	
 	//Liaisons UML en Java
-	@OneToMany(mappedBy = "classe")
-	private List<Achat> listeAchats;
+	@OneToMany(mappedBy = "classe", fetch=FetchType.EAGER)
+	private Set<Achat> listeAchats;
 	
-	@OneToMany(mappedBy = "classe")
-	private List<Location> listeLocations;
+	@OneToMany(mappedBy = "classe", fetch=FetchType.EAGER)
+	private Set<Location> listeLocations;
 
 	//Constructeurs
 	public Classe() {
@@ -98,19 +101,19 @@ public class Classe implements Serializable {
 		this.superficieMin = superficieMin;
 	}
 
-	public List<Achat> getListeAchats() {
+	public Set<Achat> getListeAchats() {
 		return listeAchats;
 	}
 
-	public void setListeAchats(List<Achat> listeAchats) {
+	public void setListeAchats(Set<Achat> listeAchats) {
 		this.listeAchats = listeAchats;
 	}
 
-	public List<Location> getListeLocations() {
+	public Set<Location> getListeLocations() {
 		return listeLocations;
 	}
 
-	public void setListeLocations(List<Location> listeLocations) {
+	public void setListeLocations(Set<Location> listeLocations) {
 		this.listeLocations = listeLocations;
 	}
 
