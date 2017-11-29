@@ -33,12 +33,12 @@ public class ClasseRest {
 	}
 	
 	@RequestMapping(value="/classe", method=RequestMethod.PUT, produces="application/json", consumes="application/json")
-	public Classe updateClasse(Classe c){
+	public Classe updateClasse(@RequestBody Classe c){
 		return classeService.updateClasse(c);
 	}
 	
 	@RequestMapping(value="/classe", method=RequestMethod.DELETE, consumes="application/json")
-	public void deleteClasse(Classe c){
+	public void deleteClasse(@RequestBody Classe c){
 		classeService.deleteClasse(c);
 	}
 

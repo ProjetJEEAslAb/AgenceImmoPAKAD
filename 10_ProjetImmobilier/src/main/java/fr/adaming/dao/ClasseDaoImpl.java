@@ -17,10 +17,8 @@ public class ClasseDaoImpl implements IClasseDao {
 
 	@Override
 	public Classe addClasse(Classe c) {
-		System.out.println("Entrée dans la DAO");
 		Session s = sf.getCurrentSession();
 		s.save(c);
-		System.out.println("c vaut : "+c);
 		return c;
 	}
 
@@ -44,15 +42,21 @@ public class ClasseDaoImpl implements IClasseDao {
 	public Classe updateClasse(Classe c) {
 		Session s = sf.getCurrentSession();
 		Classe cOut = (Classe) s.get(Classe.class, c.getId_cl());
+		cOut.setListeBiens(c.getListeBiens());
+		cOut.setModeOffre(c.getModeOffre());
+		cOut.setPrixMax(c.getPrixMax());
+		cOut.setSuperficieMin(c.getSuperficieMin());
+		cOut.setTypeBien(c.getTypeBien());
 		s.saveOrUpdate(cOut);
 		return cOut;
 	}
 
 	@Override
 	public void deleteClasse(Classe c) {
+		System.out.println("Je suis dans la DAO de la suppression");
 		Session s=sf.getCurrentSession();
-		c=(Classe) s.get(Classe.class, c.getId_cl());
-		s.delete(c);
+		Classe cOut=(Classe) s.get(Classe.class, c.getId_cl());
+		s.delete(cOut);
 	}
 
 }
