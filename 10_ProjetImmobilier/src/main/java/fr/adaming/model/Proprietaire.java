@@ -12,26 +12,30 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="proprietaires")
+@Table(name = "proprietaires")
 public class Proprietaire implements Serializable {
-	
-	//Attributs
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_p")
-	private int id;
-	
-	private String nom;
-	
-	private String numPrivé;
-	
-	private String numTravail;
-	
-	//Liaisons UML en Java
-	@OneToMany(mappedBy="proprio")
-	private List<Bien> listeBiens;
 
-	//Constructeurs
+	// Attributs
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_p")
+	private int id;
+
+	private String nom;
+
+	private String numPrivé;
+
+	private String numTravail;
+
+	// Liaisons UML en Java
+	@OneToMany(mappedBy = "proprio")
+	private List<Achat> listeAchats;
+
+	// Liaisons UML en Java
+	@OneToMany(mappedBy = "proprio")
+	private List<Location> listeLocations;
+
+	// Constructeurs
 	public Proprietaire() {
 		super();
 	}
@@ -51,7 +55,7 @@ public class Proprietaire implements Serializable {
 		this.numTravail = numTravail;
 	}
 
-	//Getters et Setters
+	// Getters et Setters
 	public int getId() {
 		return id;
 	}
@@ -84,22 +88,27 @@ public class Proprietaire implements Serializable {
 		this.numTravail = numTravail;
 	}
 
-	public List<Bien> getListeBiens() {
-		return listeBiens;
+	public List<Achat> getListeAchats() {
+		return listeAchats;
 	}
 
-	public void setListeBiens(List<Bien> listeBiens) {
-		this.listeBiens = listeBiens;
+	public void setListeAchats(List<Achat> listeAchats) {
+		this.listeAchats = listeAchats;
+	}
+
+	public List<Location> getListeLocations() {
+		return listeLocations;
+	}
+
+	public void setListeLocations(List<Location> listeLocations) {
+		this.listeLocations = listeLocations;
 	}
 
 	@Override
 	public String toString() {
 		return "Proprietaire [id=" + id + ", nom=" + nom + ", numPrivé=" + numPrivé + ", numTravail=" + numTravail
-				+ "]";
+				+ ", listeAchats=" + listeAchats + ", listeLocations=" + listeLocations + "]";
 	}
-	
-	
-	
-	
 
+	
 }

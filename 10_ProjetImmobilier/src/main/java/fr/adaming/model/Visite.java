@@ -24,8 +24,12 @@ public class Visite implements Serializable{
 	
 	//Liaisons UML en Java
 	@OneToOne(cascade=CascadeType.REMOVE)
-	@JoinColumn(name="bien")
-	private Bien bien;
+	@JoinColumn(name="achat")
+	private Achat achat;
+	
+	@OneToOne(cascade=CascadeType.REMOVE)
+	@JoinColumn(name="location")
+	private Location location;
 	
 	@OneToOne(cascade=CascadeType.REMOVE)
 	@JoinColumn(name="client")
@@ -62,14 +66,24 @@ public class Visite implements Serializable{
 		this.rdv = rdv;
 	}
 
-	public Bien getBien() {
-		return bien;
+	
+	public Achat getAchat() {
+		return achat;
 	}
 
-	public void setBien(Bien bien) {
-		this.bien = bien;
+	public void setAchat(Achat achat) {
+		this.achat = achat;
 	}
 
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	
 	public Client getClient() {
 		return client;
 	}
@@ -80,7 +94,8 @@ public class Visite implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Visite [id=" + id + ", rdv=" + rdv + ", bien=" + bien + ", client=" + client + "]";
+		return "Visite [id=" + id + ", rdv=" + rdv + ", achat=" + achat + ", location=" + location + ", client="
+				+ client + "]";
 	}
 	
 	

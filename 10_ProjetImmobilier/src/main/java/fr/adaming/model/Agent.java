@@ -23,7 +23,11 @@ public class Agent implements Serializable {
 	
 	//Liaisons UML en Java
 	@OneToMany(mappedBy="agent")
-	private List<Bien> listeBiens;
+	private List<Achat> listeAchats;
+	
+	@OneToMany(mappedBy="agent")
+	private List<Location> listeLocations;
+	
 	
 	//Constructeurs
 	public Agent() {
@@ -57,20 +61,30 @@ public class Agent implements Serializable {
 		this.mdp = mdp;
 	}
 
-	
-	public List<Bien> getListeBiens() {
-		return listeBiens;
+	public List<Achat> getListeAchats() {
+		return listeAchats;
 	}
 
-	public void setListeBiens(List<Bien> listeBiens) {
-		this.listeBiens = listeBiens;
+	public void setListeAchats(List<Achat> listeAchats) {
+		this.listeAchats = listeAchats;
+	}
+
+	public List<Location> getListeLocations() {
+		return listeLocations;
+	}
+
+	public void setListeLocations(List<Location> listeLocations) {
+		this.listeLocations = listeLocations;
 	}
 
 	@Override
 	public String toString() {
-		return "Agent [identifiant=" + identifiant + ", mdp=" + mdp + ", listeBiens=" + listeBiens + "]";
+		return "Agent [identifiant=" + identifiant + ", mdp=" + mdp + ", listeAchats=" + listeAchats
+				+ ", listeLocations=" + listeLocations + "]";
 	}
 
+	
+	
 	
 	
 	

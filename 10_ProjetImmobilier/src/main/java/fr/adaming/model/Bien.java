@@ -13,17 +13,17 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="biens")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class Bien implements Serializable {
 	
 	//Declaration des attributs
 	@Id
 	@Column(name="ref")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected int id_b;
 	
 	protected String statut;

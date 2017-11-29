@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
@@ -32,7 +33,14 @@ public class Contrat implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="cl_id", referencedColumnName="id_client")
 	private Client client;
-
+	
+	@OneToOne
+	private Achat achat;
+	
+	@OneToOne
+	private Location location;
+	
+	
 	//Constructeurs
 	public Contrat() {
 		super();
@@ -84,12 +92,28 @@ public class Contrat implements Serializable {
 		this.client = client;
 	}
 
+	
+	public Achat getAchat() {
+		return achat;
+	}
+
+	public void setAchat(Achat achat) {
+		this.achat = achat;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
 	@Override
 	public String toString() {
 		return "Contrat [id_co=" + id_co + ", dateAchat=" + dateAchat + ", prixFinal=" + prixFinal + ", client="
-				+ client + "]";
+				+ client + ", achat=" + achat + ", location=" + location + "]";
 	}
-	
 	
 	
 

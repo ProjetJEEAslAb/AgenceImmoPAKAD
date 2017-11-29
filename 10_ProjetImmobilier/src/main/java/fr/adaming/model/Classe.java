@@ -30,8 +30,11 @@ public class Classe implements Serializable {
 	private double superficieMin;
 	
 	//Liaisons UML en Java
-	@OneToMany(mappedBy = "classe", fetch=FetchType.EAGER)
-	private List<Bien> listeBiens;
+	@OneToMany(mappedBy = "classe")
+	private List<Achat> listeAchats;
+	
+	@OneToMany(mappedBy = "classe")
+	private List<Location> listeLocations;
 
 	//Constructeurs
 	public Classe() {
@@ -95,21 +98,28 @@ public class Classe implements Serializable {
 		this.superficieMin = superficieMin;
 	}
 
-	public List<Bien> getListeBiens() {
-		return listeBiens;
+	public List<Achat> getListeAchats() {
+		return listeAchats;
 	}
 
-	public void setListeBiens(List<Bien> listeBiens) {
-		this.listeBiens = listeBiens;
+	public void setListeAchats(List<Achat> listeAchats) {
+		this.listeAchats = listeAchats;
+	}
+
+	public List<Location> getListeLocations() {
+		return listeLocations;
+	}
+
+	public void setListeLocations(List<Location> listeLocations) {
+		this.listeLocations = listeLocations;
 	}
 
 	@Override
 	public String toString() {
 		return "Classe [id_cl=" + id_cl + ", typeBien=" + typeBien + ", modeOffre=" + modeOffre + ", prixMax=" + prixMax
-				+ ", superficieMin=" + superficieMin + "]";
+				+ ", superficieMin=" + superficieMin + ", listeAchats=" + listeAchats + ", listeLocations="
+				+ listeLocations + "]";
 	}
-	
-	
-	
 
+		
 }
