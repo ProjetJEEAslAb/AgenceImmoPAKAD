@@ -42,7 +42,8 @@ public class ClasseDaoImpl implements IClasseDao {
 	public Classe updateClasse(Classe c) {
 		Session s = sf.getCurrentSession();
 		Classe cOut = (Classe) s.get(Classe.class, c.getId_cl());
-		cOut.setListeBiens(c.getListeBiens());
+		cOut.setListeAchats(c.getListeAchats());
+		cOut.setListeLocations(c.getListeLocations());
 		cOut.setModeOffre(c.getModeOffre());
 		cOut.setPrixMax(c.getPrixMax());
 		cOut.setSuperficieMin(c.getSuperficieMin());
