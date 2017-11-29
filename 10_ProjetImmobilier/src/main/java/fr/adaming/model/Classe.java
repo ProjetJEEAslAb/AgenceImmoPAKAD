@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ public class Classe implements Serializable {
 	private double superficieMin;
 	
 	//Liaisons UML en Java
-	@OneToMany(mappedBy = "classe")
+	@OneToMany(mappedBy = "classe", fetch=FetchType.EAGER)
 	private List<Bien> listeBiens;
 
 	//Constructeurs
