@@ -1,5 +1,6 @@
 package fr.adaming.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="biens")
-public class Bien {
+public class Bien implements Serializable {
 	
 	//Declaration des attributs
 	@Id
@@ -36,6 +37,10 @@ public class Bien {
 	protected Agent agent;
 	
 	protected Contrat contrat;
+	
+	protected Adresse adresse;
+	
+	protected Proprietaire proprio;
 
 	//Constructeurs
 	public Bien() {
@@ -156,11 +161,33 @@ public class Bien {
 	}
 
 
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+
+	public Proprietaire getProprio() {
+		return proprio;
+	}
+
+
+	public void setProprio(Proprietaire proprio) {
+		this.proprio = proprio;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Bien [ref=" + ref + ", statut=" + statut + ", dateSoumission=" + dateSoumission + ", dateDisponibilite="
-				+ dateDisponibilite + ", revenuCadastral=" + revenuCadastral + ", superficie=" + superficie + "]";
+		return "Bien [id_b=" + id_b + ", statut=" + statut + ", dateSoumission=" + dateSoumission
+				+ ", dateDisponibilite=" + dateDisponibilite + ", revenuCadastral=" + revenuCadastral + ", superficie="
+				+ superficie + ", classe=" + classe + ", agent=" + agent + ", contrat=" + contrat + ", adresse="
+				+ adresse + "]";
 	}
-	
+
 	
 }
