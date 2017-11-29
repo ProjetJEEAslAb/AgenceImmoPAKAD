@@ -23,7 +23,7 @@ immoApp.controller("listeClassesStandardCtrl",
 
 				// Appel de la fonction du Provider pour ajouter la classe dans
 				// la bdd
-				classesStandardProvider.add($scope.classeStandard, function(
+				classesStandardProvider.addClass($scope.classeStandard, function(
 						callBack) {
 
 					if (callBack != undefined && callBack != "") {

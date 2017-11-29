@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page de modification des classes standard</title>
+</head>
+<body>
+
+	<h1>Formulaire de modification de classes standard</h1>
+
+	<h2>{{msg}}</h2>
+
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="id">ID</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="id"
+					placeholder="Entrez l'id"
+					ng-model="classeStandard.id_cl">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idTypeBien">Type
+				de bien</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idTypeBien"
+					placeholder="Entrez le type de bien"
+					ng-model="classeStandard.typeBien">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idmodeOffre">Mode
+				d'offre</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idmodeOffre"
+					placeholder="Entrez le mode d'offre"
+					ng-model="classeStandard.modeOffre">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idPrixMax">Prix
+				maximal</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idPrixMax"
+					placeholder="Entrez le prix maximal"
+					ng-model="classeStandard.prixMax">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idSuperficieMin">Superficie
+				minimale</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idSuperficieMin"
+					placeholder="Entrez la superficie minimale"
+					ng-model="classeStandard.superficieMin">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="ajouterClasseStandard()">Ajouter</button>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>
