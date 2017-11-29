@@ -1,11 +1,11 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,16 +24,16 @@ public class Proprietaire implements Serializable {
 
 	private String nom;
 
-	private String numPrivé;
+	private String numPrive;
 
 	private String numTravail;
 
 	// Liaisons UML en Java
-	@OneToMany(mappedBy = "proprio")
+	@OneToMany(mappedBy = "proprio", fetch=FetchType.EAGER)
 	private Set<Achat> listeAchats;
 
 	// Liaisons UML en Java
-	@OneToMany(mappedBy = "proprio")
+	@OneToMany(mappedBy = "proprio", fetch=FetchType.EAGER)
 	private Set<Location> listeLocations;
 
 	// Constructeurs
@@ -44,7 +44,7 @@ public class Proprietaire implements Serializable {
 	public Proprietaire(String nom, String numPrivé, String numTravail) {
 		super();
 		this.nom = nom;
-		this.numPrivé = numPrivé;
+		this.numPrive = numPrivé;
 		this.numTravail = numTravail;
 	}
 
@@ -52,7 +52,7 @@ public class Proprietaire implements Serializable {
 		super();
 		this.id = id;
 		this.nom = nom;
-		this.numPrivé = numPrivé;
+		this.numPrive = numPrivé;
 		this.numTravail = numTravail;
 	}
 
@@ -73,12 +73,12 @@ public class Proprietaire implements Serializable {
 		this.nom = nom;
 	}
 
-	public String getNumPrivé() {
-		return numPrivé;
+	public String getNumPrive() {
+		return numPrive;
 	}
 
-	public void setNumPrivé(String numPrivé) {
-		this.numPrivé = numPrivé;
+	public void setNumPrivé(String numPrive) {
+		this.numPrive = numPrive;
 	}
 
 	public String getNumTravail() {
@@ -107,7 +107,7 @@ public class Proprietaire implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Proprietaire [id=" + id + ", nom=" + nom + ", numPrivé=" + numPrivé + ", numTravail=" + numTravail
+		return "Proprietaire [id=" + id + ", nom=" + nom + ", numPrivé=" + numPrive + ", numTravail=" + numTravail
 				+ ", listeAchats=" + listeAchats + ", listeLocations=" + listeLocations + "]";
 	}
 

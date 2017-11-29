@@ -28,8 +28,7 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 
 	@Override
 	public Proprietaire addProprietaire(Proprietaire p) {
-		// TODO Auto-generated method stub
-		return null;
+		return proprietaireDao.addProprietaire(p);
 	}
 
 	@Override
