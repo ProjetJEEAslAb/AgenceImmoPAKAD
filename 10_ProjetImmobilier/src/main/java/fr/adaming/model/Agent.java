@@ -2,9 +2,11 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,11 +24,11 @@ public class Agent implements Serializable {
 	private String mdp;
 	
 	//Liaisons UML en Java
-	@OneToMany(mappedBy="agent")
-	private List<Achat> listeAchats;
+	@OneToMany(mappedBy="agent", fetch=FetchType.EAGER)
+	private Set<Achat> listeAchats;
 	
-	@OneToMany(mappedBy="agent")
-	private List<Location> listeLocations;
+	@OneToMany(mappedBy="agent", fetch=FetchType.EAGER)
+	private Set<Location> listeLocations;
 	
 	
 	//Constructeurs
@@ -61,19 +63,19 @@ public class Agent implements Serializable {
 		this.mdp = mdp;
 	}
 
-	public List<Achat> getListeAchats() {
+	public Set<Achat> getListeAchats() {
 		return listeAchats;
 	}
 
-	public void setListeAchats(List<Achat> listeAchats) {
+	public void setListeAchats(Set<Achat> listeAchats) {
 		this.listeAchats = listeAchats;
 	}
 
-	public List<Location> getListeLocations() {
+	public Set<Location> getListeLocations() {
 		return listeLocations;
 	}
 
-	public void setListeLocations(List<Location> listeLocations) {
+	public void setListeLocations(Set<Location> listeLocations) {
 		this.listeLocations = listeLocations;
 	}
 

@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,11 +30,11 @@ public class Proprietaire implements Serializable {
 
 	// Liaisons UML en Java
 	@OneToMany(mappedBy = "proprio")
-	private List<Achat> listeAchats;
+	private Set<Achat> listeAchats;
 
 	// Liaisons UML en Java
 	@OneToMany(mappedBy = "proprio")
-	private List<Location> listeLocations;
+	private Set<Location> listeLocations;
 
 	// Constructeurs
 	public Proprietaire() {
@@ -88,19 +89,19 @@ public class Proprietaire implements Serializable {
 		this.numTravail = numTravail;
 	}
 
-	public List<Achat> getListeAchats() {
+	public Set<Achat> getListeAchats() {
 		return listeAchats;
 	}
 
-	public void setListeAchats(List<Achat> listeAchats) {
+	public void setListeAchats(Set<Achat> listeAchats) {
 		this.listeAchats = listeAchats;
 	}
 
-	public List<Location> getListeLocations() {
+	public Set<Location> getListeLocations() {
 		return listeLocations;
 	}
 
-	public void setListeLocations(List<Location> listeLocations) {
+	public void setListeLocations(Set<Location> listeLocations) {
 		this.listeLocations = listeLocations;
 	}
 
