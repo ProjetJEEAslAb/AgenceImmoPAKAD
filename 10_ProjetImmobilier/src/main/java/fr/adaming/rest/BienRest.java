@@ -24,13 +24,13 @@ public class BienRest {
 	//---------------------------------------------------------------------------------------------
 	
 	@RequestMapping(value="/achat", method=RequestMethod.POST, produces="application/json", consumes="application/json")
-	public Bien addAchat(@RequestBody Achat a, @RequestBody Classe c){
-		return bienService.addAchat(a, c);
+	public Bien addAchat(@RequestBody Achat a){
+		return bienService.addAchat(a);
 	}
 	
 	@RequestMapping(value="/location", method=RequestMethod.POST, produces="application/json", consumes="application/json")
-	public Bien addLocation(@RequestBody Location l, @RequestBody Classe c){
-		return bienService.addLocation(l, c);
+	public Bien addLocation(@RequestBody Location l){
+		return bienService.addLocation(l);
 	}
 	
 	//---------------------------------------------------------------------------------------------
@@ -60,5 +60,16 @@ public class BienRest {
 	}
 	
 	//---------------------------------------------------------------------------------------------
+	
+	@RequestMapping(value="/achat/{id}", method=RequestMethod.DELETE)
+	public void deleteAchat(@PathVariable int id){
+		bienService.deleteAchat(id);
+	}
+	
+	@RequestMapping(value="/location/{id}", method=RequestMethod.DELETE)
+	public void deleteLocation(@PathVariable int id){
+		bienService.deleteLocation(id);
+	}
+
 
 }

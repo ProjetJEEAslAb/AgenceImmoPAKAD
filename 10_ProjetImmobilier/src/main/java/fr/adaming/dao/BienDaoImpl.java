@@ -90,13 +90,17 @@ public class BienDaoImpl implements IBienDao {
 
 	@Override
 	public void deleteAchat(int id) {
-		// TODO Auto-generated method stub
+		Session s=sf.getCurrentSession();
+		Achat aOut=(Achat) s.get(Achat.class, id);
+		s.delete(aOut);
 
 	}
 
 	@Override
 	public void deleteLocation(int id) {
-		// TODO Auto-generated method stub
+		Session s=sf.getCurrentSession();
+		Location lOut=(Location) s.get(Location.class, id);
+		s.delete(lOut);
 
 	}
 
