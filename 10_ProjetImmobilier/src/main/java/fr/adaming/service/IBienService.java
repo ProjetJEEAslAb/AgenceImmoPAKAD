@@ -8,11 +8,11 @@ import fr.adaming.model.Location;
 
 public interface IBienService {
 	
-	public Achat addAchat(Achat a, Classe c);
-	public Location addLocation(Location l, Classe c);
+	public Achat addAchat(Achat a);
+	public Location addLocation(Location l);
 	
-	public Achat updateAchat(Achat a, Classe c);
-	public Location updateLocation(Location l, Classe c);
+	public Achat updateAchat(Achat a);
+	public Location updateLocation(Location l);
 	
 	public List<Achat> getAllAchats();
 	public List<Location> getAllLocations();

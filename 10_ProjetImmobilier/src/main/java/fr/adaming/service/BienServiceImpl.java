@@ -25,10 +25,10 @@ public class BienServiceImpl implements IBienService {
 	}
 
 	@Override
-	public Achat addAchat(Achat a, Classe c) {
+	public Achat addAchat(Achat a) {
 
-		if (c.getModeOffre() == "Achat" && c.getPrixMax() > a.getPrixVente()
-				&& c.getSuperficieMin() < a.getSuperficie()) {
+		if (a.getClasse().getModeOffre() == "Achat" && a.getClasse().getPrixMax() > a.getPrixVente()
+				&& a.getClasse().getSuperficieMin() < a.getSuperficie()) {
 
 			return bienDao.addAchat(a);
 
@@ -40,9 +40,10 @@ public class BienServiceImpl implements IBienService {
 	}
 
 	@Override
-	public Location addLocation(Location l, Classe c) {
-		if (c.getModeOffre() == "Location" && c.getPrixMax() > l.getLoyer()
-				&& c.getSuperficieMin() < l.getSuperficie()) {
+	public Location addLocation(Location l) {
+		
+		if (l.getClasse().getModeOffre().equals("Location") && l.getClasse().getPrixMax() > l.getLoyer()
+				&& l.getClasse().getSuperficieMin() < l.getSuperficie()) {
 
 			return bienDao.addLocation(l);
 
@@ -54,13 +55,13 @@ public class BienServiceImpl implements IBienService {
 	}
 
 	@Override
-	public Achat updateAchat(Achat a, Classe c) {
+	public Achat updateAchat(Achat a) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Location updateLocation(Location l, Classe c) {
+	public Location updateLocation(Location l) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -87,13 +88,13 @@ public class BienServiceImpl implements IBienService {
 
 	@Override
 	public void deleteAchat(int id) {
-		// TODO Auto-generated method stub
+		bienDao.deleteAchat(id);
 
 	}
 
 	@Override
 	public void deleteLocation(int id) {
-		// TODO Auto-generated method stub
+		bienDao.deleteLocation(id);
 
 	}
 
