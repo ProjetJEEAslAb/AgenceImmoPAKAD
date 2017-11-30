@@ -34,7 +34,7 @@ public class Client  {
 	@OneToMany(mappedBy="client", fetch=FetchType.EAGER)
 	private Set<Contrat> listeContrats;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="classes")
 	private Set<Classe> listeClasses;
 
