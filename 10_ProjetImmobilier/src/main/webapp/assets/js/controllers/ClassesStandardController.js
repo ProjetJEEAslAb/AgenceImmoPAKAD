@@ -140,3 +140,5 @@ immoApp.controller("listeClassesStandardCtrl",
 			}
 
 		})
+		
+		
