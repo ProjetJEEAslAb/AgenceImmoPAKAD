@@ -61,10 +61,10 @@ immoApp.controller("ajoutClientCtrl",
 		}
 	}
 
-	// Développement de la méthode ajouter() du bouton
+	// Développement de la méthode modifier() du bouton
 	$scope.modifierClient = function() {
 		console.log($scope.clientModif)
-		// Appel de la fonction du Provider pour modifier la classe dans
+		// Appel de la fonction du Provider pour modifier le client dans
 		// la bdd
 		clientProvider.updateClient($scope.clientModif, function(callBack) {
 
@@ -98,24 +98,23 @@ immoApp.controller("ajoutClientCtrl",
 				}
 			}
 
-			// Développement de la méthode ajouter() du bouton
+			// Développement de la méthode rechercher() du bouton
 			$scope.rechercherClient = function() {
 
-				// Appel de la fonction du Provider pour modifier la classe dans
-				// la bdd
-				classesStandardProvider.findClass($scope.idClient,
+				// Appel de la fonction du Provider pour rechercher le client
+				clientProvider.rechClient($scope.idClient,
 						function(callBack) {
 
 							if (callBack != undefined && callBack != "") {
 								console.log(callBack)
 
-								$scope.classeStandardFind = callBack;
+								$scope.clientFind = callBack;
 								$scope.msg = "";
 								$scope.indice = true;
 
 							} else {
 
-								$scope.msg = "Cette classe n'existe pas.";
+								$scope.msg = "Ce client n'existe pas.";
 								$scope.indice = false;
 							}
 						});

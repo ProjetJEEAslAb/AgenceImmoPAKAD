@@ -35,10 +35,12 @@ immoApp.config(function($routeProvider) {
 	})
 
 	// ----- Clients -------
-	.when("/ajoutClient", {
+	.when("/listeClients", {
+		templateUrl : "views/listeClients.html",
+		controller : "listeClientsCtrl"
+	}).when("/ajoutClient", {
 		templateUrl : "views/ajoutClient.html",
 		controller : "ajoutClientCtrl"
-	// --- Redirection par défault
 	}).when("/suppClient", {
 		templateUrl : "views/suppClient.html",
 		controller : "suppClientCtrl"

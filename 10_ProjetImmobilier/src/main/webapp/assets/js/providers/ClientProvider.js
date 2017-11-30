@@ -40,7 +40,7 @@ immoApp.factory("clientProvider", function($http) {
 		})
 	}
 	
-	// Modifier une classe standard
+	// Modifier une client
 	function updateClient(clientModif, callBack) {
 		// Envoyer la requête au service
 		$http({
@@ -58,11 +58,29 @@ immoApp.factory("clientProvider", function($http) {
 		})
 	}
 	
+	// Rechercher un client
+	function rechClient(idClient, callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'GET',
+			url : restUrlWS + restUrlFind + idClient ,
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
+	
 	return {
 
 		addClient : addClient,
 		deleteClient : deleteClient,
 		updateClient : updateClient,
+		rechClient : rechClient,
 	}
 
 
