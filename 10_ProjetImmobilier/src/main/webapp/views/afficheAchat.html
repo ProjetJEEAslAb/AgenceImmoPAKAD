@@ -1,0 +1,42 @@
+<h2>Liste des biens à acheter</h2>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Classe standard</th>
+				<th>Statut</th>
+				<th>Date de soumission</th>
+				<th>Date de disponibilité</th>
+				<th>Revenu cadastral</th>
+				<th>Superficie</th>
+				<th>Agent</th>
+				<th>Propriétaire</th>
+				<th>Numéro</th>
+				<th>Rue</th>
+				<th>CP</th>
+				<th>Ville</th>
+				<th>Prix de vente</th>
+				<th>Etat</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="achat in achatListe">
+				<td>{{achat.id_b}}</td>
+				<td>{{achat.classe.id_cl}}</td>
+				<td>{{achat.statut}}</td>
+				<td>{{achat.dateSoumission}}</td>
+				<td>{{achat.dateDisponibilite}}</td>
+				<td>{{achat.revenuCadastral}}</td>
+				<td>{{achat.superficie}}</td>
+				<td>{{achat.agent.identifiant}}</td>
+				<td>{{achat.proprio.id}}</td>
+				<td>{{achat.adresse.numero}}</td>
+				<td>{{achat.adresse.rue}}</td>
+				<td>{{achat.adresse.cp}}</td>
+				<td>{{achat.adresse.ville}}</td>
+				<td>{{achat.prixVente}}</td>
+				<td>{{achat.etat}}</td>
+			</tr>
+		</tbody>
+	</table>
