@@ -1,6 +1,5 @@
 package fr.adaming.model;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Embedded;
@@ -9,8 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,11 +30,6 @@ public class Client  {
 	
 	@OneToMany(mappedBy="client", fetch=FetchType.EAGER)
 	private Set<Contrat> listeContrats;
-	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="classes")
-	private Set<Classe> listeClasses;
-
 	
 	//Constructeurs
 	public Client() {
@@ -101,16 +93,6 @@ public class Client  {
 	}
 
 
-	public Set<Classe> getListeClasses() {
-		return listeClasses;
-	}
-
-
-	public void setListeClasses(Set<Classe> listeClasses) {
-		this.listeClasses = listeClasses;
-	}
-
-
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -124,7 +106,7 @@ public class Client  {
 	@Override
 	public String toString() {
 		return "Client [id_client=" + id_client + ", nom=" + nom + ", num=" + num + ", adresse=" + adresse
-				+ ", listeContrats=" + listeContrats + ", listeClasses=" + listeClasses + "]";
+				+ ", listeContrats=" + listeContrats + ", listeClasses=" + "]";
 	}
 
 		

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des locations</title>
+</head>
+<body>
+
+	<h2>Liste des locations</h2>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Classe standard</th>
+				<th>Statut</th>
+				<th>Date de soumission</th>
+				<th>Date de disponibilité</th>
+				<th>Revenu cadastral</th>
+				<th>Superficie</th>
+				<th>Agent</th>
+				<th>Propriétaire</th>
+				<th>Numéro</th>
+				<th>Rue</th>
+				<th>CP</th>
+				<th>Ville</th>
+				<th>Caution</th>
+				<th>Loyer</th>
+				<th>Charges</th>
+				<th>Bail</th>
+				<th>Meublé</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="location in locationListe">
+				<td>{{location.id_b}}</td>
+				<td>{{location.classe.id}}</td>
+				<td>{{location.statut}}</td>
+				<td>{{location.dateSoumission}}</td>
+				<td>{{location.dateDisponibilite}}</td>
+				<td>{{location.revenuCadastral}}</td>
+				<td>{{location.superficie}}</td>
+				<td>{{location.agent}}</td>
+				<td>{{location.proprio}}</td>
+				<td>{{location.adresse.numero}}</td>
+				<td>{{location.adresse.rue}}</td>
+				<td>{{location.adresse.cp}}</td>
+				<td>{{location.adresse.ville}}</td>
+				<td>{{location.caution}}</td>
+				<td>{{location.loyer}}</td>
+				<td>{{location.charges}}</td>
+				<td>{{location.bail}}</td>
+				<td>{{location.meuble}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

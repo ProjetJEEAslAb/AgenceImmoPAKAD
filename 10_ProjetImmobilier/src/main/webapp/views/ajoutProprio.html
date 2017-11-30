@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page d'ajout des propriétaires</title>
+</head>
+<body>
+
+	<h1>Formulaire d'ajout des propriétaires</h1>
+
+	<h2>{{msg}}</h2>
+
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idNom">Nom</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idNom"
+					placeholder="Entrez le nom" ng-model="proprioAjout.nom">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idTelPerso">Téléphone
+				personnel</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idTelPerso"
+					placeholder="Entrez le téléphone personnel"
+					ng-model="proprioAjout.numPrive">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idTelPro">Téléphone
+				professionnel</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idTelPro"
+					placeholder="Entrez le téléphone professionnel"
+					ng-model="proprioAjout.numTravail">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="ajouterProprio()">Ajouter</button>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>
