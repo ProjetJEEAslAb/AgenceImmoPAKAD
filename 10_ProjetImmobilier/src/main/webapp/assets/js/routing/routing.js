@@ -54,10 +54,22 @@ immoApp.config(function($routeProvider) {
 	.when("/afficheProprio", {
 		templateUrl : "views/listeProprio.html",
 		controller : "proprioCtrl"
-			
+
 	}).when("/ajoutProprio", {
 		templateUrl : "views/ajoutProprio.html",
 		controller : "ajoutProprioCtrl"
+
+	}).when("/modifProprio", {
+		templateUrl : "views/modifProprio.html",
+		controller : "modifProprioCtrl"
+
+	}).when("/supprProprio", {
+		templateUrl : "views/supprProprio.html",
+		controller : "supprProprioCtrl"
+
+	}).when("/rechProprio", {
+		templateUrl : "views/rechProprio.html",
+		controller : "rechProprioCtrl"
 
 	// --- Redirection par défault
 	}).otherwise({
