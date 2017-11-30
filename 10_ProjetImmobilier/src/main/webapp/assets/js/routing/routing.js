@@ -44,4 +44,13 @@ immoApp.config(function($routeProvider) {
 	}).otherwise({
 		redirectTo : "/listeClasses"
 	})
+	
+	// ----- Proprio -------
+	.when("/afficheProprio", {
+		templateUrl : "views/listeProprio.html",
+		controller : "proprioCtrl"
+	// --- Redirection par défault
+	}).otherwise({
+		redirectTo : "/listeClasses"
+	})
 })
