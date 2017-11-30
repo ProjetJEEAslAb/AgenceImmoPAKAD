@@ -30,8 +30,6 @@ immoApp.controller("ajoutLocationCtrl", function($scope, bienProvider, $location
 	};
 	console.log($scope.locations)
 	
-	$scope.listeClasse=
-	
 	$scope.ajouterLocation=function(){
 		console.log("ble");
 		console.log($scope.locations);
