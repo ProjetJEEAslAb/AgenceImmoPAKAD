@@ -25,10 +25,21 @@ immoApp.config(function($routeProvider) {
 		templateUrl : "views/rechClassesStandard.html",
 		controller : "rechClassesStandardCtrl"
 
+			
 	// ----- Locations -------
 	}).when("/ajoutLocation", {
-		templateUrl:"views/ajoutLocation.html",
-		controller:"ajoutLocationCtrl"
+		templateUrl : "views/ajoutLocation.html",
+		controller : "ajoutLocationCtrl"
+	// --- Redirection par défault
+	}).otherwise({
+		redirectTo : "/listeClasses"
+	})
+
+	
+	// ----- Clients -------
+	.when("/ajoutClient", {
+		templateUrl : "views/ajoutClient.html",
+		controller : "ajoutClientCtrl"
 	// --- Redirection par défault
 	}).otherwise({
 		redirectTo : "/listeClasses"
