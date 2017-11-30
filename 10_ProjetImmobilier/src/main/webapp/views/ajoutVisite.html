@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page d'ajout des visites</title>
+</head>
+<body>
+
+	<h1>Formulaire d'ajout de visite</h1>
+
+	<h2>{{msg}}</h2>
+
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idNom">Rendez-vous</label>
+			<div class="col-sm-6">
+				<input type="date" class="form-control" id="idrdv"
+					placeholder="Entrez l'horaire de rendez-vous" ng-model="visite.rdv">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idRue">Type de
+				contrat</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idmeuble"
+					ng-model="locations.meuble">
+					<option>Achat</option>
+					<option>Location</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="ajouterVisite()">Ajouter</button>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>

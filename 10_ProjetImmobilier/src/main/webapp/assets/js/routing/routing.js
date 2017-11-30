@@ -76,6 +76,17 @@ immoApp.config(function($routeProvider) {
 		templateUrl : "views/rechProprio.html",
 		controller : "rechProprioCtrl"
 
+	})
+
+	// ----- Visite -------
+	.when("/afficheVisite", {
+		templateUrl : "views/listeVisite.html",
+		controller : "visiteCtrl"
+			
+	}).when("/ajoutVisite", {
+		templateUrl : "views/ajoutVisite.html",
+		controller : "ajoutVisiteCtrl"		
+			
 	// --- Redirection par défault
 	}).otherwise({
 		redirectTo : "/listeClasses"
