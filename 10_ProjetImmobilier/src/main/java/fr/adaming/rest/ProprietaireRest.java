@@ -26,6 +26,11 @@ public class ProprietaireRest {
 		return proprietaireService.addProprietaire(p);
 	}
 	
+	@RequestMapping(value="/proprietaire", method=RequestMethod.DELETE, consumes="application/json")
+	public void  deleteProprietaire(@RequestBody Proprietaire p) {
+		proprietaireService.deleteProprietaire(p);
+	}
+	
 	
 	
 }
