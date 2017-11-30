@@ -24,9 +24,25 @@ immoApp.factory("clientProvider", function($http) {
 		})
 	}
 	
+	// Supprimer un client
+	function deleteClient(idClient, callBack) {
+		$http({
+			method : 'DELETE',
+			url : restUrlWS + restUrlDelete + idClient,
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
 	return {
 		
 		addClient : addClient,
+		deleteClient : deleteClient,
 	}
 	
 });

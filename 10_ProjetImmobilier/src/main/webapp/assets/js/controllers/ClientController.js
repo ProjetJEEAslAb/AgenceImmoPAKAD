@@ -30,4 +30,24 @@ immoApp.controller("ajoutClientCtrl", function($scope, clientProvider, $location
 
 	
 	
-});
+})
+
+.controller(
+		"suppClientCtrl",
+		function($scope, clientProvider, $location) {
+
+			$scope.idClient = 0;
+
+			$scope.supprimerClient = function() {
+
+				// Appel de la fonction du Provider pour supprimer la classe
+				// dans
+				// la bdd
+				clientProvider.deleteClient($scope.idClient,
+						function(callBack) {
+
+							$location.path("listeClasses");
+
+						});
+			}
+		})
