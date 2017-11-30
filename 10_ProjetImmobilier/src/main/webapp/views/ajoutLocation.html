@@ -9,7 +9,7 @@
 		<div class="col-sm-6">
 			<select class="form-control" id="idclasse"
 				ng-model="locations.classe.id_cl">
-				<option ng-repeat="classe in classesStandardListe">{{classe.id_cl}}</option>
+				<option ng-value = "classe.id_cl" ng-repeat="classe in classesStandardListe">{{classe.id_cl}} {{classe.typeBien}} {{classe.modeOffre}} {{classe.prixMax}} {{classe.superficieMin}}</option>
 			</select>
 		</div>
 	</div>
