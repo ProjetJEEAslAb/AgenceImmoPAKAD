@@ -6,6 +6,20 @@ immoApp.factory("visiteProvider", function($http) {
 	var restUrlUpdate = "/visite";
 	var restUrlFind = "/visite/";
 	
+	// Récupérer la liste des clients
+	function getAllVisites(callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'GET',
+			url : restUrlWS + restUrlListe
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
+	
 	//ajout d'une visite
 	function addVisite(visiteAjout, callBack){
 		$http({
@@ -23,7 +37,8 @@ immoApp.factory("visiteProvider", function($http) {
 	}
 	
 	return {
-		ajoutVisite:addVisite
+		ajoutVisite:addVisite,
+		listeVisite:getAllVisites,
 		
 	}
 })
