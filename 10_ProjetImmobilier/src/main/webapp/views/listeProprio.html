@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des propriétaires</title>
+</head>
+<body>
+
+	<h2>Liste des propriétaires</h2>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Téléphone personnel</th>
+				<th>Téléphone professionnel</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="proprio in proprioListe">
+				<td>{{proprio.id}}</td>
+				<td>{{proprio.nom}}</td>
+				<td>{{proprio.numPrive}}</td>
+				<td>{{proprio.numTravail}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
