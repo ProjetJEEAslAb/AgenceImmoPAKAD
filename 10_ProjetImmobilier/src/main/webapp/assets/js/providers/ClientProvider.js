@@ -5,7 +5,7 @@ immoApp.factory("clientProvider", function($http) {
 	var restUrlDelete = "/client/";
 	var restUrlUpdate = "/client";
 	var restUrlFind = "/client/";
-	
+
 	// Ajouter un client
 	function addClient(clientAjout, callBack) {
 		// Envoyer la requête au service
@@ -23,7 +23,7 @@ immoApp.factory("clientProvider", function($http) {
 			console.log("----- Erreur : " + response.statusText)
 		})
 	}
-	
+
 	// Supprimer un client
 	function deleteClient(idClient, callBack) {
 		$http({
@@ -39,10 +39,31 @@ immoApp.factory("clientProvider", function($http) {
 			console.log("----- Erreur : " + response.statusText)
 		})
 	}
-	return {
-		
-		addClient : addClient,
-		deleteClient : deleteClient,
+	
+	// Modifier une classe standard
+	function updateClient(clientModif, callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'PUT',
+			url : restUrlWS + restUrlUpdate,
+			data : angular.toJson(clientModif),
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
 	}
 	
+	return {
+
+		addClient : addClient,
+		deleteClient : deleteClient,
+		updateClient : updateClient,
+	}
+
+
 });
