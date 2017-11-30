@@ -3,6 +3,7 @@ immoApp.factory("proprioProvider", function($http) {
 	var restUrlListe = "/allproprietaires";
 	var restUrlAdd = "/proprietaire";
 	var restUrlUpdate = "/proprietaire";
+	var restUrlDelete = "/proprietaire";
 
 	// Récupérer la liste des propriétaires
 	function findAllProprio(callBack) {
@@ -37,7 +38,7 @@ immoApp.factory("proprioProvider", function($http) {
 			console.log("----- Erreur : " + response.statusText)
 		})
 	}
-	
+
 	// Ajouter un propriétaire
 	function updateProprioPro(proprioModif, callBack) {
 		// Envoyer la requête au service
@@ -56,11 +57,32 @@ immoApp.factory("proprioProvider", function($http) {
 			console.log("----- Erreur : " + response.statusText)
 		})
 	}
-	
+
 	// Le retour de factory
 	return {
 		getAllProprio : findAllProprio,
 		addProprio : addProprioPro,
-		updateProprio : updateProprioPro
+		updateProprio : updateProprioPro,
+		deleteProprio : deleteProprioPro
 	}
+
+	// Ajouter un propriétaire
+	function deleteProprioPro(proprioSuppr, callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'DELETE',
+			url : restUrlWS + restUrlDelete,
+			data : angular.toJson(proprioSuppr),
+			headers : {
+				'content-type' : "application/json"
+			}
+
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
+
 })
