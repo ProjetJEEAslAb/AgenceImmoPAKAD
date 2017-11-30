@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IBienDao;
+import fr.adaming.dao.IClasseDao;
 import fr.adaming.model.Achat;
 import fr.adaming.model.Agent;
 import fr.adaming.model.Bien;
@@ -19,6 +20,8 @@ public class BienServiceImpl implements IBienService {
 
 	@Autowired
 	private IBienDao bienDao;
+	@Autowired
+	private IClasseDao classeDao;
 
 	public void setMarchDao(IBienDao marchDao) {
 		this.bienDao = marchDao;
@@ -41,7 +44,23 @@ public class BienServiceImpl implements IBienService {
 
 	@Override
 	public Location addLocation(Location l) {
-		
+
+		Classe cl = classeDao.getClasseById(l.getClasse().getId_cl());
+		l.setClasse(cl);
+		// System.out.println("Service----" + l);
+		// System.out.println("Service----" + cl);
+
+		// if (cl.getModeOffre().equals("Location") && cl.getPrixMax() >
+		// l.getLoyer()
+		// && cl.getSuperficieMin() < l.getSuperficie()) {
+		//
+		// return bienDao.addLocation(l);
+		//
+		// } else {
+		//
+		// return null;
+		// }
+
 		if (l.getClasse().getModeOffre().equals("Location") && l.getClasse().getPrixMax() > l.getLoyer()
 				&& l.getClasse().getSuperficieMin() < l.getSuperficie()) {
 
