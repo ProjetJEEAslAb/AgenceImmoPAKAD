@@ -39,7 +39,7 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 
 	@Override
 	public void deleteProprietaire(Proprietaire p) {
-		// TODO Auto-generated method stub
+		proprietaireDao.deleteProprietaire(p);
 		
 	}
 

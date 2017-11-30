@@ -46,7 +46,11 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 
 	@Override
 	public void deleteProprietaire(Proprietaire p) {
-		// TODO Auto-generated method stub
+		
+		// Créer la session
+		Session s = sf.getCurrentSession();
+		
+		s.delete(p);
 		
 	}
 	
