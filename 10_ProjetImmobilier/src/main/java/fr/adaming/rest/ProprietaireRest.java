@@ -3,6 +3,7 @@ package fr.adaming.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,6 +35,11 @@ public class ProprietaireRest {
 	@RequestMapping(value = "/proprietaire", method = RequestMethod.PUT, produces = "application/json", consumes = "application/json")
 	public Proprietaire updateProprietaire(@RequestBody Proprietaire p) {
 		return proprietaireService.updateProprietaire(p);
+	}
+
+	@RequestMapping(value = "/proprietaire/{pId}", method = RequestMethod.GET, produces = "application/json")
+	public Proprietaire getProprietaire(@PathVariable("pId") int id) {
+		return proprietaireService.getProprietaireById(id);
 	}
 
 }

@@ -27,8 +27,9 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 
 	@Override
 	public Proprietaire getProprietaireById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = sf.getCurrentSession();
+		Proprietaire pGet = (Proprietaire) s.get(Proprietaire.class, id);
+		return pGet;
 	}
 
 	@Override
