@@ -1,8 +1,8 @@
 immoApp.controller("listeClassesStandardCtrl",
-		function($scope, classesStandardProvider, $location) {
+		function($scope, classesStandardProvider, $location, $rootScope) {
 
 			classesStandardProvider.getAllClasses(function(callBack) {
-				$scope.classesStandardListe = callBack;
+				$rootScope.classesStandardListe = callBack;
 			});
 		})
 
