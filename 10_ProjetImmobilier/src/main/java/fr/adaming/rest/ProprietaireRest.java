@@ -15,22 +15,25 @@ import fr.adaming.service.IProprietaireService;
 public class ProprietaireRest {
 	@Autowired
 	private IProprietaireService proprietaireService;
-	
-	@RequestMapping(value="/allproprietaires", method=RequestMethod.GET, produces="application/json")
-	public List<Proprietaire> getAllProprietaires(){
+
+	@RequestMapping(value = "/allproprietaires", method = RequestMethod.GET, produces = "application/json")
+	public List<Proprietaire> getAllProprietaires() {
 		return proprietaireService.getAllProprietaires();
 	}
-	
-	@RequestMapping(value="/proprietaire", method=RequestMethod.POST, produces="application/json", consumes="application/json")
-	public Proprietaire addProprietaire(@RequestBody Proprietaire p){
+
+	@RequestMapping(value = "/proprietaire", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public Proprietaire addProprietaire(@RequestBody Proprietaire p) {
 		return proprietaireService.addProprietaire(p);
 	}
-	
-	@RequestMapping(value="/proprietaire", method=RequestMethod.DELETE, consumes="application/json")
-	public void  deleteProprietaire(@RequestBody Proprietaire p) {
+
+	@RequestMapping(value = "/proprietaire", method = RequestMethod.DELETE, consumes = "application/json")
+	public void deleteProprietaire(@RequestBody Proprietaire p) {
 		proprietaireService.deleteProprietaire(p);
 	}
-	
-	
-	
+
+	@RequestMapping(value = "/proprietaire", method = RequestMethod.PUT, produces = "application/json", consumes = "application/json")
+	public Proprietaire updateProprietaire(@RequestBody Proprietaire p) {
+		return proprietaireService.updateProprietaire(p);
+	}
+
 }
