@@ -56,14 +56,13 @@ public class BienServiceImpl implements IBienService {
 
 	@Override
 	public Achat updateAchat(Achat a) {
-		// TODO Auto-generated method stub
-		return null;
+		return bienDao.updateAchat(a);
 	}
 
 	@Override
 	public Location updateLocation(Location l) {
 		// TODO Auto-generated method stub
-		return null;
+		return bienDao.updateLocation(l);
 	}
 
 	@Override

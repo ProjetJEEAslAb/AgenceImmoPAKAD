@@ -70,6 +70,18 @@ public class BienRest {
 	public void deleteLocation(@PathVariable int id){
 		bienService.deleteLocation(id);
 	}
+	
+	//---------------------------------------------------------------------------------------------
+	
+	@RequestMapping(value="/achat", method=RequestMethod.PUT, produces="application/json", consumes="application/json")
+	public Achat updateAchat(@RequestBody Achat a){
+		return bienService.updateAchat(a);
+	}
+	
+	@RequestMapping(value="/location", method=RequestMethod.PUT, produces="application/json", consumes="application/json")
+	public Location updateLocation(@RequestBody Location l){
+		return bienService.updateLocation(l);
+	}
 
 
 }
