@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="clients")
 public class Client  {
@@ -28,6 +30,7 @@ public class Client  {
 	@Embedded
 	private Adresse adresse;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="client", fetch=FetchType.EAGER)
 	private Set<Contrat> listeContrats;
 	

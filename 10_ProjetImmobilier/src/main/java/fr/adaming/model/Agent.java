@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="agents")
 public class Agent implements Serializable {
@@ -24,9 +26,11 @@ public class Agent implements Serializable {
 	private String mdp;
 	
 	//Liaisons UML en Java
+	@JsonIgnore
 	@OneToMany(mappedBy="agent", fetch=FetchType.EAGER)
 	private Set<Achat> listeAchats;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="agent", fetch=FetchType.EAGER)
 	private Set<Location> listeLocations;
 	

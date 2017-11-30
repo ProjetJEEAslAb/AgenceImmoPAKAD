@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "proprietaires")
 public class Proprietaire implements Serializable {
@@ -30,10 +32,12 @@ public class Proprietaire implements Serializable {
 	private String numTravail;
 
 	// Liaisons UML en Java
+	@JsonIgnore
 	@OneToMany(mappedBy = "proprio", fetch=FetchType.EAGER)
 	private Set<Achat> listeAchats;
 
 	// Liaisons UML en Java
+	@JsonIgnore
 	@OneToMany(mappedBy = "proprio", fetch=FetchType.EAGER)
 	private Set<Location> listeLocations;
 	

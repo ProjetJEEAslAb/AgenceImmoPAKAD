@@ -4,6 +4,7 @@ immoApp.factory("proprioProvider", function($http) {
 	var restUrlAdd = "/proprietaire";
 	var restUrlUpdate = "/proprietaire";
 	var restUrlDelete = "/proprietaire";
+	var restUrlSearch = "/proprietaire/";
 
 	// Récupérer la liste des propriétaires
 	function findAllProprio(callBack) {
@@ -57,13 +58,26 @@ immoApp.factory("proprioProvider", function($http) {
 			console.log("----- Erreur : " + response.statusText)
 		})
 	}
+	
+	//Rechercher un propriétaire
+	function searchProprioPro(id, callBack){
+		$http({
+			method:'GET',
+			url:restUrlWS+restUrlSearch+id
+		}).then(function succes(reponse){
+			callBack(reponse.data);
+		}, function erreur(reponse){
+			console.log("----- Erreur : " + reponse.statusText)
+		});
+	};
 
 	// Le retour de factory
 	return {
 		getAllProprio : findAllProprio,
 		addProprio : addProprioPro,
 		updateProprio : updateProprioPro,
-		deleteProprio : deleteProprioPro
+		deleteProprio : deleteProprioPro,
+		searchProprio : searchProprioPro
 	}
 
 	// Ajouter un propriétaire

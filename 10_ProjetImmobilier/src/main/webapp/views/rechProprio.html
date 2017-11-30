@@ -1,0 +1,40 @@
+<h1>Formulaire de recherche de propriétaire</h1>
+
+	<h2>{{msg}}</h2>
+
+	<form class="form-horizontal">
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="Id">ID</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="Id"
+					placeholder="Entrez l'id du propriétaire" ng-model="id">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="rechercherProprio()">Rechercher</button>
+			</div>
+		</div>
+	</form>
+
+	<table class="table table-hover" ng-show="indice">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Numéro privé</th>
+				<th>Numéro travail</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{proprioCherch.id}}</td>
+				<td>{{proprioCherch.nom}}</td>
+				<td>{{proprioCherch.numPrive}}</td>
+				<td>{{proprioCherch.numTravail}}</td>
+			</tr>
+		</tbody>
+	</table>

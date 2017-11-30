@@ -57,7 +57,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location) {
 
 	$scope.idSuppr = 0;
 
-	// Initialise la classe standard à ajouter
+	// Initialise la classe standard à supprimer
 	$scope.proprioSuppr = {
 		id : $scope.idSuppr,
 		nom : "",
@@ -65,7 +65,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location) {
 		numTravail : 0
 	}
 
-	// Développement de la méthode ajouter() du bouton
+	// Développement de la méthode supprimer() du bouton
 	$scope.supprimerProprio = function() {
 
 		// Appel de la fonction du Provider pour ajouter la classe dans
@@ -74,5 +74,40 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location) {
 
 			$location.path("listeProprio");
 		});
+	}
+})
+
+.controller("rechProprioCtrl", function($scope, proprioProvider, $location) {
+	$scope.id=0;
+	$scope.indice=false;
+	$scope.msg="";
+	$scope.bla="ble"
+	
+	$scope.proprioCherch={
+			"id": 0,
+			   "nom": "",
+			   "numPrive": "",
+			   "numTravail": "",			   
+			   "adresse":    {
+			      "rue": "",
+			      "numero": "",
+			      "cp": 0,
+			      "ville": ""
+			   }
+	}
+	
+	$scope.rechercherProprio=function(){
+		proprioProvider.searchProprio($scope.id, function(callBack){
+			if(callBack!=undefined&&callBack!=""){
+				console.log("Coucou ?")
+				$scope.proprioCherch=callBack;
+				$scope.indice=true;
+				$scope.msg="";
+				console.log($scope.proprioCherch);
+			}else{
+				$scope.indice=false;
+				$scope.msg="Il n'y a pas de propriétaire avec cet id."
+			}
+		})
 	}
 })
