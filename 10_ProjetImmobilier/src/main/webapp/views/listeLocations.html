@@ -34,14 +34,14 @@
 		<tbody>
 			<tr ng-repeat="location in locationListe">
 				<td>{{location.id_b}}</td>
-				<td>{{location.classe.id}}</td>
+				<td>{{location.classe.id_cl}}</td>
 				<td>{{location.statut}}</td>
 				<td>{{location.dateSoumission}}</td>
 				<td>{{location.dateDisponibilite}}</td>
 				<td>{{location.revenuCadastral}}</td>
 				<td>{{location.superficie}}</td>
-				<td>{{location.agent}}</td>
-				<td>{{location.proprio}}</td>
+				<td>{{location.agent.identifiant}}</td>
+				<td>{{location.proprio.id}}</td>
 				<td>{{location.adresse.numero}}</td>
 				<td>{{location.adresse.rue}}</td>
 				<td>{{location.adresse.cp}}</td>
