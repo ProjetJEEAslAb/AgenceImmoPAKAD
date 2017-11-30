@@ -87,6 +87,24 @@ immoApp.config(function($routeProvider) {
 		templateUrl : "views/ajoutVisite.html",
 		controller : "ajoutVisiteCtrl"		
 			
+	// ------Achats---------
+	.when("/afficheAchat", {
+		templateUrl : "views/afficheAchat.html",
+		controller : "afficheAchatCtrl"
+	}).when("/ajoutAchat", {
+		templateUrl : "views/ajoutAchat.html",
+		controller : "ajoutAchatCtrl"
+	}).when("/supprAchat", {
+		templateUrl : "views/supprAchat.html",
+		controller : "supprAchatCtrl"
+	}).when("/modifAchat", {
+		templateUrl : "views/modifAchat.html",
+		controller : "modifAchatCtrl"
+	}).when("/cherchAchat", {
+		templateUrl : "views/cherchAchat.html",
+		controller : "cherchAchatCtrl"
+	})
+			
 	// --- Redirection par défault
 	}).otherwise({
 		redirectTo : "/listeClasses"
