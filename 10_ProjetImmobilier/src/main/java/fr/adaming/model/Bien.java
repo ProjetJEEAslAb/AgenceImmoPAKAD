@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @MappedSuperclass
 public abstract class Bien implements Serializable {
@@ -28,8 +30,10 @@ public abstract class Bien implements Serializable {
 	
 	protected String statut;
 	
+	@Temporal(TemporalType.DATE)
 	protected Date dateSoumission;
 	
+	@Temporal(TemporalType.DATE)
 	protected Date dateDisponibilite;
 	
 	protected double revenuCadastral;
