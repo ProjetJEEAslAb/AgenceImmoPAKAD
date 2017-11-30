@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page de recherche des clients</title>
+</head>
+<body>
+
+	<h1>Formulaire de recherche des clients</h1>
+
+	<h2>{{msg}}</h2>
+
+	<form class="form-horizontal">
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="Id">ID</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="Id"
+					placeholder="Entrez l'id du client" ng-model="idClient">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="rechercherClient()">Rechercher</button>
+			</div>
+		</div>
+	</form>
+
+	<table class="table table-hover" ng-show="indice">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Rue</th>
+				<th>N° de la voie</th>
+				<th>CP</th>
+				<th>Ville</th>
+				<th>Tel</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{clientFind.id_client}}</td>
+				<td>{{clientFind.nom}}</td>
+				<td>{{clientFind.adresse.rue}}</td>
+				<td>{{clientFind.adresse.numero}}</td>
+				<td>{{clientFind.adresse.cp}}</td>
+				<td>{{clientFind.adresse.ville}}</td>
+				<td>{{clientFind.num}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

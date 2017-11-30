@@ -33,9 +33,11 @@ public class Classe implements Serializable {
 	private double superficieMin;
 	
 	//Liaisons UML en Java
+	@JsonIgnore
 	@OneToMany(mappedBy = "classe", fetch=FetchType.EAGER)
 	private Set<Achat> listeAchats;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "classe", fetch=FetchType.EAGER)
 	private Set<Location> listeLocations;
 
