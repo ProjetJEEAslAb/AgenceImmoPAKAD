@@ -24,7 +24,6 @@
 				<th>Rue</th>
 				<th>CP</th>
 				<th>Ville</th>
-				<th>Contrat</th>
 				<th>Caution</th>
 				<th>Loyer</th>
 				<th>Charges</th>
@@ -35,7 +34,7 @@
 		<tbody>
 			<tr ng-repeat="location in locationListe">
 				<td>{{location.id_b}}</td>
-				<td>{{location.classe}}</td>
+				<td>{{location.classe.id}}</td>
 				<td>{{location.statut}}</td>
 				<td>{{location.dateSoumission}}</td>
 				<td>{{location.dateDisponibilite}}</td>
