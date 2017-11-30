@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des clients</title>
+</head>
+<body>
+
+	<h2>Liste des clients</h2>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Rue</th>
+				<th>N° de la voie</th>
+				<th>CP</th>
+				<th>Ville</th>
+				<th>Tel</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="client in clientsListe">
+				<td>{{client.id_client}}</td>
+				<td>{{client.nom}}</td>
+				<td>{{client.adresse.rue}}</td>
+				<td>{{client.adresse.numero}}</td>
+				<td>{{client.adresse.cp}}</td>
+				<td>{{client.adresse.ville}}</td>
+				<td>{{client.num}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

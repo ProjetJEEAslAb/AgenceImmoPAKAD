@@ -1,4 +1,13 @@
-immoApp.controller("ajoutClientCtrl",
+immoApp.controller("listeClientsCtrl",
+		function($scope, clientProvider, $location, $rootScope) {
+
+	clientProvider.getAllClients(function(callBack) {
+		$rootScope.clientsListe = callBack;
+	});
+})
+
+
+.controller("ajoutClientCtrl",
 		function($scope, clientProvider, $location) {
 
 			// Initialise la classe standard à ajouter

@@ -6,6 +6,19 @@ immoApp.factory("clientProvider", function($http) {
 	var restUrlUpdate = "/client";
 	var restUrlFind = "/client/";
 
+	// Récupérer la liste des clients
+	function getAllClients(callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'GET',
+			url : restUrlWS + restUrlListe
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
 	// Ajouter un client
 	function addClient(clientAjout, callBack) {
 		// Envoyer la requête au service
@@ -81,6 +94,7 @@ immoApp.factory("clientProvider", function($http) {
 		deleteClient : deleteClient,
 		updateClient : updateClient,
 		rechClient : rechClient,
+		getAllClients : getAllClients,
 	}
 
 
