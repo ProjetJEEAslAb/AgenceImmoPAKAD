@@ -11,20 +11,64 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th>ID</th>
+				
+				<th>Ref</th>
 				<th>Rendez-vous</th>
-				<th>Achat</th>
-				<th>Client</th>
-				<th>Location</th>
+				<th>Code Postal</th>
+				<th>numero</th>
+				<th>rue</th>
+				<th>ville</th>
+				<th>dateDisponibilite</th>
+				<th>dateSoumission</th>
+				<th>statut</th>
+				<th>superficie</th>
+				<th>etat</th>
+				<th>prixVente</th>
+				
+				<th>Code postal client</th>
+				<th>num rue client</th>
+				<th>ville du client</th>
+				<th>nom client</th>
+				<th>telephone client</th>
+				
+				<th>Ref</th>
+				<th>bail</th>
+				<th>caution</th>
+				<th>charges</th>
+				<th>loyer</th>
+				<th>meuble</th>
+				
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="visite in visiteListe">
-				<td>{{visite.id}}</td>
-				<td>{{visite.rdv}}</td>
-				<td>{{visite.client.achat}}</td>
-				<td>{{visite.client.client}}</td>
-				<td>{{visite.client.location}}</td>
+				<td>{{visite.achat.ref}}</td>
+				<td>{{visite.achat.rdv}}</td>
+				<td>{{visite.achat.cp}}</td>
+				<td>{{visite.achat.numero}}</td>
+				<td>{{visite.achat.rue}}</td>
+				<td>{{visite.achat.ville}}</td>
+				<td>{{visite.achat.dateDisponibilite}}</td>
+				<td>{{visite.achat.dateSoumission}}</td>
+				<td>{{visite.achat.statut}}</td>
+				<td>{{visite.achat.superficie}}</td>
+				<td>{{visite.achat.etat}}</td>
+				<td>{{visite.achat.prixVente}}</td>
+				
+				<td>{{visite.client.id_client}}</td>
+				<td>{{visite.client.cp}}</td>
+				<td>{{visite.client.rue}}</td>
+				<td>{{visite.client.ville}}</td>
+				<td>{{visite.client.nom}}</td>
+				<td>{{visite.client.num}}</td>
+				
+				
+				<td>{{visite.location.ref}}</td>
+				<td>{{visite.location.bail}}</td>
+				<td>{{visite.location.caution}}</td>
+				<td>{{visite.location.charges}</td>
+				<td>{{visite.location.loyer}}</td>
+				<td>{{visite.location.meuble}}</td>
 			</tr>
 		</tbody>
 	</table>
