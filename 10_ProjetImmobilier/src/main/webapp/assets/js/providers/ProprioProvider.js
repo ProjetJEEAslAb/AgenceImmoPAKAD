@@ -1,6 +1,6 @@
 immoApp.factory("proprioProvider", function($http) {
 	var restUrlWS = "http://localhost:8080/10_ProjetImmobilier";
-	var restUrlListe = "/allproprio";
+	var restUrlListe = "/allproprietaires";
 
 	// Récupérer la liste des propriétaires
 	function findAllProprio(callBack) {
