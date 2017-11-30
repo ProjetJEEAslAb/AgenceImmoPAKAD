@@ -30,25 +30,36 @@ immoApp.config(function($routeProvider) {
 	}).when("/ajoutLocation", {
 		templateUrl : "views/ajoutLocation.html",
 		controller : "ajoutLocationCtrl"
-	// --- Redirection par défault
-	}).otherwise({
-		redirectTo : "/listeClasses"
 	})
-
 	
 	// ----- Clients -------
 	.when("/ajoutClient", {
 		templateUrl : "views/ajoutClient.html",
 		controller : "ajoutClientCtrl"
 	// --- Redirection par défault
-	}).otherwise({
-		redirectTo : "/listeClasses"
+	})
+	.when("/suppClient", {
+		templateUrl : "views/suppClient.html",
+		controller : "suppClientCtrl"
+			
+	})
+	.when("/modifClient", {
+		templateUrl : "views/modifClient.html",
+		controller : "modifClientCtrl"
+			
+	})
+	.when("/rechClient", {
+		templateUrl : "views/rechClient.html",
+		controller : "rechClientCtrl"
+			
 	})
 	
 	// ----- Proprio -------
 	.when("/afficheProprio", {
 		templateUrl : "views/listeProprio.html",
 		controller : "proprioCtrl"
+			
+			
 	// --- Redirection par défault
 	}).otherwise({
 		redirectTo : "/listeClasses"
