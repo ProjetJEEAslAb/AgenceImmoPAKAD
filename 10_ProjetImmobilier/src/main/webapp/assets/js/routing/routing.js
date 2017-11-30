@@ -29,6 +29,9 @@ immoApp.config(function($routeProvider) {
 	}).when("/ajoutLocation", {
 		templateUrl : "views/ajoutLocation.html",
 		controller : "ajoutLocationCtrl"
+	}).when("/afficheLocation", {
+		templateUrl : "views/listeLocations.html",
+		controller : "afficheLocationCtrl"
 	})
 
 	// ----- Clients -------
