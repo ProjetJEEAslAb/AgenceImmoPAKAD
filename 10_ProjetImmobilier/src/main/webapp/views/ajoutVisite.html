@@ -12,59 +12,58 @@
 
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="idNom">Rendez-vous</label>
+			<label class="control-label col-sm-2">Rendez-vous</label>
 			<div class="col-sm-6">
 				<input type="date" class="form-control" id="idrdv"
 					placeholder="Entrez l'horaire de rendez-vous" ng-model="visite.rdv">
 			</div>
 		</div>
+
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="idRue">Type de
-				contrat</label>
-				<select id="idmeuble" ng-model="locations.meuble">
-					<option value="#o1">Achat</option>
-					<option value="#o2">Location</option>
+			<label class="control-label col-sm-2">Type de contrat</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idoffre" ng-model="type">
+					<option ng-value="true">Achat</option>
+					<option selected="selected" ng-value="false">Location</option>
 				</select>
-			<div id="o1">
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="idNom">Rendez-vous</label>
-					<div class="col-sm-6">
-						<input type="date" class="form-control" id="idrdv"
-							placeholder="Entrez l'horaire de rendez-vous"
-							ng-model="visite.rdv">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="idNom">Rendez-vous</label>
-					<div class="col-sm-6">
-						<input type="date" class="form-control" id="idrdv"
-							placeholder="Entrez l'horaire de rendez-vous"
-							ng-model="visite.rdv">
-					</div>
-				</div>
-
-			</div>
-			<div id="o2">
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="idNom">Rendez-vous</label>
-					<div class="col-sm-6">
-						<input type="date" class="form-control" id="idrdv"
-							placeholder="Entrez l'horaire de rendez-vous"
-							ng-model="visite.rdv">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="idNom">Rendez-vous</label>
-					<div class="col-sm-6">
-						<input type="date" class="form-control" id="idrdv"
-							placeholder="Entrez l'horaire de rendez-vous"
-							ng-model="visite.rdv">
-					</div>
-				</div>
-
 			</div>
 		</div>
 
+		<div class="form-group">
+			<label class="control-label col-sm-2">Client</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idLocation"
+					ng-model="visite.client.id_client">
+					<option ng-value="client.id_client"
+						ng-repeat="client in clientsListe">ID :
+						{{client.id_client}} / NOM : {{client.nom}}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group" ng-show="type">
+			<label for="idAchat" class="control-label col-sm-2">Achat</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idAchat"
+					ng-model="visite.achat.id_b">
+					<option ng-value="achat.id_b" ng-repeat="achat in achatListe">ID
+						: {{achat.id_b}} / PRIX DE VENTE : {{achat.prixVente}}euros / ETAT
+						: {{achat.etat}}</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group" ng-show="!type">
+			<label for="idLocation" class="control-label col-sm-2">Location</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idLocation"
+					ng-model="visite.location.id_b">
+					<option ng-value="location.id_b"
+						ng-repeat="location in locationListe">ID : {{location.id_b}} /
+						LOYER : {{location.loyer}}euros / CHARGES : {{location.charges}}euros / CAUTION : {{location.caution}}euros</option>
+				</select>
+			</div>
+		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default"

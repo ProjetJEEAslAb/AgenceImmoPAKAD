@@ -24,15 +24,15 @@ immoApp.factory("visiteProvider", function($http) {
 	function addVisite(visiteAjout, callBack){
 		$http({
 			method:'POST',
-			url:restUrlWS+"/visite",
+			url:restUrlWS + "/visite",
 			data:angular.toJson(visiteAjout),
 			headers:{
 				'content-type' : "application/json"
 			}
-		}).then(function succes(reponse) {
+		}).then(function succes(response) {
 			callBack(response.data);
-		}, function echec(reponse) {
-			console.log("----- Erreur : " + reponse.statusText)
+		}, function echec(response) {
+			console.log("----- Erreur : " + response.statusText)
 		})
 	}
 	
@@ -87,7 +87,7 @@ immoApp.factory("visiteProvider", function($http) {
 	}
 	
 	return {
-		ajoutVisite:addVisite,
+		addVisite:addVisite,
 		listeVisite:getAllVisites,
 		deleteVisite:deleteVisite,
 		rechVisite:rechVisite,

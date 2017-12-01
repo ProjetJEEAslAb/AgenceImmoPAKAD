@@ -8,7 +8,7 @@ immoApp.controller("listeVisiteCtrl",
 		function($scope, visiteProvider, $location) {
 	
 	// Initialisation de l'objet à ajouter
-	$scope.visite={
+	$scope.visiteAjout={
 		      id: 0,
 		      rdv: null,
 		      achat:   {
@@ -44,6 +44,8 @@ immoApp.controller("listeVisiteCtrl",
 		         },
 		      }
 		   }
+	
+	
 	// Développement de la méthode ajouter() du bouton
 	$scope.ajouterVisite = function() {
 	
@@ -52,7 +54,7 @@ immoApp.controller("listeVisiteCtrl",
 		
 			if (callBack != undefined && callBack != "") {
 				console.log(callBack)
-				$location.path("listeClasses");
+				$location.path("afficheVisite");
 			}
 		});
 		
