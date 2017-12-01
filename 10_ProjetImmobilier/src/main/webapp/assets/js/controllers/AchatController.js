@@ -4,7 +4,7 @@ immoApp.controller("afficheAchatCtrl", function($scope, achatProvider, $location
 	});
 })
 
-.controller("ajoutAchatCtrl", function($scope, achatProvider, $location) {
+.controller("ajoutAchatCtrl", function($scope, achatProvider, $location, $rootScope) {
 	$scope.achat={
 		statut : "",
 		dateSoumission : undefined,
