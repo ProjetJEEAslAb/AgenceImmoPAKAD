@@ -15,8 +15,14 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Id">ID</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="Id"
-					placeholder="Entrez l'id de la location" ng-model="idLocation">
+				<select class="form-control" id="Id" ng-model="idLocation">
+					<option ng-value="location.id_b"
+						ng-repeat="location in locationListe">{{location.classe.typeBien}}
+						{{location.id_b}} : {{location.adresse.numero}}
+						{{location.adresse.rue}} {{location.adresse.ville}} de
+						{{location.proprio.nom}}</option>
+				</select>
+
 			</div>
 		</div>
 
