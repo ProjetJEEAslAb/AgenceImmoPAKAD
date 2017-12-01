@@ -2,78 +2,81 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Page de modification des clients</title>
+<title>Page de modification des visites</title>
 </head>
 <body>
 
-	<h1>Formulaire de modification des visites</h1>
+	<h1>Formulaire de modification de visite</h1>
 
-	<h5 style="color: red;">Les champs précédés d'un * sont obligatoires</h5>
+	<h2>{{msg}}</h2>
 
-	<form class="form-horizontal" name="modifVisitesForm">
+	<form class="form-horizontal">
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="id">ID *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="id"
-					placeholder="Entrez l'id" ng-model="clientModif.id_client" required="required" pattern="[1-9]{1}[0-9]*">
+					placeholder="Entrez l'id" required="required"
+					pattern="[1-9]{1}[0-9]*" ng-model="visiteModif.id">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2">Rendez-vous</label>
+			<div class="col-sm-6">
+				<input type="date" class="form-control" id="idrdv"
+					placeholder="Entrez l'horaire de rendez-vous" ng-model="visiteModif.rdv">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="idNom">Nom *</label>
+			<label class="control-label col-sm-2">Type de contrat</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idNom"
-					placeholder="Entrez le nom" ng-model="clientModif.nom" required="required">
-			</div>
-		</div>
-		
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="idRue">Rue *</label>
-			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idRue"
-					placeholder="Entrez le nom de la rue" required="required"
-					ng-model="clientModif.adresse.rue">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="idNume">Numero de la voie *</label>
-			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idNume"
-					placeholder="Entrez le numero de la voie" required="required"
-					ng-model="clientModif.adresse.numero">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="idCp">CP *</label>
-			<div class="col-sm-6">
-				<input type="number" class="form-control" id="idCp"
-					placeholder="Entrez le code postal" required="required" pattern="[0-9]{5}"
-					ng-model="clientModif.adresse.cp">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="idVille">Ville *</label>
-			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idVille"
-					placeholder="Entrez le nom de la ville" required="required"
-					ng-model="clientModif.adresse.ville">
+				<select class="form-control" id="idoffre" ng-model="type">
+					<option ng-value="true">Achat</option>
+					<option selected="selected" ng-value="false">Location</option>
+				</select>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="idTelPerso">Téléphone *</label>
+			<label class="control-label col-sm-2">Client</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idTelPerso"
-					placeholder="Entrez le téléphone personnel" required="required" pattern="[0-9]{10}"
-					ng-model="clientModif.num">
+				<select class="form-control" id="idClient"
+					ng-model="visiteModif.client.id_client">
+					<option ng-value="client.id_client"
+						ng-repeat="client in clientsListe">ID :
+						{{client.id_client}} / NOM : {{client.nom}}</option>
+				</select>
 			</div>
 		</div>
 
-		
+		<div class="form-group" ng-show="type">
+			<label for="idAchat" class="control-label col-sm-2">Achat</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idAchat"
+					ng-model="visiteModif.achat.id_b">
+					<option ng-value="achat.id_b" ng-repeat="achat in achatListe">ID
+						: {{achat.id_b}} / PRIX DE VENTE : {{achat.prixVente}}euros / ETAT
+						: {{achat.etat}}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group" ng-show="!type">
+			<label for="idLocation" class="control-label col-sm-2">Location</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idLocation"
+					ng-model="visiteModif.location.id_b">
+					<option ng-value="location.id_b"
+						ng-repeat="location in locationListe">ID :
+						{{location.id_b}} / LOYER : {{location.loyer}}euros / CHARGES :
+						{{location.charges}}euros / CAUTION : {{location.caution}}euros</option>
+				</select>
+			</div>
+		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default"
-					ng-click="modifierClient()" ng-disabled="modifClientForm.$invalid">Modifier</button>
+					ng-click="modifierVisite()">Modifier</button>
 			</div>
 		</div>
 	</form>

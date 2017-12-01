@@ -189,7 +189,7 @@ immoApp.controller("listeVisiteCtrl",
 
 					if (callBack != undefined && callBack != "") {
 						console.log(callBack)
-						$location.path("listeClasses");
+						$location.path("afficheModif");
 					}
 				});
 			}
