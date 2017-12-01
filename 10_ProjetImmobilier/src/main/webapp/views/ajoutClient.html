@@ -15,7 +15,7 @@
 			<label class="control-label col-sm-2" for="idNom">Nom *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idNom"
-					placeholder="Entrez le nom du client" required="required"
+					placeholder="Entrez le nom du client" required="required" pattern="[a-zA-Z ]+"
 					ng-model="client.nom">
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 			<label class="control-label col-sm-2" for="idRue">Rue *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idRue"
-					placeholder="Entrez le nom de la rue" required="required"
+					placeholder="Entrez le nom de la rue" required="required" pattern="[a-zA-Z ]+"
 					ng-model="client.adresse.rue">
 			</div>
 		</div>
@@ -48,7 +48,7 @@
 			<label class="control-label col-sm-2" for="idVille">Ville *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idVille"
-					placeholder="Entrez le nom de la ville" required="required"
+					placeholder="Entrez le nom de la ville" required="required" pattern="[a-zA-Z ]+"
 					ng-model="client.adresse.ville">
 			</div>
 		</div>
