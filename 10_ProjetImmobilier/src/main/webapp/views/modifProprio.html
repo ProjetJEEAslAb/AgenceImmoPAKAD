@@ -11,11 +11,14 @@
 	<h2>{{msg}}</h2>
 
 	<form class="form-horizontal">
+
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="id">ID</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="id"
-					placeholder="Entrez l'id" ng-model="proprioModif.id">
+				<select class="form-control" id="id" ng-model="proprioModif.id">
+					<option ng-value="proprio.id" ng-repeat="proprio in proprioListe">{{proprio.id}}
+						{{proprio.nom}}</option>
+				</select>
 			</div>
 		</div>
 
@@ -23,7 +26,8 @@
 			<label class="control-label col-sm-2" for="idNom">Nom</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idNom"
-					placeholder="Entrez le nom" ng-model="proprioModif.nom">
+					placeholder="Entrez le nom" ng-model="proprioModif.nom"
+					pattern="[a-zA-Z ]+">
 			</div>
 		</div>
 
@@ -32,7 +36,7 @@
 				personnel</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idTelPerso"
-					placeholder="Entrez le téléphone personnel"
+					placeholder="Entrez le téléphone personnel" pattern="[0-9]{10}"
 					ng-model="proprioModif.numPrive">
 			</div>
 		</div>
@@ -42,8 +46,47 @@
 				professionnel</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idTelPro"
-					placeholder="Entrez le téléphone professionnel"
+					placeholder="Entrez le téléphone professionnel" pattern="[0-9]{10}"
 					ng-model="proprioModif.numTravail">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idNumeroVoie">Numéro
+				de voie *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idNumeroVoie"
+					placeholder="Entrez le numéro de la voie" required="required"
+					pattern="[0-9]+" ng-model="proprioModif.adresse.numero">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idAdresse">Adresse
+				*</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idAdresse"
+					placeholder="Entrez votre adresse" required="required"
+					pattern="[a-zA-Z ]+" ng-model="proprioModif.adresse.rue">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idCP">Code Postal
+				*</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idCP"
+					placeholder="Entrez votre code postal" required="required"
+					pattern="[0-9]{5}" ng-model="proprioModif.adresse.cp">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idVille">Ville *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idVille"
+					placeholder="Entrez votre ville" required="required"
+					pattern="[a-zA-Z ]+" ng-model="proprioModif.adresse.ville">
 			</div>
 		</div>
 

@@ -113,6 +113,14 @@ public class Proprietaire implements Serializable {
 		this.listeLocations = listeLocations;
 	}
 
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
 	@Override
 	public String toString() {
 		return "Proprietaire [id=" + id + ", nom=" + nom + ", numPrivé=" + numPrive + ", numTravail=" + numTravail

@@ -10,7 +10,13 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 	$scope.proprioAjout = {
 		nom : "",
 		numPrive : 0,
-		numTravail : 0
+		numTravail : 0,
+		adresse : {
+			numero : 0,
+			rue : "",
+			cp : "",
+			ville: ""
+		}
 	}
 
 	// Développement de la méthode ajouter() du bouton
@@ -22,7 +28,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 
 			if (callBack != undefined && callBack != "") {
 				console.log(callBack)
-				$location.path("listeProprio");
+				$location.path("afficheProprio");
 			}
 		});
 	}
@@ -35,7 +41,13 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 		id : 0,
 		nom : "",
 		numPrive : 0,
-		numTravail : 0
+		numTravail : 0,
+		adresse : {
+			numero : 0,
+			rue : "",
+			cp : "",
+			ville: ""
+		}
 	}
 
 	// Développement de la méthode ajouter() du bouton
@@ -47,7 +59,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 
 			if (callBack != undefined && callBack != "") {
 				console.log(callBack)
-				$location.path("listeProprio");
+				$location.path("afficheProprio");
 			}
 		});
 	}
@@ -72,7 +84,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 		// la bdd
 		proprioProvider.deleteProprio($scope.proprioSuppr, function(callBack) {
 
-			$location.path("listeProprio");
+			$location.path("afficheProprio");
 		});
 	}
 })

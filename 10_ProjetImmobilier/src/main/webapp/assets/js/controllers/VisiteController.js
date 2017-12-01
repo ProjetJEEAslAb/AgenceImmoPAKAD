@@ -1,7 +1,7 @@
 immoApp.controller("listeVisiteCtrl",
 		function($scope, visiteProvider, $location, $rootScope) {
 
-	visiteProvider.getAllVisites(function(callBack) {
+	visiteProvider.listeVisite(function(callBack) {
 		$rootScope.visiteListe = callBack;
 	});
 }).controller("ajoutVisiteCtrl",

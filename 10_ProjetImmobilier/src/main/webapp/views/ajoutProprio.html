@@ -38,6 +38,42 @@
 					ng-model="proprioAjout.numTravail">
 			</div>
 		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idNumeroVoie">Numéro de voie *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idNumeroVoie"
+					placeholder="Entrez le numéro de la voie" required="required" pattern="[0-9]+"
+					ng-model="proprioAjout.adresse.numero">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idAdresse">Adresse *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idAdresse"
+					placeholder="Entrez votre adresse" required="required" pattern="[a-zA-Z ]+"
+					ng-model="proprioAjout.adresse.rue">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idCP">Code Postal *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idCP"
+					placeholder="Entrez votre code postal" required="required" pattern="[0-9]{5}"
+					ng-model="proprioAjout.adresse.cp">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idVille">Ville *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idVille"
+					placeholder="Entrez votre ville" required="required" pattern="[a-zA-Z ]+"
+					ng-model="proprioAjout.adresse.ville">
+			</div>
+		</div>
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">

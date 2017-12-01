@@ -20,8 +20,27 @@ immoApp.factory("contratProvider", function($http) {
 		})
 	}
 	
+	// Ajouter un client
+	function addContrat(contratAjout, callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'POST',
+			url : restUrlWS + restUrlAdd,
+			data : angular.toJson(contratAjout),
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
+	
 	return {
 		
 		getAllContrats : getAllContrats,
+		addContrat : addContrat,
 	}
 })

@@ -1,77 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" absolute = true>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" absolute = true></script>
+
 <meta charset="ISO-8859-1">
-<title>Liste des clients</title>
+<title>Liste des visites</title>
 </head>
 <body>
 
 	<h2>Liste des visites</h2>
 
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				
-				<th>Ref</th>
-				<th>Rendez-vous</th>
-				<th>Code Postal</th>
-				<th>numero</th>
-				<th>rue</th>
-				<th>ville</th>
-				<th>dateDisponibilite</th>
-				<th>dateSoumission</th>
-				<th>statut</th>
-				<th>superficie</th>
-				<th>etat</th>
-				<th>prixVente</th>
-				
-				<th>Code postal client</th>
-				<th>num rue client</th>
-				<th>ville du client</th>
-				<th>nom client</th>
-				<th>telephone client</th>
-				
-				<th>Ref</th>
-				<th>bail</th>
-				<th>caution</th>
-				<th>charges</th>
-				<th>loyer</th>
-				<th>meuble</th>
-				
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="visite in visiteListe">
-				<td>{{visite.achat.ref}}</td>
-				<td>{{visite.achat.rdv}}</td>
-				<td>{{visite.achat.cp}}</td>
-				<td>{{visite.achat.numero}}</td>
-				<td>{{visite.achat.rue}}</td>
-				<td>{{visite.achat.ville}}</td>
-				<td>{{visite.achat.dateDisponibilite}}</td>
-				<td>{{visite.achat.dateSoumission}}</td>
-				<td>{{visite.achat.statut}}</td>
-				<td>{{visite.achat.superficie}}</td>
-				<td>{{visite.achat.etat}}</td>
-				<td>{{visite.achat.prixVente}}</td>
-				
-				<td>{{visite.client.id_client}}</td>
-				<td>{{visite.client.cp}}</td>
-				<td>{{visite.client.rue}}</td>
-				<td>{{visite.client.ville}}</td>
-				<td>{{visite.client.nom}}</td>
-				<td>{{visite.client.num}}</td>
-				
-				
-				<td>{{visite.location.ref}}</td>
-				<td>{{visite.location.bail}}</td>
-				<td>{{visite.location.caution}}</td>
-				<td>{{visite.location.charges}</td>
-				<td>{{visite.location.loyer}}</td>
-				<td>{{visite.location.meuble}}</td>
-			</tr>
-		</tbody>
-	</table>
+	<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th></th>
+        <th colspan="10" style="text-align: center">Type de Contrat</th>
+    </tr>
+    </thead>
+    <tbody>
+        <th scope="row">Client</th>
+        <th colspan="5" style="text-align: center">Achat</th>
+        <th colspan="5" style="text-align: center">Location</th>
+    </tr>
+    <tr ng-repeat="visite in visiteListe">
+        <td scope="row">{{visite.client.nom}} (tel : {{visite.client.numero}})</th>
+        <td colspan="5" style="text-align: center">{{visite.achat.adresse.numero}},{{visite.achat.adresse.rue}},{{visite.achat.adresse.cp}} {{visite.achat.adresse.ville}}<br/>{{visite.achat.adresse.superficie}}<br/>{{visite.achat.adresse.revenuCadastral}} </td>
+        <td colspan="5" style="text-align: center">{{visite.bien.id_b}}</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
 
 </body>
 </html>

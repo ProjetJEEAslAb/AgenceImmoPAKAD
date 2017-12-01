@@ -85,7 +85,7 @@ immoApp.config(function($routeProvider) {
 	// ----- Visite -------
 	}).when("/afficheVisite", {
 		templateUrl : "views/listeVisite.html",
-		controller : "visiteCtrl"
+		controller : "listeVisiteCtrl"
 
 	}).when("/ajoutVisite", {
 		templateUrl : "views/ajoutVisite.html",
@@ -133,9 +133,9 @@ immoApp.config(function($routeProvider) {
 		templateUrl : "views/modifContrat.html",
 		controller : "modifContratCtrl"
 
-	}).when("/supprContrat", {
-		templateUrl : "views/supprContrat.html",
-		controller : "supprContratCtrl"
+	}).when("/suppContrat", {
+		templateUrl : "views/suppContrat.html",
+		controller : "suppContratCtrl"
 
 	}).when("/rechContrat", {
 		templateUrl : "views/rechContrat.html",

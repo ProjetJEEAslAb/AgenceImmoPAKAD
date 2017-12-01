@@ -47,6 +47,7 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 		pUp.setNom(p.getNom());
 		pUp.setNumPrivé(p.getNumPrive());
 		pUp.setNumTravail(p.getNumTravail());
+		pUp.setAdresse(p.getAdresse());
 		pUp.setListeAchats(p.getListeAchats());
 		pUp.setListeLocations(p.getListeLocations());
 		s.saveOrUpdate(pUp);
