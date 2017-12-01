@@ -60,7 +60,7 @@
 	
 <title>Page d'accueil</title>
 </head>
-<body ng-app="immoApp">
+<body ng-app="immoApp" id="fond">
 <div class="all">
 
 	<!-- ================================================ -->
@@ -72,41 +72,41 @@
 				<a class="navbar-brand" href="#">Agence Immobilière</a>
 			</div>
 			<ul class="nav nav-pills">
-				<li class="active"><a href="#!listeClasses">Accueil</a></li>
+				<li class="active"><a href="#!listeClasses"  onclick="document.getElementById('fond').className=''">Accueil</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Classes Standard <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#!ajoutClasses">Ajouter</a></li>
-						<li><a href="#!supprClasses">Supprimer</a></li>
-						<li><a href="#!modifClasses">Modifier</a></li>
-						<li><a href="#!rechClasses">Rechercher</a></li>
+						<li><a href="#!ajoutClasses" onclick="document.getElementById('fond').className='classe'">Ajouter</a></li>
+						<li><a href="#!supprClasses" onclick="document.getElementById('fond').className='classe'">Supprimer</a></li>
+						<li><a href="#!modifClasses" onclick="document.getElementById('fond').className='classe'">Modifier</a></li>
+						<li><a href="#!rechClasses" onclick="document.getElementById('fond').className='classe'">Rechercher</a></li>
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Locations<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#!afficheLocation">Afficher</a></li>
-						<li><a href="#!ajoutLocation">Ajouter</a></li>
-						<li><a href="#!supprLocation">Supprimer</a></li>
-						<li><a href="#!modifLocation">Modifier</a></li>
-						<li><a href="#!rechLocation">Rechercher</a></li>
+						<li><a href="#!afficheLocation" onclick="document.getElementById('fond').className='location'">Afficher</a></li>
+						<li><a href="#!ajoutLocation" onclick="document.getElementById('fond').className='location'">Ajouter</a></li>
+						<li><a href="#!supprLocation" onclick="document.getElementById('fond').className='location'">Supprimer</a></li>
+						<li><a href="#!modifLocation" onclick="document.getElementById('fond').className='location'">Modifier</a></li>
+						<li><a href="#!rechLocation" onclick="document.getElementById('fond').className='location'">Rechercher</a></li>
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Achats<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#!afficheAchat">Afficher</a></li>
-						<li><a href="#!ajoutAchat">Ajouter</a></li>
-						<li><a href="#!supprAchat">Supprimer</a></li>
-						<li><a href="#!modifAchat">Modifier</a></li>
-						<li><a href="#!cherchAchat">Rechercher</a></li>
+						<li><a href="#!afficheAchat" onclick="document.getElementById('fond').className='achat'">Afficher</a></li>
+						<li><a href="#!ajoutAchat" onclick="document.getElementById('fond').className='achat'">Ajouter</a></li>
+						<li><a href="#!supprAchat" onclick="document.getElementById('fond').className='achat'">Supprimer</a></li>
+						<li><a href="#!modifAchat" onclick="document.getElementById('fond').className='achat'">Modifier</a></li>
+						<li><a href="#!cherchAchat" onclick="document.getElementById('fond').className='achat'">Rechercher</a></li>
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Clients<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#!listeClients">Afficher</a></li>
-						<li><a href="#!ajoutClient">Ajouter</a></li>
-						<li><a href="#!suppClient">Supprimer</a></li>
-						<li><a href="#!modifClient">Modifier</a></li>
-						<li><a href="#!rechClient">Rechercher</a></li>
+						<li><a href="#!listeClients" onclick="document.getElementById('fond').className='client'">Afficher</a></li>
+						<li><a href="#!ajoutClient" onclick="document.getElementById('fond').className='client'">Ajouter</a></li>
+						<li><a href="#!suppClient" onclick="document.getElementById('fond').className='client'">Supprimer</a></li>
+						<li><a href="#!modifClient" onclick="document.getElementById('fond').className='client'">Modifier</a></li>
+						<li><a href="#!rechClient" onclick="document.getElementById('fond').className='client'">Rechercher</a></li>
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Propriétaire<span class="caret"></span></a>
@@ -129,11 +129,11 @@
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Contrats<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#!afficheContrat">Afficher</a></li>
-						<li><a href="#!ajoutContrat">Ajouter</a></li>
-						<li><a href="#!suppContrat">Supprimer</a></li>
-						<li><a href="#!modifContrat">Modifier</a></li>
-						<li><a href="#!rechContrat">Rechercher</a></li>
+						<li><a href="#!afficheContrat" onclick="document.getElementById('fond').className='contrat'">Afficher</a></li>
+						<li><a href="#!ajoutContrat" onclick="document.getElementById('fond').className='contrat'">Ajouter</a></li>
+						<li><a href="#!suppContrat" onclick="document.getElementById('fond').className='contrat'">Supprimer</a></li>
+						<li><a href="#!modifContrat" onclick="document.getElementById('fond').className='contrat'">Modifier</a></li>
+						<li><a href="#!rechContrat" onclick="document.getElementById('fond').className='contrat'">Rechercher</a></li>
 					</ul></li>
 			</ul>
 		</div>

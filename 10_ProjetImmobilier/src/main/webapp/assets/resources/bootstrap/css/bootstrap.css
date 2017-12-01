@@ -14,6 +14,52 @@ body {
 	margin: 0;
 }
 
+.location{
+	position: absolute;
+	background-image: url("images/location.jpg");
+	background-size: cover;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.classe{
+	position: absolute;
+	background-image: url("images/classe.jpg");
+	background-size: cover;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.contrat{
+	position: absolute;
+	background-image: url("images/contrat.jpg");
+	background-size: cover;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.achat{
+	position: absolute;
+	background-image: url("images/achat.jpg");
+	background-size: cover;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.client{
+	position: absolute;
+	background-image: url("images/client.jpg");
+	background-size: cover;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
 article, aside, details, figcaption, figure, footer, header, hgroup,
 	main, menu, nav, section, summary {
 	display: block;
