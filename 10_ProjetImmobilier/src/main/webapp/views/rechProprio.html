@@ -1,49 +1,146 @@
 <h1>Formulaire de recherche de propriétaire</h1>
 
-	<h2>{{msg}}</h2>
+<h2>{{msg}}</h2>
 
-	<form class="form-horizontal">
+<form class="form-horizontal">
 
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="Id">ID</label>
-			<div class="col-sm-6">
-				<select class="form-control" id="Id"
-					ng-model="id">
-					<option ng-value="proprio.id" ng-repeat="proprio in proprioListe">{{proprio.id}}
-						{{proprio.nom}}</option>
-				</select>
-			</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="Id">ID</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="Id" ng-model="id">
+				<option ng-value="proprio.id" ng-repeat="proprio in proprioListe">{{proprio.id}}
+					{{proprio.nom}}</option>
+			</select>
 		</div>
+	</div>
 
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default"
-					ng-click="rechercherProprio()">Rechercher</button>
-			</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default"
+				ng-click="rechercherProprio()">Rechercher</button>
 		</div>
-	</form>
+	</div>
 
-	<table class="table table-hover" ng-show="indice">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nom</th>
-				<th>Numéro privé</th>
-				<th>Numéro travail</th>
-				<th>Adresse</th>
-				<th>Code postal</th>
-				<th>Ville</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>{{proprioCherch.id}}</td>
-				<td>{{proprioCherch.nom}}</td>
-				<td>{{proprioCherch.numPrive}}</td>
-				<td>{{proprioCherch.numTravail}}</td>
-				<td>{{proprioCherch.adresse.numero}} {{proprioCherch.adresse.rue}}</td>
-				<td>{{proprioCherch.adresse.cp}}</td>
-				<td>{{proprioCherch.adresse.ville}}</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="col-sm-offset-2 col-sm-10">
+		Voir la liste des locations : <input type="checkbox"
+			ng-model="locationRech">
+	</div>
+
+	<div class="col-sm-offset-2 col-sm-10">
+		Voir la liste des achats : <input type="checkbox" ng-model="achatRech">
+	</div>
+</form>
+
+<table class="table table-hover" ng-show="indice">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Numéro privé</th>
+			<th>Numéro travail</th>
+			<th>Adresse</th>
+			<th>Code postal</th>
+			<th>Ville</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{proprioCherch.id}}</td>
+			<td>{{proprioCherch.nom}}</td>
+			<td>{{proprioCherch.numPrive}}</td>
+			<td>{{proprioCherch.numTravail}}</td>
+			<td>{{proprioCherch.adresse.numero}}
+				{{proprioCherch.adresse.rue}}</td>
+			<td>{{proprioCherch.adresse.cp}}</td>
+			<td>{{proprioCherch.adresse.ville}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-hover" ng-show="locationRech">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Classe standard</th>
+			<th>Statut</th>
+			<th>Date de soumission</th>
+			<th>Date de disponibilité</th>
+			<th>Revenu cadastral</th>
+			<th>Superficie</th>
+			<th>Agent</th>
+			<th>Propriétaire</th>
+			<th>Numéro</th>
+			<th>Rue</th>
+			<th>CP</th>
+			<th>Ville</th>
+			<th>Caution</th>
+			<th>Loyer</th>
+			<th>Charges</th>
+			<th>Bail</th>
+			<th>Meublé</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="location in locationListe ">
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.id_b}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.classe.id_cl}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.statut}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.dateSoumission}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.dateDisponibilite}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.revenuCadastral}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.superficie}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.agent.identifiant}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.proprio.id}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.adresse.numero}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.adresse.rue}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.adresse.cp}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.adresse.ville}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.caution}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.loyer}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.charges}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.bail}}</td>
+			<td ng-if="location.proprio.id == proprioCherch.id">{{location.meuble}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-hover" ng-show="achatRech">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Classe standard</th>
+			<th>Propriétaire</th>
+			<th>Statut</th>
+			<th>Date de soumission</th>
+			<th>Date de disponibilité</th>
+			<th>Revenu cadastral</th>
+			<th>Superficie</th>
+			<th>Agent</th>
+			<th>Numéro</th>
+			<th>Rue</th>
+			<th>CP</th>
+			<th>Ville</th>
+			<th>Prix de vente</th>
+			<th>Etat</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="achat in achatListe">
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.id_b}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.classe.id_cl}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.proprio.id}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.statut}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.dateSoumission}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.dateDisponibilite}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.revenuCadastral}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.superficie}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.agent.identifiant}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.adresse.numero}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.adresse.rue}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.adresse.cp}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.adresse.ville}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.prixVente}}</td>
+			<td ng-if="achat.proprio.id == proprioCherch.id">{{achat.etat}}</td>
+		</tr>
+	</tbody>
+</table>
