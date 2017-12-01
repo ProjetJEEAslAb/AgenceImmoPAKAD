@@ -4,7 +4,9 @@ immoApp.factory("locationProvider", function($http) {
 	var restUrlAdd = "/location";
 	var restUrlDelete = "/location/";
 	var restUrlUpdate = "/location";
+	var restUrlFind = "/location/";
 
+	// Ajouter une location
 	function addLocations(locations, callBack) {
 		console.log(locations);
 		$http({
@@ -22,6 +24,7 @@ immoApp.factory("locationProvider", function($http) {
 		})
 	}
 
+	// Liste des location
 	function findAllLocations(callBack) {
 		// Envoyer la requête au service
 		$http({
@@ -35,6 +38,7 @@ immoApp.factory("locationProvider", function($http) {
 		})
 	}
 	
+	// Supprimer une location
 	function deleteLocations(idLocation, callBack) {
 		// Envoyer la requête au service
 		$http({
@@ -48,6 +52,7 @@ immoApp.factory("locationProvider", function($http) {
 		})
 	}
 	
+	// Modifier une location
 	function updateLocations(locations, callBack) {
 
 		console.log("---- Provider : " + locations)
@@ -65,11 +70,27 @@ immoApp.factory("locationProvider", function($http) {
 			console.log("----- Erreur : " + reponse.statusText)
 		})
 	}
+	
+	// Rechercher une location
+	function findLocations(idLocation, callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'GET',
+			url : restUrlWS + restUrlFind + idLocation,
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
+	
 
 	return {
 		addLocation : addLocations,
 		getAllLocations : findAllLocations,
 		deleteLocation : deleteLocations,
-		updateLocation : updateLocations
+		updateLocation : updateLocations,
+		findLocation : findLocations
 	}
 })

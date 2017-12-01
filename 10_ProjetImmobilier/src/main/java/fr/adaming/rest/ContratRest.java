@@ -25,7 +25,7 @@ public class ContratRest {
 		return contratService.addContrat(co);
 	}
 	
-	@RequestMapping(value="/allcontrats", method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/afficheContrat", method=RequestMethod.GET, produces="application/json")
 	public List<Contrat> getAllClasses(){
 		return contratService.getAllContrats();
 	}

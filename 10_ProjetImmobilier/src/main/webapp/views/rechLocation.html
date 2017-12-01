@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page de recherche des locations</title>
+</head>
+<body>
+
+	<h1>Formulaire de recherche des locations</h1>
+
+	<h2>{{msg}}</h2>
+
+
+	<form class="form-horizontal">
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="Id">ID</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="Id" ng-model="idLocation">
+				<option ng-value="location.id_b"
+					ng-repeat="location in locationListe">{{location.classe.typeBien}}
+					{{location.id_b}} : de {{location.proprio.nom}}</option>
+			</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="rechercherLocation()">Rechercher</button>
+			</div>
+		</div>
+	</form>
+
+	<table class="table table-hover" ng-show="indice">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Classe standard</th>
+				<th>Statut</th>
+				<th>Date de soumission</th>
+				<th>Date de disponibilité</th>
+				<th>Revenu cadastral</th>
+				<th>Superficie</th>
+				<th>Agent</th>
+				<th>Propriétaire</th>
+				<th>Numéro</th>
+				<th>Rue</th>
+				<th>CP</th>
+				<th>Ville</th>
+				<th>Caution</th>
+				<th>Loyer</th>
+				<th>Charges</th>
+				<th>Bail</th>
+				<th>Meublé</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{locationFind.id_b}}</td>
+				<td>{{locationFind.classe.id_cl}}</td>
+				<td>{{locationFind.statut}}</td>
+				<td>{{locationFind.dateSoumission}}</td>
+				<td>{{locationFind.dateDisponibilite}}</td>
+				<td>{{locationFind.revenuCadastral}}</td>
+				<td>{{locationFind.superficie}}</td>
+				<td>{{locationFind.agent.identifiant}}</td>
+				<td>{{locationFind.proprio.id}}</td>
+				<td>{{locationFind.adresse.numero}}</td>
+				<td>{{locationFind.adresse.rue}}</td>
+				<td>{{locationFind.adresse.cp}}</td>
+				<td>{{locationFind.adresse.ville}}</td>
+				<td>{{locationFind.caution}}</td>
+				<td>{{locationFind.loyer}}</td>
+				<td>{{locationFind.charges}}</td>
+				<td>{{locationFind.bail}}</td>
+				<td>{{locationFind.meuble}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

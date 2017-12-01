@@ -90,6 +90,18 @@ immoApp.config(function($routeProvider) {
 	}).when("/ajoutVisite", {
 		templateUrl : "views/ajoutVisite.html",
 		controller : "ajoutVisiteCtrl"
+			
+	}).when("/supprVisite", {
+		templateUrl : "views/supprVisite.html",
+		controller : "supprVisiteCtrl"
+			
+	}).when("/rechVisite", {
+		templateUrl : "views/rechVisite.html",
+		controller : "rechVisiteCtrl"
+			
+	}).when("/modifVisite", {
+		templateUrl : "views/modifVisite.html",
+		controller : "modifVisiteCtrl"
 
 	// ------Achats---------
 	}).when("/afficheAchat", {
@@ -110,7 +122,7 @@ immoApp.config(function($routeProvider) {
 			
 	// ----- Contrats -------
 	}).when("/afficheContrat", {
-		templateUrl : "views/listeContrat.html",
+		templateUrl : "views/afficheContrat.html",
 		controller : "contratCtrl"
 
 	}).when("/ajoutContrat", {
