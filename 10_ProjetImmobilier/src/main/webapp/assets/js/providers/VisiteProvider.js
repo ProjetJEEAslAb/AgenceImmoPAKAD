@@ -36,9 +36,61 @@ immoApp.factory("visiteProvider", function($http) {
 		})
 	}
 	
+	// Supprimer une visite
+	function deleteVisite(id, callBack) {
+		$http({
+			method : 'DELETE',
+			url : restUrlWS + "/visite/" + id,
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
+	// Rechercher une visite
+	function rechVisite(id, callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'GET',
+			url : restUrlWS + "/visite/" + id ,
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
+	
+	// Modifier une visite
+	function updateVisite(visiteModif, callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'PUT',
+			url : restUrlWS + "/visite",
+			data : angular.toJson(visiteModif),
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
+	
 	return {
 		ajoutVisite:addVisite,
 		listeVisite:getAllVisites,
-		
+		deleteVisite:deleteVisite,
+		rechVisite:rechVisite,
+		updateVisite:updateVisite
 	}
 })

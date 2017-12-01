@@ -1,4 +1,10 @@
-immoApp.controller("ajoutVisiteCtrl",
+immoApp.controller("listeVisiteCtrl",
+		function($scope, visiteProvider, $location, $rootScope) {
+
+	visiteProvider.getAllVisites(function(callBack) {
+		$rootScope.visiteListe = callBack;
+	});
+}).controller("ajoutVisiteCtrl",
 		function($scope, visiteProvider, $location) {
 	
 	// Initialisation de l'objet à ajouter
@@ -51,7 +57,142 @@ immoApp.controller("ajoutVisiteCtrl",
 		});
 		
 	}	
-})
+}).controller("supprVisiteCtrl", function($scope, visiteProvider, $location) {
+
+	$scope.id = 0;
+
+	$scope.supprimerVisite = function() {
+
+		// Appel de la fonction du Provider pour supprimer le client
+		// dans
+		// la bdd
+		visiteProvider.deleteVisite($scope.id, function(callBack) {
+
+			$location.path("listeClasses");
+
+		});
+	}
+}).controller("rechVisiteCtrl",function($scope, visiteProvider) {
+
+			$scope.id = 0;
+			
+			$scope.msg = "";
+			$scope.indice = false;
+			
+			$scope.visiteFind = {
+			      id: 0,
+			      rdv: null,
+			      	achat:       {
+			         id_b: "",
+			         statut: null,
+			         dateSoumission: null,
+			         dateDisponibilite: null,
+			         revenuCadastral: "",
+			         superficie: "",
+			         classe: null,
+			         agent: null,
+			         adresse:          {
+			            rue: null,
+			            numero: null,
+			            cp: "",
+			            ville: null
+			         },
+			         proprio: null,
+			         prixVente: "",
+			         etat: null
+			      },
+			      location: null,
+			      client:       {
+			         id_client: "",
+			         nom: "",
+			         num: "",
+			         adresse:          {
+			            rue: "",
+			            numero: "",
+			            cp: "",
+			            ville: ""
+			         }
+			      }
+			   }
+			
+
+			// Développement de la méthode rechercher() du bouton
+			$scope.rechercherVisite = function() {
+
+				// Appel de la fonction du Provider pour rechercher le client
+				visiteProvider.rechVisite($scope.id,
+						function(callBack) {
+
+							if (callBack != undefined && callBack != "") {
+								console.log(callBack)
+
+								$scope.visiteFind = callBack;
+								$scope.msg = "";
+								$scope.indice = true;
+
+							} else {
+
+								$scope.msg = "Cette visite n'existe pas.";
+								$scope.indice = false;
+							}
+						});
+			}
+
+		}).controller("modifVisiteCtrl", function($scope, visiteProvider, $location) {
+
+			// Initialise la classe standard à modifier
+			$scope.visiteModif = {
+					id: 0,
+				      rdv: null,
+				      	achat:       {
+				         id_b: "",
+				         statut: null,
+				         dateSoumission: null,
+				         dateDisponibilite: null,
+				         revenuCadastral: "",
+				         superficie: "",
+				         classe: null,
+				         agent: null,
+				         adresse:          {
+				            rue: null,
+				            numero: null,
+				            cp: "",
+				            ville: null
+				         },
+				         proprio: null,
+				         prixVente: "",
+				         etat: null
+				      },
+				      location: null,
+				      client:       {
+				         id_client: "",
+				         nom: "",
+				         num: "",
+				         adresse:          {
+				            rue: "",
+				            numero: "",
+				            cp: "",
+				            ville: ""
+				         }
+				      }
+				   }
+				
+
+			// Développement de la méthode modifier() du bouton
+			$scope.modifierVisite = function() {
+				console.log($scope.visiteModif)
+				// Appel de la fonction du Provider pour modifier le client dans
+				// la bdd
+				visiteProvider.updateVisite($scope.visiteModif, function(callBack) {
+
+					if (callBack != undefined && callBack != "") {
+						console.log(callBack)
+						$location.path("listeClasses");
+					}
+				});
+			}
+
+		})
 
 
 
