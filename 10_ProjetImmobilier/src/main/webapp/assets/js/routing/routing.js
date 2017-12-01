@@ -107,6 +107,27 @@ immoApp.config(function($routeProvider) {
 	}).when("/cherchAchat", {
 		templateUrl : "views/cherchAchat.html",
 		controller : "cherchAchatCtrl"
+			
+	// ----- Contrats -------
+	}).when("/afficheContrat", {
+		templateUrl : "views/listeContrat.html",
+		controller : "contratCtrl"
+
+	}).when("/ajoutContrat", {
+		templateUrl : "views/ajoutContrat.html",
+		controller : "ajoutContratCtrl"
+
+	}).when("/modifContrat", {
+		templateUrl : "views/modifContrat.html",
+		controller : "modifContratCtrl"
+
+	}).when("/supprContrat", {
+		templateUrl : "views/supprContrat.html",
+		controller : "supprContratCtrl"
+
+	}).when("/rechContrat", {
+		templateUrl : "views/rechContrat.html",
+		controller : "rechContratCtrl"
 
 	// --- Redirection par défault
 	}).otherwise({
