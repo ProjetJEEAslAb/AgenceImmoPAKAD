@@ -71,11 +71,28 @@ immoApp.factory("contratProvider", function($http) {
 			console.log("----- Erreur : " + response.statusText)
 		})
 	}
+	
+	function rechContrat(idContrat, callBack) {
+		// Envoyer la requête au service
+		$http({
+			method : 'GET',
+			url : restUrlWS + restUrlFind + idContrat ,
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(response) {
+			callBack(response.data);
+
+		}, function error(response) {
+			console.log("----- Erreur : " + response.statusText)
+		})
+	}
 	return {
 		
 		getAllContrats : getAllContrats,
 		addContrat : addContrat,
 		deleteContrat : deleteContrat,
 		updateContrat : updateContrat,
+		rechContrat : rechContrat,
 	}
 })

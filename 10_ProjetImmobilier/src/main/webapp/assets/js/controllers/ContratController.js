@@ -77,5 +77,46 @@ immoApp.controller("contratCtrl",
 			$location.path("afficheContrat");
 		});
 	}
-})		
+})	
 
+.controller(
+		"rechContratCtrl",
+		function($scope, contratProvider) {
+
+			$scope.idContrat = 0;
+
+			$scope.indice = false;
+			$scope.msg = "";
+
+			$scope.contratFind = {
+					   "id_co": 0,
+					   "dateAchat": undefined,
+					   "prixFinal": 0,
+					   "client": undefined,
+					   "achat":undefined,
+					    "location": undefined,
+					}
+
+			// Développement de la méthode rechercher() du bouton
+			$scope.rechercherContrat = function() {
+
+				// Appel de la fonction du Provider pour rechercher le client
+				contratProvider.rechContrat($scope.idContrat,
+						function(callBack) {
+
+							if (callBack != undefined && callBack != "") {
+								console.log(callBack)
+
+								$scope.contratFind = callBack;
+								$scope.msg = "";
+								$scope.indice = true;
+
+							} else {
+
+								$scope.msg = "Ce contrat n'existe pas.";
+								$scope.indice = false;
+							}
+						});
+			}
+
+		})
