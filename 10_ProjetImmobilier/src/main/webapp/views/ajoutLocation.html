@@ -1,156 +1,157 @@
-<h1>Formulaire d'ajout de location</h1>
+<div>
+	<h1>Formulaire d'ajout de location</h1>
 
-<h2>{{msg}}</h2>
+	<h2>{{msg}}</h2>
 
-<form class="form-horizontal">
+	<form class="form-horizontal">
 
-	<div class="form-group">
-		<label for="idclasse" class="control-label col-sm-2">Classe</label>
-		<div class="col-sm-6">
-			<select class="form-control" id="idclasse"
-				ng-model="locations.classe.id_cl">
-				<option ng-value="classe.id_cl"
-					ng-repeat="classe in classesStandardListe">{{classe.id_cl}}
-					{{classe.typeBien}} {{classe.modeOffre}} - Moins de {{classe.prixMax}} euros - Plus de 
-					{{classe.superficieMin}} m2/are</option>
-			</select>
+		<div class="form-group">
+			<label for="idclasse" class="control-label col-sm-2">Classe</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idclasse"
+					ng-model="locations.classe.id_cl">
+					<option ng-value="classe.id_cl"
+						ng-repeat="classe in classesStandardListe">{{classe.id_cl}}
+						{{classe.typeBien}} {{classe.modeOffre}} - Moins de
+						{{classe.prixMax}} euros - Plus de {{classe.superficieMin}} m2/are</option>
+				</select>
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label for="idproprio" class="control-label col-sm-2">Propriétaire</label>
-		<div class="col-sm-6">
-			<select class="form-control" id="idproprio"
-				ng-model="locations.proprio.id">
-				<option ng-value="proprio.id"
-					ng-repeat="proprio in proprioListe">{{proprio.id}}
-					{{proprio.nom}}</option>
-			</select>
+		<div class="form-group">
+			<label for="idproprio" class="control-label col-sm-2">Propriétaire</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idproprio"
+					ng-model="locations.proprio.id">
+					<option ng-value="proprio.id" ng-repeat="proprio in proprioListe">{{proprio.id}}
+						{{proprio.nom}}</option>
+				</select>
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idStatut">Statut</label>
-		<div class="col-sm-6">
-			<select class="form-control" id="idStatut"
-				ng-model="locations.statut">
-				<option ng-value="locations.statut">Disponible</option>
-				<option ng-value="locations.statut">A louer</option>
-			</select>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idStatut">Statut</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idStatut"
+					ng-model="locations.statut">
+					<option ng-value="locations.statut">Disponible</option>
+					<option ng-value="locations.statut">A louer</option>
+				</select>
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="iddateSoumission">Date
-			de soumission</label>
-		<div class="col-sm-6">
-			<input type="date" class="form-control" id="iddateSoumission"
-				placeholder="Entrez la date de soumission"
-				ng-model="locations.dateSoumission">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="iddateSoumission">Date
+				de soumission</label>
+			<div class="col-sm-6">
+				<input type="date" class="form-control" id="iddateSoumission"
+					placeholder="Entrez la date de soumission"
+					ng-model="locations.dateSoumission">
+			</div>
 		</div>
-	</div>
 
 
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="iddateDisponibilite">Date
-			de disponibilité</label>
-		<div class="col-sm-6">
-			<input type="date" class="form-control" id="iddateDisponibilite"
-				placeholder="Entrez la date de disponibilité"
-				ng-model="locations.dateDisponibilite">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="iddateDisponibilite">Date
+				de disponibilité</label>
+			<div class="col-sm-6">
+				<input type="date" class="form-control" id="iddateDisponibilite"
+					placeholder="Entrez la date de disponibilité"
+					ng-model="locations.dateDisponibilite">
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idrevenuCadastral">Revenu
-			cadastral</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idrevenuCadastral"
-				placeholder="Entrez le revenu cadastral"
-				ng-model="locations.revenuCadastral">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idrevenuCadastral">Revenu
+				cadastral</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idrevenuCadastral"
+					placeholder="Entrez le revenu cadastral"
+					ng-model="locations.revenuCadastral">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idsuperficie">Superficie</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idsuperficie"
-				placeholder="Entrez la superficie" ng-model="locations.superficie">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idsuperficie">Superficie</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idsuperficie"
+					placeholder="Entrez la superficie" ng-model="locations.superficie">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idnumero">Numero</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idnumero"
-				placeholder="Entrez le numero" ng-model="locations.adresse.numero">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idnumero">Numero</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idnumero"
+					placeholder="Entrez le numero" ng-model="locations.adresse.numero">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idrue">Rue</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idrue"
-				placeholder="Entrez la rue" ng-model="locations.adresse.rue">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idrue">Rue</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idrue"
+					placeholder="Entrez la rue" ng-model="locations.adresse.rue">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idcp">Code postal</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idcp"
-				placeholder="Entrez le code postal" ng-model="locations.adresse.cp">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idcp">Code postal</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idcp"
+					placeholder="Entrez le code postal" ng-model="locations.adresse.cp">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idville">Ville</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idville"
-				placeholder="Entrez la ville" ng-model="locations.adresse.ville">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idville">Ville</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idville"
+					placeholder="Entrez la ville" ng-model="locations.adresse.ville">
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idcaution">Caution</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idcaution"
-				placeholder="Entrez la caution" ng-model="locations.caution">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idcaution">Caution</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idcaution"
+					placeholder="Entrez la caution" ng-model="locations.caution">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idloyer">Loyer</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idloyer"
-				placeholder="Entrez le loyer" ng-model="locations.loyer">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idloyer">Loyer</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idloyer"
+					placeholder="Entrez le loyer" ng-model="locations.loyer">
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idcharges">Charges</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idcharges"
-				placeholder="Entrez les charges" ng-model="locations.charges">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idcharges">Charges</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idcharges"
+					placeholder="Entrez les charges" ng-model="locations.charges">
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label class="control-label col-sm-2" for="idbail">Bail</label>
-		<div class="col-sm-6">
-			<input type="text" class="form-control" id="idbail"
-				placeholder="Entrez le bail" ng-model="locations.bail">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idbail">Bail</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="idbail"
+					placeholder="Entrez le bail" ng-model="locations.bail">
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<label for="idmeuble" class="control-label col-sm-2">Meublé ?</label>
-		<div class="col-sm-6">
-			<select class="form-control" id="idmeuble"
-				ng-model="locations.meuble">
-				<option ng-value=true>Oui</option>
-				<option ng-value=false>Non</option>
-			</select>
+		<div class="form-group">
+			<label for="idmeuble" class="control-label col-sm-2">Meublé ?</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idmeuble"
+					ng-model="locations.meuble">
+					<option ng-value=true>Oui</option>
+					<option ng-value=false>Non</option>
+				</select>
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-default"
-				ng-click="ajouterLocation()">Ajouter</button>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="ajouterLocation()">Ajouter</button>
+			</div>
 		</div>
-	</div>
-</form>
+	</form>
+</div>

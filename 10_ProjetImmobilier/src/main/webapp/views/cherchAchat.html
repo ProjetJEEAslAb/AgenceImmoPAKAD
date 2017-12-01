@@ -1,0 +1,99 @@
+<h1>Formulaire de recherche des achats</h1>
+
+	<h2>{{msg}}</h2>
+
+
+	<form class="form-horizontal">
+	<div class="form-group">
+		<label for="idId" class="control-label col-sm-2">ID</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="idId"
+				ng-model="id">
+				<option ng-value = "achat.id_b" ng-repeat="achat in achatListe">{{achat.id_b}}, de {{achat.proprio.nom}} au {{achat.adresse.numero}} {{achat.adresse.rue}}, {{achat.adresse.cp}} {{achat.adresse.ville}}</option>
+			</select>
+		</div>
+	</div>
+
+
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default"
+				ng-click="rechercherAchat()">Rechercher</button>
+		</div>
+	</div>
+</form>
+
+<div  ng-show="indice">
+	<table class="table table-hover" >
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Classe standard</th>
+				<th>Statut</th>
+				<th>Date de soumission</th>
+				<th>Date de disponibilité</th>
+				<th>Revenu cadastral</th>
+				<th>Superficie</th>
+				<th>Agent</th>
+				<th>Propriétaire</th>
+				<th>Numéro</th>
+				<th>Rue</th>
+				<th>CP</th>
+				<th>Ville</th>
+				<th>Prix de vente</th>
+				<th>Etat</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{achatFind.id_b}}</td>
+				<td>{{achatFind.classe.id_cl}}</td>
+				<td>{{achatFind.statut}}</td>
+				<td>{{achatFind.dateSoumission}}</td>
+				<td>{{achatFind.dateDisponibilite}}</td>
+				<td>{{achatFind.revenuCadastral}}</td>
+				<td>{{achatFind.superficie}}</td>
+				<td>{{achatFind.agent.identifiant}}</td>
+				<td>{{achatFind.proprio.id}}</td>
+				<td>{{achatFind.adresse.numero}}</td>
+				<td>{{achatFind.adresse.rue}}</td>
+				<td>{{achatFind.adresse.cp}}</td>
+				<td>{{achatFind.adresse.ville}}</td>
+				<td>{{achatFind.prixVente}}</td>
+				<td>{{achatFind.etat}}</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h3>Propriétaire du bien</h3>
+	
+	<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Numéro privé</th>
+			<th>Numéro travail</th>
+			<th>Adresse</th>
+			<th>Code postal</th>
+			<th>Ville</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{achatFind.proprio.id}}</td>
+			<td>{{achatFind.proprio.nom}}</td>
+			<td>{{achatFind.proprio.numPrive}}</td>
+			<td>{{achatFind.proprio.numTravail}}</td>
+			<td>{{achatFind.proprio.adresse.numero}}
+				{{achatFind.proprio.adresse.rue}}</td>
+			<td>{{achatFind.proprio.adresse.cp}}</td>
+			<td>{{achatFind.proprio.adresse.ville}}</td>
+		</tr>
+	</tbody>
+</table>
+
+</div>
+</body>
+</html>

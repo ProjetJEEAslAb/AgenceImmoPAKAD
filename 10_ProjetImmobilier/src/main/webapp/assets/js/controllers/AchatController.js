@@ -93,3 +93,29 @@ immoApp.controller("afficheAchatCtrl", function($scope, achatProvider, $location
 			})
 		}
 })
+
+.controller("supprAchatCtrl", function($scope, achatProvider, $location, $rootScope) {
+	$scope.id=0;
+	
+	$scope.supprimerAchat=function(){
+		achatProvider.deleteAchat($scope.id, function(callBAck) {
+			$location.path("listeClasses");
+		})
+	}
+})
+
+.controller("cherchAchatCtrl", function($scope, achatProvider, $location) {
+	$scope.id=0;
+	$scope.indice=false;
+	
+	$scope.rechercherAchat=function(){
+		achatProvider.searchAchat($scope.id, function(callBack) {
+			$scope.achatFind=callBack;
+			if (callBack != undefined && callBack != "") {
+				$scope.indice=true;
+			} else{
+				$scope.msg="Problème lors de la recherche."
+			};
+		})
+	}
+});

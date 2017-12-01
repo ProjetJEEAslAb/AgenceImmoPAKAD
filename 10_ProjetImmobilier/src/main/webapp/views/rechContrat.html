@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page de recherche des contrats</title>
+</head>
+<body>
+
+	<h1>Formulaire de recherche des contrats</h1>
+
+	<h5 style="color: red;">Les champs précédés d'un * sont obligatoires</h5>
+
+	<form class="form-horizontal" name="rechContratForm">
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="Id">ID *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="Id" required="required" pattern="[1-9]{1}[0-9]*"
+					placeholder="Entrez l'id du contrat" ng-model="idContrat">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="rechercherContrat()" ng-disabled="rechContratForm.$invalid">Rechercher</button>
+			</div>
+		</div>
+	</form>
+
+	<table class="table table-hover" ng-show="indice">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Date d'achat</th>
+				<th>Prix final</th>
+				<th>Client</th>
+				<th>Achat</th>
+				<th>Location</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{contratFind.id_co}}</td>
+				<td>{{contratFind.dateAchat}}}</td>
+				<td>{{contratFind.prixFinal}}</td>
+				<td>{{contratFind.client.nom}}</td>
+				<td>{{contratFind.achat.id_b}}</td>
+				<td>{{contratFind.location.id_b}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

@@ -1,63 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Page d'ajout des classes standard</title>
-</head>
-<body>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
 
-	<h1>Formulaire d'ajout de classes standard</h1>
+<h1>Formulaire d'ajout de classes standard</h1>
 
-	<h5 style="color: red;">Les champs pr�c�d�s d'un * sont obligatoires</h5>
+<h5 style="color: red;">Les champs précédés d'un * sont
+	obligatoires</h5>
 
-	<form class="form-horizontal" name="ajoutClasseStandardForm">
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="idTypeBien">Type
-				de bien</label>
-			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idTypeBien"
-					placeholder="Entrez le type de bien" 
-					ng-model="classeStandard.typeBien">
-			</div>
+<form class="form-horizontal" name="ajoutClasseStandardForm">
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idTypeBien">Type de
+			bien *</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="idTypeBien"
+				ng-model="classeStandard.typeBien" >
+				<option>Terrain</option>
+				<option>Appartement</option>
+				<option>Studio</option>
+				<option>Maison
+					plain pied</option>
+				<option>Maison à étage</option>
+				<option>Manoir</option>
+				<option>Château</option>
+
+			</select>
 		</div>
+	</div>
 
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="idmodeOffre">Mode
-				d'offre</label>
-			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idmodeOffre"
-					placeholder="Entrez le mode d'offre" 
-					ng-model="classeStandard.modeOffre">
-			</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idmodeOffre">Mode
+			d'offre *</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="idmodeOffre"
+				ng-model="classeStandard.modeOffre">
+				<option>Location</option>
+				<option>Achat</option>
+			</select>
 		</div>
+	</div>
 
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="idPrixMax">Prix
-				maximal *</label>
-			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idPrixMax"
-					placeholder="Entrez le prix maximal" required="required" pattern="[1-9]{1}[0-9]*"
-					ng-model="classeStandard.prixMax">
-			</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idPrixMax">Prix
+			maximal *</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idPrixMax"
+				placeholder="Entrez le prix maximal" required="required"
+				pattern="[1-9]{1}[0-9]*" ng-model="classeStandard.prixMax">
 		</div>
+	</div>
 
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="idSuperficieMin">Superficie
-				minimale *</label>
-			<div class="col-sm-6">
-				<input type="text" class="form-control" id="idSuperficieMin"
-					placeholder="Entrez la superficie minimale" required="required" pattern="[1-9]{1}[0-9]*"
-					ng-model="classeStandard.superficieMin">
-			</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idSuperficieMin">Superficie
+			minimale *</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idSuperficieMin"
+				placeholder="Entrez la superficie minimale" required="required"
+				pattern="[1-9]{1}[0-9]*" ng-model="classeStandard.superficieMin">
 		</div>
+	</div>
 
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default"
-					ng-click="ajouterClasseStandard()" ng-disabled="ajoutClasseStandardForm.$invalid">Ajouter</button>
-			</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default"
+				ng-click="ajouterClasseStandard()"
+				ng-disabled="ajoutClasseStandardForm.$invalid">Ajouter</button>
 		</div>
-	</form>
-
-</body>
-</html>
+	</div>
+</form>
