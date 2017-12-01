@@ -15,6 +15,9 @@
 				<th>Nom</th>
 				<th>Téléphone personnel</th>
 				<th>Téléphone professionnel</th>
+				<th>Adresse</th>
+				<th>Code postal</th>
+				<th>Ville</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,6 +26,9 @@
 				<td>{{proprio.nom}}</td>
 				<td>{{proprio.numPrive}}</td>
 				<td>{{proprio.numTravail}}</td>
+				<td>{{proprio.adresse.numero}} {{proprio.adresse.rue}}</td>
+				<td>{{proprio.adresse.cp}}</td>
+				<td>{{proprio.adresse.ville}}</td>
 			</tr>
 		</tbody>
 	</table>

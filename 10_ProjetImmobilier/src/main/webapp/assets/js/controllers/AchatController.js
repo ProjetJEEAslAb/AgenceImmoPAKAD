@@ -33,15 +33,20 @@ immoApp.controller("afficheAchatCtrl", function($scope, achatProvider, $location
 	$scope.miseAJour=function(){
 		console.log($rootScope.proprioListe);
 		if($scope.achat.classe.typeBien=="terrain"){
-			console.log("On n'affiche pas")
 			$scope.terrain=true;
 		} else {
-			console.log("On affiche")
 			$scope.terrain=false;
 		}
-	}
+	};
 	
 	$scope.ajouterAchat=function(){
-		console.log($scope.achat);
-	}
+		achatProvider.addAchat($scope.achat, function(callBack) {
+			console.log($scope.achat);
+			console.log(callBack);
+			if (callBack != undefined && callBack != "") {
+				$location.path("listeClasses");
+			}
+		})
+	};
+	
 })

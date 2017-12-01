@@ -8,14 +8,14 @@
 
 	<h1>Formulaire de modification de classes standard</h1>
 
-	<h2>{{msg}}</h2>
+	<h5 style="color: red;">Les champs précédés d'un * sont obligatoires</h5>
 
-	<form class="form-horizontal">
+	<form class="form-horizontal" name="modifClasseStandardForm">
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="id">ID</label>
+			<label class="control-label col-sm-2" for="id">ID *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="id"
-					placeholder="Entrez l'id"
+					placeholder="Entrez l'id" required="required" pattern="[1-9]{1}[0-9]*"
 					ng-model="classeStandard.id_cl">
 			</div>
 		</div>
@@ -42,20 +42,20 @@
 
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="idPrixMax">Prix
-				maximal</label>
+				maximal *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idPrixMax"
-					placeholder="Entrez le prix maximal"
+					placeholder="Entrez le prix maximal" required="required" pattern="[1-9]{1}[0-9]*"
 					ng-model="classeStandard.prixMax">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="idSuperficieMin">Superficie
-				minimale</label>
+				minimale *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idSuperficieMin"
-					placeholder="Entrez la superficie minimale"
+					placeholder="Entrez la superficie minimale" required="required" pattern="[1-9]{1}[0-9]*"
 					ng-model="classeStandard.superficieMin">
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default"
-					ng-click="modifierClasseStandard()">Modifier</button>
+					ng-click="modifierClasseStandard()" ng-disabled="modifClasseStandardForm.$invalid">Modifier</button>
 			</div>
 		</div>
 	</form>
