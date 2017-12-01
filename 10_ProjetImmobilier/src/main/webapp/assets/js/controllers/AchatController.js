@@ -93,3 +93,13 @@ immoApp.controller("afficheAchatCtrl", function($scope, achatProvider, $location
 			})
 		}
 })
+
+.controller("supprAchatCtrl", function($scope, achatProvider, $location, $rootScope) {
+	$scope.id=0;
+	
+	$scope.supprimerAchat=function(){
+		achatProvider.deleteAchat($scope.id, function(callBAck) {
+			$location.path("listeClasses");
+		})
+	}
+})
