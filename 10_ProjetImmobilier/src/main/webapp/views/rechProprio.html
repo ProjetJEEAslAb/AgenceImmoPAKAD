@@ -7,8 +7,11 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Id">ID</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="Id"
-					placeholder="Entrez l'id du propriétaire" ng-model="id">
+				<select class="form-control" id="Id"
+					ng-model="id">
+					<option ng-value="proprio.id" ng-repeat="proprio in proprioListe">{{proprio.id}}
+						{{proprio.nom}}</option>
+				</select>
 			</div>
 		</div>
 
@@ -27,6 +30,9 @@
 				<th>Nom</th>
 				<th>Numéro privé</th>
 				<th>Numéro travail</th>
+				<th>Adresse</th>
+				<th>Code postal</th>
+				<th>Ville</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,6 +41,9 @@
 				<td>{{proprioCherch.nom}}</td>
 				<td>{{proprioCherch.numPrive}}</td>
 				<td>{{proprioCherch.numTravail}}</td>
+				<td>{{proprioCherch.adresse.numero}} {{proprioCherch.adresse.rue}}</td>
+				<td>{{proprioCherch.adresse.cp}}</td>
+				<td>{{proprioCherch.adresse.ville}}</td>
 			</tr>
 		</tbody>
 	</table>
