@@ -1,5 +1,6 @@
-immoApp.controller("ajoutLocationCtrl",
-		function($scope, bienProvider, $location) {
+immoApp.controller(
+		"ajoutLocationCtrl",
+		function($scope, locationProvider, $location) {
 			console.log("bla")
 			// Initialisation de l'objet à ajouter
 			$scope.locations = {
@@ -29,19 +30,36 @@ immoApp.controller("ajoutLocationCtrl",
 			}
 
 			$scope.ajouterLocation = function() {
-				console.log($scope.locations);
-				bienProvider.addLocation($scope.locations, function(callBack) {
+
+				locationProvider.addLocation($scope.locations, function(
+						callBack) {
 					if (callBack != undefined && callBack != "") {
-						$location.path("listeClasses");
+						$location.path("afficheLocation");
 					}
 				});
 			};
 		})
 
 .controller("afficheLocationCtrl",
-		function($scope, bienProvider, $location, $rootScope) {
+		function($scope, locationProvider, $location, $rootScope) {
 
-			bienProvider.getAllLocations(function(callBack) {
+			locationProvider.getAllLocations(function(callBack) {
 				$rootScope.locationListe = callBack;
 			});
+		})
+
+.controller(
+		"supprLocationCtrl",
+		function($scope, locationProvider, $location, $rootScope) {
+
+			$scope.idLocation = 0;
+
+			$scope.supprimerLocation = function() {
+
+				locationProvider.deleteLocation($scope.idLocation, function(
+						callBack) {
+					$location.path("afficheLocation");
+
+				});
+			};
 		})

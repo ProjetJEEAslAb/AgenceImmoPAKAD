@@ -32,7 +32,15 @@ immoApp.config(function($routeProvider) {
 	}).when("/afficheLocation", {
 		templateUrl : "views/listeLocations.html",
 		controller : "afficheLocationCtrl"
-	
+	}).when("/supprLocation", {
+		templateUrl : "views/suppLocation.html",
+		controller : "supprLocationCtrl"
+	}).when("/modifLocation", {
+		templateUrl : "views/modifLocation.html",
+		controller : "modifLocationCtrl"
+	}).when("/rechLocation", {
+		templateUrl : "views/rechLocation.html",
+		controller : "rechLocationCtrl"
 
 	// ----- Clients -------
 	}).when("/listeClients", {
@@ -52,8 +60,6 @@ immoApp.config(function($routeProvider) {
 	}).when("/rechClient", {
 		templateUrl : "views/rechClient.html",
 		controller : "rechClientCtrl"
-
-	
 
 	// ----- Proprio -------
 	}).when("/afficheProprio", {
@@ -76,17 +82,15 @@ immoApp.config(function($routeProvider) {
 		templateUrl : "views/rechProprio.html",
 		controller : "rechProprioCtrl"
 
-	
-
 	// ----- Visite -------
 	}).when("/afficheVisite", {
 		templateUrl : "views/listeVisite.html",
 		controller : "visiteCtrl"
-			
+
 	}).when("/ajoutVisite", {
 		templateUrl : "views/ajoutVisite.html",
-		controller : "ajoutVisiteCtrl"		
-		
+		controller : "ajoutVisiteCtrl"
+
 	// ------Achats---------
 	}).when("/afficheAchat", {
 		templateUrl : "views/afficheAchat.html",
@@ -103,8 +107,7 @@ immoApp.config(function($routeProvider) {
 	}).when("/cherchAchat", {
 		templateUrl : "views/cherchAchat.html",
 		controller : "cherchAchatCtrl"
-	
-			
+
 	// --- Redirection par défault
 	}).otherwise({
 		redirectTo : "/listeClasses"
