@@ -53,13 +53,25 @@ immoApp.factory("achatProvider", function($http) {
 		}, function echec(reponse) {
 			console.log("----- Erreur : " + reponse.statusText);
 		})
+	};
+	
+	function cherchAchat(id, callBack) {
+		$http({
+			method:'GET',
+			url:restUrlWS+urlMost+"/"+id
+		}).then(function succes(reponse) {
+			callBack(reponse.data);
+		}, function echec(reponse) {
+			console.log("----- Erreur : " + reponse.statusText);
+		})
 	}
 	
 	return{
 		getAllAchats:findAllAchats,
 		addAchat:ajoutAchat,
 		updateAchat:modifAchat,
-		deleteAchat:supprAchat
+		deleteAchat:supprAchat,
+		searchAchat:cherchAchat
 	}
 	
 });
