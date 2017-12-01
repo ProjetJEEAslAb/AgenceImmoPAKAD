@@ -1,5 +1,5 @@
 immoApp.controller("listeClassesStandardCtrl",
-		function($scope, classesStandardProvider, $location, $rootScope, proprioProvider) {
+		function($scope, classesStandardProvider, $location, $rootScope, proprioProvider, achatProvider, locationProvider) {
 			console.log("Hola")
 			classesStandardProvider.getAllClasses(function(callBack) {
 				
@@ -7,6 +7,12 @@ immoApp.controller("listeClassesStandardCtrl",
 			});
 			proprioProvider.getAllProprio(function(callBack) {
 				$rootScope.proprioListe = callBack;
+			});
+			achatProvider.getAllAchats(function(callBack){
+				$rootScope.achatListe=callBack;
+			});
+			locationProvider.getAllLocations(function(callBack) {
+				$rootScope.locationListe = callBack;
 			});
 		})
 

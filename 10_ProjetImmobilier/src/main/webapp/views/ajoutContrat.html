@@ -12,10 +12,16 @@
 
 	<form class="form-horizontal">
 
-		<div class="col-sm-offset-2">
-			<input type="radio" id="a" name="type" ng-model="un" checked="checked"><label for="a">Achat</label> 
-			<input type="radio" id="l" name="type" ng-model="deux"><label for="l">Location</label>
+		<div class="form-group">
+		<label for="idoffre" class="control-label col-sm-2">Mode d'offre</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="idoffre"
+				ng-model="type">
+				<option ng-value="true">Achat</option>
+				<option selected="selected" ng-value="false">Location</option>
+			</select>
 		</div>
+	</div>
 
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="iddateAchat">Date
@@ -35,25 +41,25 @@
 			</div>
 		</div>
 
-		<div class="form-group" ng-show="un">
+		<div class="form-group" ng-show="type">
 			<label for="idAchat" class="control-label col-sm-2">Achat</label>
 			<div class="col-sm-6">
 				<select class="form-control" id="idAchat"
 					ng-model="contrat.achat.id_b">
-					<option ng-value="achat.id_b" ng-repeat="achat in achatListe">{{achat.id_b}}
-						{{achat.prixVente}} {{achat.etat}}</option>
+					<option ng-value="achat.id_b" ng-repeat="achat in achatListe">ID : {{achat.id_b}} /
+						PRIX DE VENTE : {{achat.prixVente}}euros / ETAT : {{achat.etat}}</option>
 				</select>
 			</div>
 		</div>
 
-		<div class="form-group" ng-show="deux">
-			<label for="idAchat" class="control-label col-sm-2">Location</label>
+		<div class="form-group" ng-show="!type">
+			<label for="idLocation" class="control-label col-sm-2">Location</label>
 			<div class="col-sm-6">
 				<select class="form-control" id="idLocation"
 					ng-model="contrat.location.id_b">
 					<option ng-value="location.id_b"
-						ng-repeat="location in locationListe">{{location.id_b}}
-						{{location.loyer}} {{location.charges}} {{location.caution}}</option>
+						ng-repeat="location in locationListe">ID : {{location.id_b}} /
+						LOYER : {{location.loyer}}euros / CHARGES : {{location.charges}}euros / CAUTION : {{location.caution}}euros</option>
 				</select>
 			</div>
 		</div>
