@@ -28,30 +28,27 @@
 		</div>
 	</form>
 
-	<table class="table table-hover" ng-show="indice">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nom</th>
-				<th>Rue</th>
-				<th>N° de la voie</th>
-				<th>CP</th>
-				<th>Ville</th>
-				<th>Tel</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>{{clientFind.id_client}}</td>
-				<td>{{clientFind.nom}}</td>
-				<td>{{clientFind.adresse.rue}}</td>
-				<td>{{clientFind.adresse.numero}}</td>
-				<td>{{clientFind.adresse.cp}}</td>
-				<td>{{clientFind.adresse.ville}}</td>
-				<td>{{clientFind.num}}</td>
-			</tr>
-		</tbody>
-	</table>
+<h2>Resultat de la recherche</h2>
+
+	<table class="table table-bordered" ng-show="indice">
+    <thead>
+    <tr>
+        <th></th>
+        <th colspan="10" style="text-align: center">Type de Contrat</th>
+    </tr>
+    </thead>
+    <tbody>
+        <th scope="row">Client</th>
+        <th colspan="5" style="text-align: center">Achat</th>
+        <th colspan="5" style="text-align: center">Location</th>
+    </tr>
+    <tr ng-repeat="visite in visiteListe">
+        <td scope="row">{{visite.client.nom}} (tel : {{visite.client.numero}})</th>
+        <td colspan="5" style="text-align: center">{{visite.achat.adresse.numero}},{{visite.achat.adresse.rue}},{{visite.achat.adresse.cp}} {{visite.achat.adresse.ville}}<br/>{{visite.achat.adresse.superficie}}<br/>{{visite.achat.adresse.revenuCadastral}} </td>
+        <td colspan="5" style="text-align: center">{{visite.bien.id_b}}</td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
