@@ -122,7 +122,7 @@ immoApp.config(function($routeProvider) {
 			
 	// ----- Contrats -------
 	}).when("/afficheContrat", {
-		templateUrl : "views/listeContrat.html",
+		templateUrl : "views/afficheContrat.html",
 		controller : "contratCtrl"
 
 	}).when("/ajoutContrat", {

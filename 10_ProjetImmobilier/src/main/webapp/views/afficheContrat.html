@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des contrats</title>
+</head>
+<body>
+
+	<h2>Liste des contrats</h2>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Date Achat</th>
+				<th>Prix Final</th>
+				<th>Achat</th>
+				<th>Location</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contrat in contratsListe">
+				<td>{{contrat.id_co}}</td>
+				<td>{{contrat.dateAchat}}</td>
+				<td>{{contrat.prixFinal}}</td>
+				<td>{{contrat.achat.id_b}</td>
+				<td>{{contrat.location.id_b}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
