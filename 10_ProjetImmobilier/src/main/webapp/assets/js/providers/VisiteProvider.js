@@ -6,12 +6,12 @@ immoApp.factory("visiteProvider", function($http) {
 	var restUrlUpdate = "/visite";
 	var restUrlFind = "/visite/";
 	
-	// Récupérer la liste des clients
+	// Récupérer la liste des visites
 	function getAllVisites(callBack) {
 		// Envoyer la requête au service
 		$http({
 			method : 'GET',
-			url : restUrlWS + restUrlListe
+			url : restUrlWS + "/listeVisite"
 		}).then(function succes(response) {
 			callBack(response.data);
 
