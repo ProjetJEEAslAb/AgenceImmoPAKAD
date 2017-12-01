@@ -1,6 +1,7 @@
 immoApp.factory("achatProvider", function($http) {
 	var restUrlWS = "http://localhost:8080/10_ProjetImmobilier";
-	var urlListe="/achats"
+	var urlListe="/achats";
+	var urlMost="/achat";
 		
 	function findAllAchats(callBack){
 		$http({
@@ -13,8 +14,26 @@ immoApp.factory("achatProvider", function($http) {
 		});
 	}
 	
+	function ajoutAchat(achat, callBack){
+		$http({
+			method:'POST',
+			url:restUrlWS+urlMost,
+			data : angular.toJson(achat),
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(reponse) {
+			console.log(reponse.data);
+			callBack(reponse.data);
+			console.log(callBack);
+		}, function echec(reponse) {
+			console.log("----- Erreur : " + response.statusText);
+		});
+	};
+	
 	return{
-		getAllAchats:findAllAchats
+		getAllAchats:findAllAchats,
+		addAchat:ajoutAchat
 	}
 	
 });

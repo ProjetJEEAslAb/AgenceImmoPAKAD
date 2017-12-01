@@ -30,16 +30,16 @@ public class BienServiceImpl implements IBienService {
 	@Override
 	public Achat addAchat(Achat a) {
 
-		if (a.getClasse().getModeOffre().equals("Achat") && a.getClasse().getPrixMax() > a.getPrixVente()
-				&& a.getClasse().getSuperficieMin() < a.getSuperficie()) {
+//		if (a.getClasse().getModeOffre().equals("Achat") && a.getClasse().getPrixMax() > a.getPrixVente()
+//				&& a.getClasse().getSuperficieMin() < a.getSuperficie()) {
 
 			return bienDao.addAchat(a);
 
-		} else {
-
-			return null;
-
-		}
+//		} else {
+//
+//			return null;
+//
+//		}
 	}
 
 	@Override
