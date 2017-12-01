@@ -22,7 +22,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 
 			if (callBack != undefined && callBack != "") {
 				console.log(callBack)
-				$location.path("listeProprio");
+				$location.path("afficheProprio");
 			}
 		});
 	}
@@ -47,7 +47,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 
 			if (callBack != undefined && callBack != "") {
 				console.log(callBack)
-				$location.path("listeProprio");
+				$location.path("afficheProprio");
 			}
 		});
 	}
@@ -72,7 +72,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 		// la bdd
 		proprioProvider.deleteProprio($scope.proprioSuppr, function(callBack) {
 
-			$location.path("listeProprio");
+			$location.path("afficheProprio");
 		});
 	}
 })
