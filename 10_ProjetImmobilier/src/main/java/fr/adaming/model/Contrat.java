@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.ManyToAny;
 
@@ -25,6 +27,7 @@ public class Contrat implements Serializable {
 	@Column(name="num")
 	private int id_co;
 	
+	@Temporal(TemporalType.DATE)
 	private Date dateAchat;
 	
 	private double prixFinal;

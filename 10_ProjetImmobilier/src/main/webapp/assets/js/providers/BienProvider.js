@@ -1,23 +1,25 @@
 immoApp.factory("bienProvider", function($http) {
 	var restUrlWS = "http://localhost:8080/10_ProjetImmobilier";
 	var restUrlListe = "/locations";
-	
-	function addLocations(locations, callBack){
+
+	function addLocations(locations, callBack) {
+		console.log(locations);
 		$http({
-			method:'POST',
-			url:restUrlWS+"/location",
-			data:angular.toJson(locations),
-			headers:{
+			method : 'POST',
+			url : restUrlWS + "/location",
+			data : angular.toJson(locations),
+			headers : {
 				'content-type' : "application/json"
 			}
 		}).then(function succes(reponse) {
-			callBack(response.data);
+			console.log("provider" + reponse.data)
+			callBack(reponse.data);
 		}, function echec(reponse) {
 			console.log("----- Erreur : " + reponse.statusText)
 		})
 	}
-	
-	function findAllLocations(callBack){
+
+	function findAllLocations(callBack) {
 		// Envoyer la requête au service
 		$http({
 			method : 'GET',
@@ -29,9 +31,9 @@ immoApp.factory("bienProvider", function($http) {
 			console.log("----- Erreur : " + response.statusText)
 		})
 	}
-	
+
 	return {
-		addLocation:addLocations,
+		addLocation : addLocations,
 		getAllLocations : findAllLocations
 	}
 })
