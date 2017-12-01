@@ -8,14 +8,14 @@
 
 	<h1>Formulaire de recherche des clients</h1>
 
-	<h2>{{msg}}</h2>
+	<h5 style="color: red;">Les champs précédés d'un * sont obligatoires</h5>
 
-	<form class="form-horizontal">
+	<form class="form-horizontal" name="rechClientForm">
 
 		<div class="form-group">
-			<label class="control-label col-sm-2" for="Id">ID</label>
+			<label class="control-label col-sm-2" for="Id">ID *</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="Id"
+				<input type="text" class="form-control" id="Id" required="required" pattern="[1-9]{1}[0-9]*"
 					placeholder="Entrez l'id du client" ng-model="idClient">
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default"
-					ng-click="rechercherClient()">Rechercher</button>
+					ng-click="rechercherClient()" ng-disabled="rechClientForm.$invalid">Rechercher</button>
 			</div>
 		</div>
 	</form>
