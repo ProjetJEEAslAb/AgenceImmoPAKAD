@@ -1,6 +1,6 @@
-immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location) {
+immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $rootScope) {
 	proprioProvider.getAllProprio(function(callBack) {
-		$scope.proprioListe = callBack;
+		$rootScope.proprioListe = callBack;
 	});
 })
 

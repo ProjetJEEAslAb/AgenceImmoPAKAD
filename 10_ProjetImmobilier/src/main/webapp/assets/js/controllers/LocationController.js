@@ -63,3 +63,46 @@ immoApp.controller(
 				});
 			};
 		})
+
+.controller("modifLocationCtrl", function($scope, locationProvider, $location) {
+
+	// Initialisation de l'objet à modifier
+	$scope.locations = {
+		id_b : undefined,
+		statut : "",
+		dateSoumission : undefined,
+		dateDisponibilite : undefined,
+		revenuCadastral : 0,
+		superficie : 0,
+		classe : {
+			id_cl : 0,
+		},
+		contrat : undefined,
+		adresse : {
+			rue : "",
+			numero : "",
+			cp : 0,
+			ville : ""
+		},
+		proprio : {
+			id : undefined,
+		},
+		caution : 0,
+		loyer : 0,
+		charges : 0,
+		bail : "",
+		meuble : false
+	}
+
+	$scope.modifierLocation = function() {
+
+		console.log("---- Fonction : " + $scope.locations.id_b)
+		
+		locationProvider.updateLocation($scope.locations, function(callBack) {
+			console.log("---- Controller : " + callBack)
+			if (callBack != undefined && callBack != "") {
+				$location.path("afficheLocation");
+			}
+		});
+	};
+})

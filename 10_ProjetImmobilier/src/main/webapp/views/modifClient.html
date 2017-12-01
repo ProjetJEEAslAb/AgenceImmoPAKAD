@@ -23,7 +23,7 @@
 			<label class="control-label col-sm-2" for="idNom">Nom *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idNom"
-					placeholder="Entrez le nom" ng-model="clientModif.nom" required="required">
+					placeholder="Entrez le nom" ng-model="clientModif.nom" required="required" pattern="[a-zA-Z ]+">
 			</div>
 		</div>
 		
@@ -31,7 +31,7 @@
 			<label class="control-label col-sm-2" for="idRue">Rue *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idRue"
-					placeholder="Entrez le nom de la rue" required="required"
+					placeholder="Entrez le nom de la rue" required="required" pattern="[a-zA-Z ]+"
 					ng-model="clientModif.adresse.rue">
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 			<label class="control-label col-sm-2" for="idNume">Numero de la voie *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idNume"
-					placeholder="Entrez le numero de la voie" required="required"
+					placeholder="Entrez le numero de la voie" required="required" 
 					ng-model="clientModif.adresse.numero">
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 			<label class="control-label col-sm-2" for="idVille">Ville *</label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" id="idVille"
-					placeholder="Entrez le nom de la ville" required="required"
+					placeholder="Entrez le nom de la ville" required="required" pattern="[a-zA-Z ]+"
 					ng-model="clientModif.adresse.ville">
 			</div>
 		</div>

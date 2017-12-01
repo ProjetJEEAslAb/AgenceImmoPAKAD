@@ -1,0 +1,131 @@
+<h1>Formulaire d'ajout de location</h1>
+
+<h2>{{msg}}</h2>
+
+<form class="form-horizontal">
+
+	<div class="form-group">
+		<label for="idclasse" class="control-label col-sm-2">Classe</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="idclasse"
+				ng-model="achat.classe" ng-change="miseAJour()">
+				<option ng-value = "classe" ng-repeat="classe in classesStandardListe">{{classe.id_cl}} {{classe.typeBien}} en {{classe.modeOffre}} à moins de {{classe.prixMax}}€ et de plus de {{classe.superficieMin}}m2</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="idproprio" class="control-label col-sm-2">Propriétaire</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="idproprio"
+				ng-model="achat.proprio.id">
+				<option ng-value=proprio.id ng-repeat="proprio in proprioListe">{{proprio.id}} {{proprio.nom}}</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idStatut">Statut</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="idStatut"
+				ng-model="achat.statut">
+				<option >Disponible</option>
+				<option >Acheté</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="iddateSoumission">Date
+			de soumission</label>
+		<div class="col-sm-6">
+			<input type="date" class="form-control" id="iddateSoumission"
+				placeholder="Entrez la date de soumission"
+				ng-model="achat.dateSoumission">
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="iddateDisponibilite">Date
+			de disponibilité</label>
+		<div class="col-sm-6">
+			<input type="date" class="form-control" id="iddateDisponibilite"
+				placeholder="Entrez la date de disponibilité"
+				ng-model="achat.dateDisponibilite">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idrevenuCadastral">Revenu
+			cadastral</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idrevenuCadastral"
+				placeholder="Entrez le revenu cadastral"
+				ng-model="achat.revenuCadastral">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idsuperficie">Superficie</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idsuperficie"
+				placeholder="Entrez la superficie" ng-model="achat.superficie">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idnumero">Numero</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idnumero"
+				placeholder="Entrez le numero" ng-model="achat.adresse.numero">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idrue">Rue</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idrue"
+				placeholder="Entrez la rue" ng-model="achat.adresse.rue">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idcp">Code postal</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idcp"
+				placeholder="Entrez le code postal" ng-model="achat.adresse.cp">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idville">Ville</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idville"
+				placeholder="Entrez la ville" ng-model="achat.adresse.ville">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="idprixVente">Prix de vente</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="idprixVente"
+				placeholder="Entrez le prix de vente" ng-model="achat.prixVente">
+		</div>
+	</div>
+	
+
+	<div class="form-group" ng-hide="terrain">
+		<label for="idetat" class="control-label col-sm-2">Etat</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="idetat"
+				ng-model="achat.etat">
+				<option >A restaurer</option>
+				<option >Correct</option>
+				<option >Impeccable</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default"
+				ng-click="ajouterAchat()">Ajouter</button>
+		</div>
+	</div>
+</form>

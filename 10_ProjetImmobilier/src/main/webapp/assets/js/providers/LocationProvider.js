@@ -3,6 +3,7 @@ immoApp.factory("locationProvider", function($http) {
 	var restUrlListe = "/locations";
 	var restUrlAdd = "/location";
 	var restUrlDelete = "/location/";
+	var restUrlUpdate = "/location";
 
 	function addLocations(locations, callBack) {
 		console.log(locations);
@@ -46,10 +47,29 @@ immoApp.factory("locationProvider", function($http) {
 			console.log("----- Erreur : " + response.statusText)
 		})
 	}
+	
+	function updateLocations(locations, callBack) {
+
+		console.log("---- Provider : " + locations)
+		
+		$http({
+			method : 'PUT',
+			url : restUrlWS + restUrlUpdate,
+			data : angular.toJson(locations),
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(reponse) {
+			callBack(reponse.data);
+		}, function echec(reponse) {
+			console.log("----- Erreur : " + reponse.statusText)
+		})
+	}
 
 	return {
 		addLocation : addLocations,
 		getAllLocations : findAllLocations,
-		deleteLocation : deleteLocations
+		deleteLocation : deleteLocations,
+		updateLocation : updateLocations
 	}
 })
