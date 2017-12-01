@@ -85,7 +85,7 @@ immoApp.config(function($routeProvider) {
 	// ----- Visite -------
 	}).when("/afficheVisite", {
 		templateUrl : "views/listeVisite.html",
-		controller : "visiteCtrl"
+		controller : "listeVisiteCtrl"
 
 	}).when("/ajoutVisite", {
 		templateUrl : "views/ajoutVisite.html",
