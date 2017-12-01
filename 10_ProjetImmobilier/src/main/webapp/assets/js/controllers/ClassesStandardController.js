@@ -25,10 +25,10 @@ immoApp.controller("listeClassesStandardCtrl",
 
 			// Initialise la classe standard à ajouter
 			$scope.classeStandard = {
-				typeBien : "",
-				modeOffre : "",
-				prixMax : 0,
-				superficieMin : 0,
+				typeBien : undefined,
+				modeOffre : undefined,
+				prixMax : undefined,
+				superficieMin : undefined,
 			}
 
 			// Développement de la méthode ajouter() du bouton
