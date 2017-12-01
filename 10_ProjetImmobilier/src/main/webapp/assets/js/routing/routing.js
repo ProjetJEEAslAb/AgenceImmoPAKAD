@@ -133,9 +133,9 @@ immoApp.config(function($routeProvider) {
 		templateUrl : "views/modifContrat.html",
 		controller : "modifContratCtrl"
 
-	}).when("/supprContrat", {
-		templateUrl : "views/supprContrat.html",
-		controller : "supprContratCtrl"
+	}).when("/suppContrat", {
+		templateUrl : "views/suppContrat.html",
+		controller : "suppContratCtrl"
 
 	}).when("/rechContrat", {
 		templateUrl : "views/rechContrat.html",
