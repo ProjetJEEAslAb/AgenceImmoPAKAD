@@ -1,5 +1,5 @@
 immoApp.controller("listeClassesStandardCtrl",
-		function($scope, classesStandardProvider, $location, $rootScope, proprioProvider, achatProvider, locationProvider) {
+		function($scope, classesStandardProvider, $location, $rootScope, proprioProvider, achatProvider, locationProvider, clientProvider) {
 			console.log("Hola")
 			classesStandardProvider.getAllClasses(function(callBack) {
 				
@@ -13,6 +13,9 @@ immoApp.controller("listeClassesStandardCtrl",
 			});
 			locationProvider.getAllLocations(function(callBack) {
 				$rootScope.locationListe = callBack;
+			});
+			clientProvider.getAllClients(function(callBack) {
+				$rootScope.clientsListe = callBack;
 			});
 		})
 
