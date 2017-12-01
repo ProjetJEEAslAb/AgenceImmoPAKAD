@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page de modification des contrats</title>
+</head>
+<body>
+
+	<h1>Formulaire de modification d'un contrat</h1>
+
+	<h2>{{msg}}</h2>
+
+	<form class="form-horizontal">
+
+	<div class="form-group">
+			<label class="control-label col-sm-2" for="id">ID *</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="id"
+					placeholder="Entrez l'id" ng-model="contratModif.id_co" required="required" pattern="[1-9]{1}[0-9]*">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="iddateAchat">Date
+				d'achat</label>
+			<div class="col-sm-6">
+				<input type="date" class="form-control" id="iddateAchat"
+					placeholder="Entrez la date d'achat" ng-model="contratModif.dateAchat">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="idPrix">Prix final</label>
+			<div class="col-sm-6">
+				<input type="number" class="form-control" id="idPrix"
+					placeholder="Entrez le prix final d'achat"
+					ng-model="contratModif.prixFinal">
+			</div>
+		</div>
+		
+		<div class="form-group" ng-show="!type">
+			<label for="idLocation" class="control-label col-sm-2">Client</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="idLocation"
+					ng-model="contratModif.client.id_client">
+					<option ng-value="client.id_client"
+						ng-repeat="client in clientsListe">ID : {{client.id_client}} /
+						NOM : {{client.nom}}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default"
+					ng-click="modifierContrat()">Modifier</button>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>
