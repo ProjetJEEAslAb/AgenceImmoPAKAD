@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @MappedSuperclass
 public abstract class Bien implements Serializable {
 	
@@ -51,6 +53,7 @@ public abstract class Bien implements Serializable {
 	
 	@OneToOne
 	@JoinColumn(name="co_id", referencedColumnName="num")
+	@JsonIgnore
 	protected Contrat contrat;
 	
 	@Embedded
