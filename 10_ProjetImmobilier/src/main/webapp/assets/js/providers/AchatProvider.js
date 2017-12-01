@@ -12,7 +12,7 @@ immoApp.factory("achatProvider", function($http) {
 		}, function erreur(reponse){
 			console.log("----- Erreur : " + reponse.statusText);
 		});
-	}
+	};
 	
 	function ajoutAchat(achat, callBack){
 		$http({
@@ -23,17 +23,31 @@ immoApp.factory("achatProvider", function($http) {
 				'content-type' : "application/json"
 			}
 		}).then(function succes(reponse) {
-			console.log(reponse.data);
 			callBack(reponse.data);
-			console.log(callBack);
 		}, function echec(reponse) {
-			console.log("----- Erreur : " + response.statusText);
+			console.log("----- Erreur : " + reponse.statusText);
+		});
+	};
+	
+	function modifAchat(achat, callBack) {
+		$http({
+			method:'PUT',
+			url:restUrlWS+urlMost,
+			data : angular.toJson(achat),
+			headers : {
+				'content-type' : "application/json"
+			}
+		}).then(function succes(reponse) {
+			callBack(reponse.data)
+		}, function echec(reponse) {
+			console.log("----- Erreur : " + reponse.statusText);
 		});
 	};
 	
 	return{
 		getAllAchats:findAllAchats,
-		addAchat:ajoutAchat
+		addAchat:ajoutAchat,
+		updateAchat:modifAchat
 	}
 	
 });
