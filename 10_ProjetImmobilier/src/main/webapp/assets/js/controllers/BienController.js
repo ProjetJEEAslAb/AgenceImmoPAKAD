@@ -4,37 +4,33 @@ immoApp.controller("ajoutLocationCtrl",
 			// Initialisation de l'objet à ajouter
 			$scope.locations = {
 				statut : "",
-				dateSoumission : null,
-				dateDisponibilite : null,
+				dateSoumission : undefined,
+				dateDisponibilite : undefined,
 				revenuCadastral : 0,
 				superficie : 0,
 				classe : {
-					id : 0,
-					typeBien : "",
-					modeOffre : "",
-					prixMax : 0,
-					superficieMin : 0,
+					id_cl : 0,
 				},
-				agent : null,
+				contrat : undefined,
 				adresse : {
 					rue : "",
 					numero : "",
 					cp : 0,
 					ville : ""
 				},
-				proprietaire : null,
+				proprio : {
+					id : undefined,
+				},
 				caution : 0,
 				loyer : 0,
 				charges : 0,
-				bail : 0,
-				meuble : ""
-			};
-			console.log($scope.locations)
+				bail : "",
+				meuble : false
+			}
 
 			$scope.ajouterLocation = function() {
-				console.log("ble");
 				console.log($scope.locations);
-				bienProvider.addLocation($scope.location, function(callBack) {
+				bienProvider.addLocation($scope.locations, function(callBack) {
 					if (callBack != undefined && callBack != "") {
 						$location.path("listeClasses");
 					}
