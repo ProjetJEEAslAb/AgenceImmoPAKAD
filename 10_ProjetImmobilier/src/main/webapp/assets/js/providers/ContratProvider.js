@@ -1,13 +1,13 @@
 immoApp.factory("contratProvider", function($http) {
 	var restUrlWS = "http://localhost:8080/10_ProjetImmobilier";
-	var restUrlListe = "/allcontrats";
+	var restUrlListe = "/afficheContrat";
 	var restUrlAdd = "/contrat";
 	var restUrlDelete = "/contrat/";
 	var restUrlUpdate = "/contrat";
 	var restUrlFind = "/contrat/";
 
 	// Récupérer la liste des clients
-	function getAllClients(callBack) {
+	function getAllContrats(callBack) {
 		// Envoyer la requête au service
 		$http({
 			method : 'GET',
@@ -18,5 +18,10 @@ immoApp.factory("contratProvider", function($http) {
 		}, function error(response) {
 			console.log("----- Erreur : " + response.statusText)
 		})
+	}
+	
+	return {
+		
+		getAllContrats : getAllContrats,
 	}
 })
