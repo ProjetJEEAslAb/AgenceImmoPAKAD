@@ -8,29 +8,36 @@
 <body>
 
 	<h2>Liste des visites</h2>
-
-	<table class="table table-bordered">
-    <thead>
-    <tr>
-        <th></th>
-        <th colspan="10" style="text-align: center">Type de Contrat</th>
-    </tr>
-    </thead>
-    <tbody>
-        <th scope="row">Client</th>
-        <th colspan="5" style="text-align: center">Achat</th>
-        <th colspan="5" style="text-align: center">Location</th>
-    </tr>
-    <tr ng-repeat="visite in visiteListe">
-        <td scope="row">{{visite.client.nom}} (tel : {{visite.client.numero}})</th>
-        <td colspan="5" style="text-align: center">{{visite.achat.adresse.numero}},{{visite.achat.adresse.rue}},{{visite.achat.adresse.cp}} {{visite.achat.adresse.ville}}<br/>{{visite.achat.adresse.superficie}}<br/>{{visite.achat.adresse.revenuCadastral}} </td>
-        <td colspan="5" style="text-align: center">{{visite.bien.id_b}}</td>
-    </tr>
-    </tbody>
-</table>
+<form>
+	<table id="dvContainer" class="table table-bordered">
+		<thead>
+			<tr>
+				<th></th>
+				<th colspan="10" style="text-align: center">Type de Contrat</th>
+			</tr>
+		</thead>
+		<tbody>
+			<th scope="row">Client</th>
+			<th colspan="5" style="text-align: center">Achat</th>
+			<th colspan="5" style="text-align: center">Location</th>
+			</tr>
+			<tr ng-repeat="visite in visiteListe">
+				<td scope="row">{{visite.client.nom}} (tel :
+					{{visite.client.numero}})
+				</th>
+				<td colspan="5" style="text-align: center">{{visite.achat.adresse.numero}},{{visite.achat.adresse.rue}},{{visite.achat.adresse.cp}}
+					{{visite.achat.adresse.ville}}<br />{{visite.achat.adresse.superficie}}<br />{{visite.achat.adresse.revenuCadastral}}
+				</td>
+				<td colspan="5" style="text-align: center">{{visite.bien.id_b}}</td>
+			</tr>
+		</tbody>
+	</table>
 
 </body>
 </html>
+
+<input type="button" value="Imprimer/télécharger" id="btnPrint" style="position:absolute; width: 20%; left: 40%"/>
+</form>
 
 </body>
 </html>
