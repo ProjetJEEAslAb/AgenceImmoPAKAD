@@ -1,7 +1,12 @@
 immoApp.config(function($routeProvider) {
 	// ============= Pages Classes Standard
 	// --- Liste
-	$routeProvider.when("/listeClasses", {
+	$routeProvider.when('/login', {
+		templateUrl: 'views/loginPage.html',
+        controller: 'LoginController',     
+        hideMenus: true
+        
+    }).when("/listeClasses", {
 		templateUrl : "views/listeClassesStandard.html",
 		controller : "listeClassesStandardCtrl"
 
@@ -143,6 +148,6 @@ immoApp.config(function($routeProvider) {
 
 	// --- Redirection par défault
 	}).otherwise({
-		redirectTo : "/listeClasses"
+		redirectTo : "/login"
 	})
 })
