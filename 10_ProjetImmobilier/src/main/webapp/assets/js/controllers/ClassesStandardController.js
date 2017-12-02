@@ -1,15 +1,18 @@
-immoApp.controller("listeClassesStandardCtrl",
-		function($scope, classesStandardProvider, $location, $rootScope, proprioProvider, achatProvider, locationProvider, clientProvider) {
-			console.log("Hola")
+immoApp.controller(
+		"listeClassesStandardCtrl",
+		function($scope, classesStandardProvider, $location, $rootScope,
+				proprioProvider, achatProvider, locationProvider,
+				clientProvider) {
+
 			classesStandardProvider.getAllClasses(function(callBack) {
-				
+
 				$rootScope.classesStandardListe = callBack;
 			});
 			proprioProvider.getAllProprio(function(callBack) {
 				$rootScope.proprioListe = callBack;
 			});
-			achatProvider.getAllAchats(function(callBack){
-				$rootScope.achatListe=callBack;
+			achatProvider.getAllAchats(function(callBack) {
+				$rootScope.achatListe = callBack;
 			});
 			locationProvider.getAllLocations(function(callBack) {
 				$rootScope.locationListe = callBack;
@@ -17,6 +20,8 @@ immoApp.controller("listeClassesStandardCtrl",
 			clientProvider.getAllClients(function(callBack) {
 				$rootScope.clientsListe = callBack;
 			});
+
+			$scope.search = "";
 		})
 
 .controller(
@@ -153,5 +158,3 @@ immoApp.controller("listeClassesStandardCtrl",
 			}
 
 		})
-		
-		
