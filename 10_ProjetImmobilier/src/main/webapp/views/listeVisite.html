@@ -3,13 +3,17 @@
 <head>
 
 <meta charset="ISO-8859-1">
+
+
 <title>Liste des visites</title>
 </head>
 <body>
 
 	<h2>Liste des visites</h2>
-<form>
-	<table id="dvContainer" class="table table-bordered">
+
+<div id="dvContainer">
+	<div id="table">
+	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th></th>
@@ -32,12 +36,11 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
+<input type="button"  onclick="myFunction()" value="Imprimer/télécharger" id="btnPrint" style="position:absolute; width: 20%; left: 40%"></input>
 
-</body>
-</html>
+</div>
 
-<input type="button" value="Imprimer/télécharger" id="btnPrint" style="position:absolute; width: 20%; left: 40%"/>
-</form>
 
 </body>
 </html>

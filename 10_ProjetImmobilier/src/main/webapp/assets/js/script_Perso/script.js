@@ -1,6 +1,6 @@
-$(document).ready(function() {
-	$("#btnPrint").on("click", function() {
-		var conceptStore = $("#dvContainer").html();
+function myFunction() {
+		console.log("le bouton a été cliqué")
+		var agence = $("#table").html();
 		var printWindow = window.open('', '_blank', 'height=400,width=800');
 		var is_chrome = Boolean(printWindow.chrome);
 		// ecrire le html dans la nouvelle fenêtre
@@ -14,7 +14,7 @@ $(document).ready(function() {
 		// Add the stylesheet link and inline styles to the new document:
 		 //printWindow.document.write('<link rel="stylesheet" href="resources/css/styleFich.css">');
 
-		printWindow.document.write(conceptStore);
+		printWindow.document.write(agence);
 		printWindow.document.write('</body></html>');
 
 		if (is_chrome) {
@@ -30,5 +30,4 @@ $(document).ready(function() {
 			printWindow.print();
 			printWindow.close();
 		}
-	});
-});
+	}
