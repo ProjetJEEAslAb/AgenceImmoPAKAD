@@ -32,7 +32,7 @@
 						<td>{{visite.id}}</td>
 						<td scope="row">{{visite.client.nom}} (tel :
 							{{visite.client.numero}})</td>
-						<td>{{visite.rdv}}</td>
+						<td>{{visite.rdv | date : "short"}}</td>
 						<td colspan="5" style="text-align: center">{{visite.achat.id_b}} {{visite.achat.adresse.numero}},{{visite.achat.adresse.rue}},{{visite.achat.adresse.cp}}
 							{{visite.achat.adresse.ville}}<br /> Superficie :
 							{{visite.achat.superficie}}<br /> Prix :
