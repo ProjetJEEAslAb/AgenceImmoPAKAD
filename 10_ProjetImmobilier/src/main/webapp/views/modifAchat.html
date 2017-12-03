@@ -17,8 +17,8 @@
 		<label for="idclasse" class="control-label col-sm-2">Classe</label>
 		<div class="col-sm-6">
 			<select class="form-control" id="idclasse"
-				ng-model="achat.classe" ng-change="miseAJour()">
-				<option ng-value = "classe" ng-repeat="classe in classesStandardListe">{{classe.id_cl}} {{classe.typeBien}} en {{classe.modeOffre}} à moins de {{classe.prixMax}}€ et de plus de {{classe.superficieMin}}m2</option>
+				ng-model="achat.classe.id_cl" ng-change="miseAJour()">
+				<option ng-value = "classe.id_cl" ng-repeat="classe in classesStandardListe">{{classe.id_cl}} {{classe.typeBien}} en {{classe.modeOffre}} à moins de {{classe.prixMax}}€ et de plus de {{classe.superficieMin}}m2</option>
 			</select>
 		</div>
 	</div>

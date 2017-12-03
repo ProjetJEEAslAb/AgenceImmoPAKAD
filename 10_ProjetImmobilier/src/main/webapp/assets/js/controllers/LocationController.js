@@ -61,7 +61,7 @@ immoApp
 
 					// Initialiser la classe à modifier dans le rootScope
 					$rootScope.locationModifLien = {
-							id : undefined,
+							id_b : undefined,
 							statut : "",
 							dateSoumission : undefined,
 							dateDisponibilite : undefined,
