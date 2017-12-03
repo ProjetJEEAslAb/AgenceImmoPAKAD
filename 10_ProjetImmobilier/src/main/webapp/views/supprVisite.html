@@ -15,8 +15,11 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Id">ID</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="Id"
-					placeholder="Entrez l'id de la visite" ng-model="id">
+			<select class="form-control" id="id"
+					ng-model="id">
+					<option ng-value="visite.id" ng-repeat="visite in visiteListe">{{visite.rdv}}
+						{{visite.client.nom}}</option>
+				</select>
 			</div>
 		</div>
 

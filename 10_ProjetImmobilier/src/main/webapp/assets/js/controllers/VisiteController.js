@@ -4,12 +4,55 @@ immoApp.controller("listeVisiteCtrl",
 	visiteProvider.listeVisite(function(callBack) {
 		$rootScope.visiteListe = callBack;
 	});
+	
+	// =========================================================
+	// =================== Méthodes Via Lien ===================
+	// =========================================================
+
+	// Initialiser le client à modifier dans le rootScope
+	$rootScope.visiteModifLien={
+		      id: undefined,
+		      rdv: null,
+		      achat:   {
+		         id_b: undefined,
+		      },
+		      location:  {
+		         id_b: undefined,
+		      },
+		      	client:      {
+		          id_client: 0,
+		      }
+		   }
+
+	// Méthode pour modifier via un lien
+	$scope.updateLien = function(visite) {
+
+		// Mettre les valeurs du pays récupéré dans le rootScope
+		$rootScope.visiteModifLien.id = visite.id;
+		$rootScope.visiteModifLien.rdv = visite.rdv;
+		$rootScope.visiteModifLien.achat = visite.achat;
+		$rootScope.visiteModifLien.location = visite.location;
+		$rootScope.visiteModifLien.client.id_client = visite.client.id_client;
+
+		// Aller dans la vue update.html
+		$location.path("modifVisite");
+	}
+
+	// Méthode pour supprimer via un lien
+	$scope.deleteLien = function(visite) {
+
+		visiteProvider.deleteVisite(visite.id, function(callBack) {
+			visiteProvider.listeVisite(function(callBack) {
+				$rootScope.visiteListe = callBack;
+			})
+		})
+	}
+	
 }).controller("ajoutVisiteCtrl",
 		function($scope, visiteProvider, $location) {
 	
 	// Initialisation de l'objet à ajouter
 	$scope.visiteAjout={
-		      id: 0,
 		      rdv: null,
 		      achat:   {
 		         id_b: 0,
@@ -140,14 +183,14 @@ immoApp.controller("listeVisiteCtrl",
 						});
 			}
 
-		}).controller("modifVisiteCtrl", function($scope, visiteProvider, $location) {
+		}).controller("modifVisiteCtrl", function($scope, visiteProvider, $location, $rootScope) {
 
 			// Initialise la classe standard à modifier
 			$scope.visiteModif = {
 					id: 0,
 				      rdv: null,
 				      	achat:       {
-				         id_b: "",
+				         id_b: 0,
 				         statut: null,
 				         dateSoumission: null,
 				         dateDisponibilite: null,
@@ -165,7 +208,9 @@ immoApp.controller("listeVisiteCtrl",
 				         prixVente: "",
 				         etat: null
 				      },
-				      location: null,
+				      location: {
+				    	  id_b:0,
+				      },
 				      client:       {
 				         id_client: "",
 				         nom: "",
@@ -180,6 +225,20 @@ immoApp.controller("listeVisiteCtrl",
 				   }
 				
 
+			if ($rootScope.visiteModifLien.id == undefined) {
+				// Pas de passage par le lien
+
+			} else {
+				
+				// Passage par le lien
+				$scope.visiteModif.id = $rootScope.visiteModifLien.id;
+				$scope.visiteModif.rdv = $rootScope.visiteModifLien.rdv;
+				$scope.visiteModif.achat = $rootScope.visiteModifLien.achat;
+				$scope.visiteModif.location = $rootScope.visiteModifLien.location;
+				$scope.visiteModif.client.id_client = $rootScope.visiteModifLien.client.id_client;
+				
+			}
+			
 			// Développement de la méthode modifier() du bouton
 			$scope.modifierVisite = function() {
 				console.log($scope.visiteModif)
