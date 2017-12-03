@@ -2,6 +2,51 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 	proprioProvider.getAllProprio(function(callBack) {
 		$rootScope.proprioListe = callBack;
 	});
+	
+	// =========================================================
+	// =================== Méthodes Via Lien ===================
+	// =========================================================
+
+	// Initialiser le client à modifier dans le rootScope
+	$rootScope.proprioModifLien = {
+			id:undefined,
+			nom : "",
+			numPrive : 0,
+			numTravail : 0,
+			adresse : {
+				numero : 0,
+				rue : "",
+				cp : "",
+				ville: ""
+			}
+		}
+
+	// Méthode pour modifier via un lien
+	$scope.updateLien = function(proprio) {
+
+		// Mettre les valeurs du pays récupéré dans le rootScope
+		$rootScope.proprioModifLien.id = proprio.id;
+		$rootScope.proprioModifLien.nom = proprio.nom;
+		$rootScope.proprioModifLien.numPrive = proprio.numPrive;
+		$rootScope.proprioModifLien.numTravail = proprio.numTravail;
+		$rootScope.proprioModifLien.adresse.rue = proprio.adresse.rue;
+		$rootScope.proprioModifLien.adresse.numero = proprio.adresse.numero;
+		$rootScope.proprioModifLien.adresse.cp = proprio.adresse.cp;
+		$rootScope.proprioModifLien.adresse.ville = proprio.adresse.ville;
+
+		// Aller dans la vue update.html
+		$location.path("modifProprio");
+	}
+
+	// Méthode pour supprimer via un lien
+	$scope.deleteLien = function(proprio) {
+
+		proprioProvider.deleteProprio(proprio, function(callBack) {
+			proprioProvider.getAllProprio(function(callBack) {
+				$rootScope.proprioListe = callBack;
+			})
+		})
+	}
 })
 
 .controller("ajoutProprioCtrl", function($scope, proprioProvider, $location) {
@@ -34,9 +79,9 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 	}
 })
 
-.controller("modifProprioCtrl", function($scope, proprioProvider, $location) {
+.controller("modifProprioCtrl", function($scope, proprioProvider, $location, $rootScope) {
 
-	// Initialise la classe standard à ajouter
+	// Initialise le propriétaire à modifier
 	$scope.proprioModif = {
 		id : 0,
 		nom : "",
@@ -48,6 +93,23 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 			cp : "",
 			ville: ""
 		}
+	}
+	
+	if ($rootScope.proprioModifLien.id == undefined) {
+		// Pas de passage par le lien
+
+	} else {
+		
+		// Passage par le lien
+		$scope.proprioModif.id = $rootScope.proprioModifLien.id;
+		$scope.proprioModif.nom = $rootScope.proprioModifLien.nom;
+		$scope.proprioModif.numPrive = $rootScope.proprioModifLien.numPrive;
+		$scope.proprioModif.numTravail = $rootScope.proprioModifLien.numTravail;
+		$scope.proprioModif.adresse.rue = $rootScope.proprioModifLien.adresse.rue;
+		$scope.proprioModif.adresse.numero = $rootScope.proprioModifLien.adresse.numero;
+		$scope.proprioModif.adresse.cp = $rootScope.proprioModifLien.adresse.cp;
+		$scope.proprioModif.adresse.ville = $rootScope.proprioModifLien.adresse.ville;
+		
 	}
 
 	// Développement de la méthode ajouter() du bouton

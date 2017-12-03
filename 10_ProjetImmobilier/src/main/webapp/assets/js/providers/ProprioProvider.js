@@ -80,7 +80,7 @@ immoApp.factory("proprioProvider", function($http) {
 		searchProprio : searchProprioPro
 	}
 
-	// Ajouter un propriétaire
+	// Supprimer un propriétaire
 	function deleteProprioPro(proprioSuppr, callBack) {
 		// Envoyer la requête au service
 		$http({

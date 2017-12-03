@@ -15,8 +15,11 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Id">ID *</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="Id" required="required" pattern="[1-9]{1}[0-9]*"
-					placeholder="Entrez l'id du client" ng-model="idClient">
+			<select class="form-control" id="Id" ng-model="idClient">
+					<option ng-value="client.id_client"
+						ng-repeat="client in clientsListe">{{client.id_cl}}
+						{{client.nom}} {{client.num}}</option>
+				</select>
 			</div>
 		</div>
 

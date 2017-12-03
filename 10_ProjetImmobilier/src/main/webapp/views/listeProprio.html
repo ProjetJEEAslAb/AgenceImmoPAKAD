@@ -18,6 +18,7 @@
 				<th>Adresse</th>
 				<th>Code postal</th>
 				<th>Ville</th>
+				<th>Opérations</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +30,11 @@
 				<td>{{proprio.adresse.numero}} {{proprio.adresse.rue}}</td>
 				<td>{{proprio.adresse.cp}}</td>
 				<td>{{proprio.adresse.ville}}</td>
+				<td><a ng-click="deleteLien(proprio)"> <span
+						class="glyphicon glyphicon-minus"></span>
+				</a> | <a ng-click="updateLien(proprio)"> <span
+						class="glyphicon glyphicon-pencil"></span>
+				</a></td>
 			</tr>
 		</tbody>
 	</table>
