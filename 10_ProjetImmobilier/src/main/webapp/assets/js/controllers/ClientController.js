@@ -4,6 +4,49 @@ immoApp.controller("listeClientsCtrl",
 	clientProvider.getAllClients(function(callBack) {
 		$rootScope.clientsListe = callBack;
 	});
+	
+	// =========================================================
+	// =================== Méthodes Via Lien ===================
+	// =========================================================
+
+	// Initialiser le client à modifier dans le rootScope
+	$rootScope.clientModifLien = {
+			id_client: undefined,
+			nom : "",
+			num : "",
+			adresse : {
+				rue : "",
+				numero : "",
+				cp : 0,
+				ville : ""
+			},
+		}
+
+	// Méthode pour modifier via un lien
+	$scope.updateLien = function(client) {
+
+		// Mettre les valeurs du pays récupéré dans le rootScope
+		$rootScope.clientModifLien.id_client = client.id_client;
+		$rootScope.clientModifLien.nom = client.nom;
+		$rootScope.clientModifLien.num = client.num;
+		$rootScope.clientModifLien.adresse.rue = client.adresse.rue;
+		$rootScope.clientModifLien.adresse.numero = client.adresse.numero;
+		$rootScope.clientModifLien.adresse.cp = client.adresse.cp;
+		$rootScope.clientModifLien.adresse.ville = client.adresse.ville;
+
+		// Aller dans la vue update.html
+		$location.path("modifClient");
+	}
+
+	// Méthode pour supprimer via un lien
+	$scope.deleteLien = function(client) {
+
+		clientProvider.deleteClient(client.id_client, function(callBack) {
+			clientProvider.getAllClients(function(callBack) {
+				$rootScope.clientsListe = callBack;
+			})
+		})
+	}
 })
 
 
@@ -31,7 +74,7 @@ immoApp.controller("listeClientsCtrl",
 
 					if (callBack != undefined && callBack != "") {
 						console.log(callBack)
-						$location.path("listeClasses");
+						$location.path("listeClients");
 					}
 				});
 			}
@@ -49,13 +92,13 @@ immoApp.controller("listeClientsCtrl",
 		// la bdd
 		clientProvider.deleteClient($scope.idClient, function(callBack) {
 
-			$location.path("listeClasses");
+			$location.path("listeClients");
 
 		});
 	}
 })
 
-.controller("modifClientCtrl", function($scope, clientProvider, $location) {
+.controller("modifClientCtrl", function($scope, clientProvider, $location, $rootScope) {
 
 	// Initialise la classe standard à modifier
 	$scope.clientModif = {
@@ -69,6 +112,22 @@ immoApp.controller("listeClientsCtrl",
 			ville : "",
 		}
 	}
+	
+	if ($rootScope.clientModifLien.id_client == undefined) {
+		// Pas de passage par le lien
+
+	} else {
+		
+		// Passage par le lien
+		$scope.clientModif.id_client = $rootScope.clientModifLien.id_client;
+		$scope.clientModif.nom = $rootScope.clientModifLien.nom;
+		$scope.clientModif.num = $rootScope.clientModifLien.num;
+		$scope.clientModif.adresse.rue = $rootScope.clientModifLien.adresse.rue;
+		$scope.clientModif.adresse.numero = $rootScope.clientModifLien.adresse.numero;
+		$scope.clientModif.adresse.cp = $rootScope.clientModifLien.adresse.cp;
+		$scope.clientModif.adresse.ville = $rootScope.clientModifLien.adresse.ville;
+		
+	}
 
 	// Développement de la méthode modifier() du bouton
 	$scope.modifierClient = function() {
@@ -79,7 +138,7 @@ immoApp.controller("listeClientsCtrl",
 
 			if (callBack != undefined && callBack != "") {
 				console.log(callBack)
-				$location.path("listeClasses");
+				$location.path("listeClients");
 			}
 		});
 	}

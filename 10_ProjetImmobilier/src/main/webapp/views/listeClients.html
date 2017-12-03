@@ -18,6 +18,7 @@
 				<th>CP</th>
 				<th>Ville</th>
 				<th>Tel</th>
+				<th>Opérations</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +30,11 @@
 				<td>{{client.adresse.cp}}</td>
 				<td>{{client.adresse.ville}}</td>
 				<td>{{client.num}}</td>
+				<td><a ng-click="deleteLien(client)"> <span
+						class="glyphicon glyphicon-minus"></span>
+				</a> | <a ng-click="updateLien(client)"> <span
+						class="glyphicon glyphicon-pencil"></span>
+				</a></td>
 			</tr>
 		</tbody>
 	</table>
