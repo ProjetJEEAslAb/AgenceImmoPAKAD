@@ -2,7 +2,7 @@ immoApp.controller(
 		"listeClassesStandardCtrl",
 		function($scope, classesStandardProvider, $location, $rootScope,
 				proprioProvider, achatProvider, locationProvider,
-				clientProvider) {
+				clientProvider, contratProvider) {
 
 			classesStandardProvider.getAllClasses(function(callBack) {
 
@@ -19,6 +19,10 @@ immoApp.controller(
 			});
 			clientProvider.getAllClients(function(callBack) {
 				$rootScope.clientsListe = callBack;
+			});
+
+			contratProvider.getAllContrats(function(callBack) {
+				$rootScope.contratsListe = callBack;
 			});
 
 			$scope.search = "";

@@ -13,8 +13,11 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Id">ID *</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="Id" required="required" pattern="[1-9]{1}[0-9]*"
-					placeholder="Entrez l'id du contrat" ng-model="idContrat">
+			<select class="form-control" id="Id" ng-model="idContrat">
+					<option ng-value="contrat.id_co"
+						ng-repeat="contrat in contratsListe">{{contrat.id_co}}
+						{{contrat.client.nom}} {{contrat.dateAchat}}</option>
+				</select>
 			</div>
 		</div>
 
