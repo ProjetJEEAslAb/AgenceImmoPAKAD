@@ -130,7 +130,6 @@ immoApp.controller(
 				superficieMin : 0,
 			}
 
-			// Déclarer une variable dans le scope pour initialiser le formulaire
 			if ($rootScope.classeModifLien.id_cl == undefined) {
 				// Pas de passage par le lien
 

@@ -29,6 +29,7 @@
 				<th>Charges</th>
 				<th>Bail</th>
 				<th>Meublé</th>
+				<th>Opérations</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -51,6 +52,11 @@
 				<td>{{location.charges}}</td>
 				<td>{{location.bail}}</td>
 				<td>{{location.meuble}}</td>
+				<td><a ng-click="deleteLien(location)"> <span
+						class="glyphicon glyphicon-minus"></span>
+				</a> | <a ng-click="updateLien(location)"> <span
+						class="glyphicon glyphicon-pencil"></span>
+				</a></td>
 			</tr>
 		</tbody>
 	</table>

@@ -7,7 +7,7 @@
 	<div class="form-group">
 		<label for="id" class="control-label col-sm-2">ID</label>
 		<div class="col-sm-6">
-			<select class="form-control" id="id" ng-model="locations">
+			<select class="form-control" id="id" ng-model="locations.id_b">
 				<option ng-value="location.id_b"
 					ng-repeat="location in locationListe">{{location.classe.typeBien}}
 					{{location.id_b}} : de {{location.proprio.nom}}</option>
