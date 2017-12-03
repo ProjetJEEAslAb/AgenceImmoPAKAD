@@ -16,10 +16,11 @@
 			<label class="control-label col-sm-2" for="id">ID *</label>
 			<div class="col-sm-6">
 				<select class="form-control" id="Id" ng-model="classeStandard.id_cl">
-					<option ng-value="classeStandard.id_cl"
+					<option ng-value="classe.id_cl"
 						ng-repeat="classe in classesStandardListe">{{classe.id_cl}}
 						{{classe.typeBien}} en {{classe.modeOffre}} de moins de
-						{{classe.prixMax}} euros et plus de {{classe.superficieMin}} m²/ares</option>
+						{{classe.prixMax}} euros et plus de {{classe.superficieMin}}
+						m²/ares</option>
 				</select>
 			</div>
 		</div>

@@ -15,6 +15,7 @@
 			<th>Mode d'offre</th>
 			<th>Prix maximal</th>
 			<th>Superficie minimale</th>
+			<th>Opérations</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,6 +25,11 @@
 			<td>{{classe.modeOffre}}</td>
 			<td>{{classe.prixMax}}</td>
 			<td>{{classe.superficieMin}}</td>
+			<td><a ng-click="deleteLien(classe)"> <span
+						class="glyphicon glyphicon-minus"></span>
+				</a> | <a ng-click="updateLien(classe)"> <span
+						class="glyphicon glyphicon-pencil"></span>
+				</a></td>
 		</tr>
 	</tbody>
 </table>
