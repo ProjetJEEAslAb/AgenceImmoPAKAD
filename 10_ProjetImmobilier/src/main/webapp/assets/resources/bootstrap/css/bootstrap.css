@@ -30,6 +30,7 @@ body {
 	margin: 0;
 	width: 100%;
 	height: 100%;
+	color:white;
 }
 
 .contrat{
@@ -58,6 +59,25 @@ body {
 	width: 100%;
 	height: 100%;
 }
+
+.proprietaire{
+	position: absolute;
+	background-image: url("images/proprietaire.jpg");
+	background-size: cover;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.visite{
+	position: absolute;
+	background-image: url("images/visite.jpg");
+	background-size: cover;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	}
+
 
 
 article, aside, details, figcaption, figure, footer, header, hgroup,

@@ -81,7 +81,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Logout</a>
+				<a class="navbar-brand" href="#" onclick="document.getElementById('fond').className=''">Logout</a>
 			</div>
 			<ul class="nav nav-pills">
 				<li class="active"><a href="#!listeClasses"  onclick="document.getElementById('fond').className=''">Accueil</a></li>
@@ -123,20 +123,20 @@
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Propriétaire<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#!afficheProprio">Afficher</a></li>
-						<li><a href="#!ajoutProprio">Ajouter</a></li>
-						<li><a href="#!supprProprio">Supprimer</a></li>
-						<li><a href="#!modifProprio">Modifier</a></li>
-						<li><a href="#!rechProprio">Rechercher</a></li>
+						<li><a href="#!afficheProprio" onclick="document.getElementById('fond').className='proprietaire'">Afficher</a></li>
+						<li><a href="#!ajoutProprio" onclick="document.getElementById('fond').className='proprietaire'">Ajouter</a></li>
+						<li><a href="#!supprProprio" onclick="document.getElementById('fond').className='proprietaire'">Supprimer</a></li>
+						<li><a href="#!modifProprio" onclick="document.getElementById('fond').className='proprietaire'">Modifier</a></li>
+						<li><a href="#!rechProprio" onclick="document.getElementById('fond').className='proprietaire'">Rechercher</a></li>
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Visites<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#!afficheVisite">Afficher</a></li>
-						<li><a href="#!ajoutVisite">Ajouter</a></li>
-						<li><a href="#!supprVisite">Supprimer</a></li>
-						<li><a href="#!modifVisite">Modifier</a></li>
-						<li><a href="#!rechVisite">Rechercher</a></li>
+						<li><a href="#!afficheVisite" onclick="document.getElementById('fond').className='visite'">Afficher</a></li>
+						<li><a href="#!ajoutVisite" onclick="document.getElementById('fond').className='visite'">Ajouter</a></li>
+						<li><a href="#!supprVisite" onclick="document.getElementById('fond').className='visite'">Supprimer</a></li>
+						<li><a href="#!modifVisite" onclick="document.getElementById('fond').className='visite'">Modifier</a></li>
+						<li><a href="#!rechVisite" onclick="document.getElementById('fond').className='visite'">Rechercher</a></li>
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Contrats<span class="caret"></span></a>
