@@ -4,6 +4,45 @@ immoApp.controller("contratCtrl",
 			contratProvider.getAllContrats(function(callBack) {
 				$rootScope.contratsListe = callBack;
 			});
+			
+			// =========================================================
+			// =================== Méthodes Via Lien ===================
+			// =========================================================
+
+			// Initialiser le client à modifier dans le rootScope
+			$rootScope.contratModifLien = {
+					"id_co" : undefined,
+					"dateAchat" : undefined,
+					"prixFinal" : 0,
+					"client" : undefined,
+					"achat" : undefined,
+					"location" : undefined,
+				}
+
+			// Méthode pour modifier via un lien
+			$scope.updateLien = function(contrat) {
+
+				// Mettre les valeurs du pays récupéré dans le rootScope
+				$rootScope.contratModifLien.id_co = contrat.id_co;
+				$rootScope.contratModifLien.dateAchat = contrat.dateAchat;
+				$rootScope.contratModifLien.prixFinal = contrat.prixFinal;
+				$rootScope.contratModifLien.client = contrat.client;
+				$rootScope.contratModifLien.achat = contrat.achat;
+				$rootScope.contratModifLien.location = contrat.location;
+
+				// Aller dans la vue update.html
+				$location.path("modifContrat");
+			}
+
+			// Méthode pour supprimer via un lien
+			$scope.deleteLien = function(contrat) {
+
+				contratProvider.deleteContrat(contrat.id, function(callBack) {
+					contratProvider.getAllContrats(function(callBack) {
+						$rootScope.contratsListe = callBack;
+					})
+				})
+			}
 		})
 
 .controller("ajoutContratCtrl",
@@ -39,14 +78,29 @@ immoApp.controller("contratCtrl",
 		"modifContratCtrl",
 		function($scope, contratProvider, $location, $rootScope) {
 
-			// Initialise la classe standard à ajouter
+			// Initialise la classe standard à modifier
 			$scope.contratModif = {
-				"id_co" : 0,
+				"id_co" : undefined,
 				"dateAchat" : undefined,
 				"prixFinal" : 0,
 				"client" : undefined,
 				"achat" : undefined,
 				"location" : undefined,
+			}
+			
+			if ($rootScope.contratModifLien.id_co == undefined) {
+				// Pas de passage par le lien
+
+			} else {
+				
+				// Passage par le lien
+				$scope.contratModif.id_co = $rootScope.contratModifLien.id_co;
+				$scope.contratModif.dateAchat = $rootScope.contratModifLien.dateAchat;
+				$scope.contratModif.prixFinal = $rootScope.contratModifLien.prixFinal;
+				$scope.contratModif.client = $rootScope.contratModifLien.client;
+				$scope.contratModif.achat = $rootScope.contratModifLien.achat;
+				$scope.contratModif.location = $rootScope.contratModifLien.location;
+				
 			}
 
 			// Développement de la méthode ajouter() du bouton

@@ -17,6 +17,7 @@
 				<th>Client</th>
 				<th>Achat</th>
 				<th>Location</th>
+				<th>Opérations</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,6 +28,11 @@
 				<td>{{contrat.client.id_client}}</td>
 				<td>{{contrat.achat.id_b}}</td>
 				<td>{{contrat.location.id_b}}</td>
+				<td><a ng-click="deleteLien(contrat)"> <span
+								class="glyphicon glyphicon-minus"></span>
+						</a> | <a ng-click="updateLien(contrat)"> <span
+								class="glyphicon glyphicon-pencil"></span>
+						</a></td>
 			</tr>
 		</tbody>
 	</table>
