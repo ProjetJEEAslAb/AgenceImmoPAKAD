@@ -17,10 +17,10 @@
 			<label class="control-label col-sm-2" for="Id">ID</label>
 			<div class="col-sm-6">
 				<select class="form-control" id="Id" ng-model="idLocation">
-				<option ng-value="location.id_b"
-					ng-repeat="location in locationListe">{{location.classe.typeBien}}
-					{{location.id_b}} : de {{location.proprio.nom}}</option>
-			</select>
+					<option ng-value="location.id_b"
+						ng-repeat="location in locationListe">{{location.classe.typeBien}}
+						{{location.id_b}} : de {{location.proprio.nom}}</option>
+				</select>
 			</div>
 		</div>
 
@@ -78,6 +78,11 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<div map-lazy-load="https://maps.google.com/maps/api/js"
+		map-lazy-load-params="https://maps.googleapis.com/maps/api/js?key=AIzaSyASNBnihSl_XIez0iJLVCOdPwntluZn5WU">
+		<ng-map center="41,-87" zoom="3"></ng-map>
+	</div>
 
 </body>
 </html>
