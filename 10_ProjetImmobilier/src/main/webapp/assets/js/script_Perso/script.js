@@ -8,6 +8,8 @@ function myFunction() {
 		// printWindow.document.write('<link rel="stylesheet"
 		// href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		// absolute = true>');
+		printWindow.document.write('<link type="text/css" rel="stylesheet" href="assets/resources/bootstrap/css/bootstrap.css" />');
+		printWindow.document.write('<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>/>');
 
 		printWindow.document.write('</head><body>');
 
