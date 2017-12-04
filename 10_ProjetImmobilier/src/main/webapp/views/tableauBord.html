@@ -1,9 +1,11 @@
 <meta charset="ISO-8859-1">
 
-<h1 style="color:white; text-align: center">Bienvenue, nous sommes le {{currentDate | date:'dd-MM-yyyy'}}</h1>
+<h1 style="color: white; text-align: center">Bienvenue, nous sommes
+	le {{currentDate | date:'dd-MM-yyyy'}}</h1>
 
 
-<div id="visiteDuJour">	
+<div id="visiteDuJour">
+	<h2>Liste des visites</h2>
 	<div id="dvContainer">
 		<div id="table">
 			<table class="table table-bordered">
@@ -26,9 +28,9 @@
 						<td>{{visite.rdv | date:'dd-MM-yyyy'}}</td>
 						<td>{{visite.heure}}</td>
 						<td colspan="5" style="text-align: center">
-							{{visite.achat.adresse.numero}}, {{visite.achat.adresse.rue}} - {{visite.achat.adresse.cp}}
-							{{visite.achat.adresse.ville}}<br /> Superficie :
-							{{visite.achat.superficie}} m²/ares<br /> Prix :
+							{{visite.achat.adresse.numero}}, {{visite.achat.adresse.rue}} -
+							{{visite.achat.adresse.cp}} {{visite.achat.adresse.ville}}<br />
+							Superficie : {{visite.achat.superficie}} m²/ares<br /> Prix :
 							{{visite.achat.prixVente}} euros
 						</td>
 						<td colspan="5" style="text-align: center">
@@ -41,9 +43,64 @@
 				</tbody>
 			</table>
 		</div>
-		<input type="button" onclick="myFunction()"
-			value="Imprimer/télécharger" id="btnPrint"
-			style="position: absolute; width: 20%; left: 40%"></input>
+	</div>
+</div>
 
+<div id="bienResume" style="display:flex; justify-content:space-around">
+	<div id="locationResume">
+		<h2 style="color: white">Liste des locations</h2>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Classe standard</th>
+					<th>Date de disponibilité</th>
+					<th>Superficie</th>
+					<th>Ville</th>
+					<th>Loyer</th>
+					<th>Charges</th>
+					<th>Meublé</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="location in locationListe">
+					<td>{{location.classe.id_cl}}</td>
+					<td>{{location.dateDisponibilite}}</td>
+					<td>{{location.superficie}}</td>
+					<td>{{location.adresse.ville}}</td>
+					<td>{{location.loyer}}</td>
+					<td>{{location.charges}}</td>
+					<td>{{location.meuble}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+<div style="width: 20px"></div>
+
+	<div id="achatResume">
+	<h2 style="color: white">Liste des achats</h2>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Classe standard</th>
+					<th>Date de disponibilité</th>
+					<th>Superficie</th>
+					<th>Ville</th>
+					<th>Prix de vente</th>
+					<th>Etat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="achat in achatListe">
+					<td>{{achat.classe.id_cl}}</td>
+					<td>{{achat.dateDisponibilite}}</td>
+					<td>{{achat.superficie}}</td>
+					<td>{{achat.adresse.ville}}</td>
+					<td>{{achat.prixVente}}</td>
+					<td>{{achat.etat}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
