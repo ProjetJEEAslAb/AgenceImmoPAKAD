@@ -80,7 +80,7 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 })
 
 .controller("modifProprioCtrl", function($scope, proprioProvider, $location, $rootScope) {
-
+	console.log("Coucou ?")
 	// Initialise le propriétaire à modifier
 	$scope.proprioModif = {
 		id : 0,
@@ -94,8 +94,21 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 			ville: ""
 		}
 	}
+	$rootScope.proprioModifLien = {
+		id:undefined,
+		nom : "",
+		numPrive : 0,
+		numTravail : 0,
+		adresse : {
+			numero : 0,
+			rue : "",
+			cp : "",
+			ville: ""
+		}
+	}
+	console.log($scope.proprioModif)
 	
-	if ($rootScope.proprioModifLien.id == undefined) {
+	if ($rootScope.proprioModifLien.id == 0) {
 		// Pas de passage par le lien
 
 	} else {
