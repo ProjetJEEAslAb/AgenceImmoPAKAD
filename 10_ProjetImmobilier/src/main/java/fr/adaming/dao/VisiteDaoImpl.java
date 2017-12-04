@@ -55,6 +55,7 @@ public class VisiteDaoImpl implements IVisiteDao {
 		Visite vOut = (Visite) s.get(Visite.class, v.getId());
 
 		vOut.setRdv(v.getRdv());
+		vOut.setHeure(v.getHeure());
 		vOut.setAchat(v.getAchat());
 		vOut.setClient(v.getClient());
 		vOut.setLocation(v.getLocation());

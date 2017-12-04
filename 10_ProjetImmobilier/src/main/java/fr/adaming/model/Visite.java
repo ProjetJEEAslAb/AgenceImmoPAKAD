@@ -25,6 +25,9 @@ public class Visite implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date rdv;
 	
+	@Temporal(TemporalType.TIME)
+	private Date heure;
+	
 	//Liaisons UML en Java
 	@OneToOne(cascade=CascadeType.REMOVE)
 	@JoinColumn(name="achat")
@@ -95,11 +98,20 @@ public class Visite implements Serializable{
 		this.client = client;
 	}
 
+	public Date getHeure() {
+		return heure;
+	}
+
+	public void setHeure(Date heure) {
+		this.heure = heure;
+	}
+
 	@Override
 	public String toString() {
-		return "Visite [id=" + id + ", rdv=" + rdv + ", achat=" + achat + ", location=" + location + ", client="
-				+ client + "]";
+		return "Visite [id=" + id + ", rdv=" + rdv + ", heure=" + heure + ", achat=" + achat + ", location=" + location
+				+ ", client=" + client + "]";
 	}
+
 	
 	
 	

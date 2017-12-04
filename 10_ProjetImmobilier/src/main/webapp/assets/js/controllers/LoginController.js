@@ -12,7 +12,7 @@ immoApp.controller('LoginController',
             AuthenticationService.Login($scope.username, $scope.password, function(response) {
                 if(response.success) {
                     AuthenticationService.SetCredentials($scope.username, $scope.password);
-                    $location.path('listeClasses');
+                    $location.path('accueil');
                 } else {
                     $scope.error = response.message;
                     $scope.dataLoading = false;

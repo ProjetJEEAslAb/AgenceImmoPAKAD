@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-
 <meta charset="ISO-8859-1">
 
+<h1 style="color:white; text-align: center">Bienvenue, nous comme le {{currentDate | date:'dd-MM-yyyy'}}</h1>
 
-<title>Liste des visites</title>
-</head>
-<body>
 
-	<h2>Liste des visites</h2>
-
+<div id="visiteDuJour">	
 	<div id="dvContainer">
 		<div id="table">
 			<table class="table table-bordered">
@@ -21,35 +14,29 @@
 					</tr>
 				</thead>
 				<tbody>
-					<th>ID</th>
 					<th scope="row">Client</th>
 					<th>Date</th>
 					<th>Heure</th>
 					<th colspan="5" style="text-align: center">Achat</th>
 					<th colspan="5" style="text-align: center">Location</th>
-					<th>Opérations</th>
 					</tr>
-					<tr ng-repeat="visite in visiteListe">
-						<td>{{visite.id}}</td>
+					<tr ng-repeat="visite in visiteListe | orderBy : 'rdv'">
 						<td scope="row">{{visite.client.nom}} (tel :
-							{{visite.client.numero}})</td>
-						<td>{{visite.rdv}}</td>
+							{{visite.client.num}})</td>
+						<td>{{visite.rdv | date:'dd-MM-yyyy'}}</td>
 						<td>{{visite.heure}}</td>
-						<td colspan="5" style="text-align: center">{{visite.achat.id_b}} {{visite.achat.adresse.numero}},{{visite.achat.adresse.rue}},{{visite.achat.adresse.cp}}
+						<td colspan="5" style="text-align: center">
+							{{visite.achat.adresse.numero}}, {{visite.achat.adresse.rue}} - {{visite.achat.adresse.cp}}
 							{{visite.achat.adresse.ville}}<br /> Superficie :
-							{{visite.achat.superficie}}<br /> Prix :
-							{{visite.achat.prixVente}}
+							{{visite.achat.superficie}} m²/ares<br /> Prix :
+							{{visite.achat.prixVente}} euros
 						</td>
-						<td colspan="5" style="text-align: center">{{visite.location.id_b}} {{visite.location.adresse.numero}},{{visite.location.adresse.rue}},{{visite.location.adresse.cp}}
+						<td colspan="5" style="text-align: center">
+							{{visite.location.adresse.numero}},{{visite.location.adresse.rue}},{{visite.location.adresse.cp}}
 							{{visite.location.adresse.ville}}<br /> Superfice :
 							{{visite.location.superficie}}<br /> Loyer :
 							{{visite.location.loyer}}
 						</td>
-						<td><a ng-click="deleteLien(visite)"> <span
-								class="glyphicon glyphicon-minus"></span>
-						</a> | <a ng-click="updateLien(visite)"> <span
-								class="glyphicon glyphicon-pencil"></span>
-						</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -59,7 +46,4 @@
 			style="position: absolute; width: 20%; left: 40%"></input>
 
 	</div>
-
-
-</body>
-</html>
+</div>

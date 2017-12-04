@@ -145,6 +145,10 @@ immoApp.config(function($routeProvider) {
 	}).when("/rechContrat", {
 		templateUrl : "views/rechContrat.html",
 		controller : "rechContratCtrl"
+			
+	}).when("/accueil", {
+		templateUrl : "views/tableauBord.html",
+		controller : "listeVisiteCtrl"
 
 	// --- Redirection par défault
 	}).otherwise({

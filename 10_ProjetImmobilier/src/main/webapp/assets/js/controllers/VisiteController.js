@@ -1,10 +1,33 @@
 immoApp.controller("listeVisiteCtrl",
-		function($scope, visiteProvider, $location, $rootScope) {
+		function($scope, classesStandardProvider, $location, $rootScope,
+				proprioProvider, achatProvider, locationProvider,
+				clientProvider, contratProvider, visiteProvider) {
 
 	visiteProvider.listeVisite(function(callBack) {
 		$rootScope.visiteListe = callBack;
 	});
 	
+	classesStandardProvider.getAllClasses(function(callBack) {
+		$rootScope.classesStandardListe = callBack;
+	});
+	proprioProvider.getAllProprio(function(callBack) {
+		$rootScope.proprioListe = callBack;
+	});
+	achatProvider.getAllAchats(function(callBack) {
+		$rootScope.achatListe = callBack;
+	});
+	locationProvider.getAllLocations(function(callBack) {
+		$rootScope.locationListe = callBack;
+	});
+	clientProvider.getAllClients(function(callBack) {
+		$rootScope.clientsListe = callBack;
+	});
+
+	contratProvider.getAllContrats(function(callBack) {
+		$rootScope.contratsListe = callBack;
+	});
+	
+	$rootScope.currentDate = new Date();
 	// =========================================================
 	// =================== Méthodes Via Lien ===================
 	// =========================================================
@@ -13,6 +36,7 @@ immoApp.controller("listeVisiteCtrl",
 	$rootScope.visiteModifLien={
 		      id: undefined,
 		      rdv: null,
+		      heure : null,
 		      achat:   {
 		         id_b: undefined,
 		      },
@@ -54,6 +78,7 @@ immoApp.controller("listeVisiteCtrl",
 	// Initialisation de l'objet à ajouter
 	$scope.visiteAjout={
 		      rdv: null,
+		      heure : null,
 		      achat:   {
 		         id_b: 0,
 		         statut: "",
@@ -127,6 +152,7 @@ immoApp.controller("listeVisiteCtrl",
 			$scope.visiteFind = {
 			      id: 0,
 			      rdv: null,
+			      heure : null,
 			      	achat:       {
 			         id_b: "",
 			         statut: null,
@@ -189,6 +215,7 @@ immoApp.controller("listeVisiteCtrl",
 			$scope.visiteModif = {
 					id: 0,
 				      rdv: null,
+				      heure : null,
 				      	achat:       {
 				         id_b: 0,
 				         statut: null,
