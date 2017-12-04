@@ -17,7 +17,8 @@ immoApp.config(function ($translateProvider) {
          client:'Clients',
          proprietaire:'Proprietaires',
          visite:'Visites',
-         contrat:'Contrats'
+         contrat:'Contrats',
+         langue:'LANGUE',
         
     });
 
@@ -37,7 +38,8 @@ immoApp.config(function ($translateProvider) {
          client:'Clientes',
          proprietaire:'Proprietarios',
          visite:'Visitas',
-         contrat:'Contratos'
+         contrat:'Contratos',
+         langue:'IDIOMA',
         
 
     });
