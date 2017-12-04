@@ -9,7 +9,16 @@ immoApp.controller('LoginController',
  
         $scope.login = function () {
             $scope.dataLoading = true;
-            AuthenticationService.Login($scope.username, $scope.password, function(response) {
+            
+            $scope.agent = {
+            		identifiant : $scope.username,
+            		mdp : $scope.password
+            };
+            
+            console.log("----- Controller 1 : " + $scope.agent.identifiant)
+            console.log("----- Controller 1 : " + $scope.agent.mdp)
+            
+            AuthenticationService.Login($scope.agent, function(response) {
                 if(response.success) {
                     AuthenticationService.SetCredentials($scope.username, $scope.password);
                     $location.path('accueil');

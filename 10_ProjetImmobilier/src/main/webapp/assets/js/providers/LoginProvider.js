@@ -5,21 +5,43 @@ immoApp.factory('AuthenticationService',
     function (Base64, $http, $cookieStore, $rootScope, $timeout) {
         var service = {};
 
-        service.Login = function (username, password, callback) {
+        service.Login = function (agent, callback) {
 
         	/* Dummy authentication for testing, uses $timeout to simulate api call
             ----------------------------------------------*/
+        	
+        if(agent.identifiant == "test" && agent.mdp == "test") {
+        		
+        	
            $timeout(function(){
-               var response = { success: username === 'test' && password === 'test' };
+               var response = { success: agent.identifiant === 'test' && agent.mdp === 'test' };
                if(!response.success) {
                    response.message = 'Username or password is incorrect';
                }
                callback(response);
            }, 1000);
            
-//            /* Use this for real authentication
-//             ----------------------------------------------*/
-//            $http.post('/authenticate', { username: username, password: password })
+        } else {
+            /* Use this for real authentication
+             ----------------------------------------------*/
+        	console.log("Provider real : " + agent.identifiant)
+        	
+        	$http({
+    			method : 'POST',
+    			url : "http://localhost:8080/10_ProjetImmobilier/agent",
+    			data : angular.toJson(agent),
+    			headers : {
+    				'content-type' : "application/json"
+    			}
+    		}).then(function succes(reponse) {
+    			console.log("provider" + reponse.data)
+    			callBack(reponse.data);
+    		}, function echec(reponse) {
+    			console.log("----- Erreur : " + reponse.statusText)
+    		})
+    		
+        }
+//            $http.post('/agent', { username: identifiant, password: mdp })
 //                .success(function (response) {
 //                    callback(response);
 //                });
