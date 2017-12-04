@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
 <meta charset="ISO-8859-1">
-<title>Page de recherche des classes standard</title>
-</head>
-<body>
 
 	<h1>Formulaire de recherche de classes standard</h1>
 
@@ -16,8 +10,11 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Id">ID *</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="Id" required="required" pattern="[1-9]{1}[0-9]*"
-					placeholder="Entrez l'id de la classe" ng-model="idClasseStandard">
+			<select class="form-control" id="Id" ng-model="idClasseStandard">
+				<option ng-value="classe.id_cl"
+					ng-repeat="classe in classesStandardListe">{{classe.id_cl}}
+					{{classe.typeBien}} {{classe.modeOffre}} de moins de {{classe.prixMax}} euros et de plus de {{classe.superficieMin}} m²/ares </option>
+			</select>
 			</div>
 		</div>
 
@@ -50,6 +47,3 @@
 			</tr>
 		</tbody>
 	</table>
-
-</body>
-</html>

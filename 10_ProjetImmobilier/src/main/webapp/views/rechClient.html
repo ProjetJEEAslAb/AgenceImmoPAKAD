@@ -1,57 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
 <meta charset="ISO-8859-1">
-<title>Page de recherche des clients</title>
-</head>
-<body>
 
-	<h1>Formulaire de recherche des clients</h1>
 
-	<h5 style="color: red;">Les champs précédés d'un * sont obligatoires</h5>
+<h1>Formulaire de recherche des clients</h1>
 
-	<form class="form-horizontal" name="rechClientForm">
+<h5 style="color: red;">Les champs précédés d'un * sont
+	obligatoires</h5>
 
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="Id">ID *</label>
-			<div class="col-sm-6">
-				<input type="text" class="form-control" id="Id" required="required" pattern="[1-9]{1}[0-9]*"
-					placeholder="Entrez l'id du client" ng-model="idClient">
-			</div>
+<form class="form-horizontal" name="rechClientForm">
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="Id">ID *</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="Id" ng-model="idClient">
+				<option ng-value="client.id_client"
+					ng-repeat="client in clientsListe">{{client.id_client}}
+					{{client.nom}}</option>
+			</select>
 		</div>
+	</div>
 
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default"
-					ng-click="rechercherClient()" ng-disabled="rechClientForm.$invalid">Rechercher</button>
-			</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default"
+				ng-click="rechercherClient()" ng-disabled="rechClientForm.$invalid">Rechercher</button>
 		</div>
-	</form>
+	</div>
+</form>
 
-	<table class="table table-hover" ng-show="indice">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nom</th>
-				<th>Rue</th>
-				<th>N° de la voie</th>
-				<th>CP</th>
-				<th>Ville</th>
-				<th>Tel</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>{{clientFind.id_client}}</td>
-				<td>{{clientFind.nom}}</td>
-				<td>{{clientFind.adresse.rue}}</td>
-				<td>{{clientFind.adresse.numero}}</td>
-				<td>{{clientFind.adresse.cp}}</td>
-				<td>{{clientFind.adresse.ville}}</td>
-				<td>{{clientFind.num}}</td>
-			</tr>
-		</tbody>
-	</table>
-
-</body>
-</html>
+<table class="table table-hover" ng-show="indice">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Rue</th>
+			<th>N° de la voie</th>
+			<th>CP</th>
+			<th>Ville</th>
+			<th>Tel</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{clientFind.id_client}}</td>
+			<td>{{clientFind.nom}}</td>
+			<td>{{clientFind.adresse.rue}}</td>
+			<td>{{clientFind.adresse.numero}}</td>
+			<td>{{clientFind.adresse.cp}}</td>
+			<td>{{clientFind.adresse.ville}}</td>
+			<td>{{clientFind.num}}</td>
+		</tr>
+	</tbody>
+</table>
