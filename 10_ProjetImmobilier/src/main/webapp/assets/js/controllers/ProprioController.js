@@ -94,21 +94,10 @@ immoApp.controller("proprioCtrl", function($scope, proprioProvider, $location, $
 			ville: ""
 		}
 	}
-	$rootScope.proprioModifLien = {
-		id:undefined,
-		nom : "",
-		numPrive : 0,
-		numTravail : 0,
-		adresse : {
-			numero : 0,
-			rue : "",
-			cp : "",
-			ville: ""
-		}
-	}
+	
 	console.log($scope.proprioModif)
 	
-	if ($rootScope.proprioModifLien.id == 0) {
+	if ($rootScope.proprioModifLien.id == undefined) {
 		// Pas de passage par le lien
 
 	} else {

@@ -107,8 +107,6 @@
 								onclick="document.getElementById('fond').className='classe'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprClasses"
 								onclick="document.getElementById('fond').className='classe'" translate="supprimer">Supprimer</a></li>
-							<li><a href="#!modifClasses"
-								onclick="document.getElementById('fond').className='classe'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechClasses"
 								onclick="document.getElementById('fond').className='classe'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
@@ -121,8 +119,6 @@
 								onclick="document.getElementById('fond').className='location'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprLocation"
 								onclick="document.getElementById('fond').className='location'" translate="supprimer">Supprimer</a></li>
-							<li><a href="#!modifLocation"
-								onclick="document.getElementById('fond').className='location'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechLocation"
 								onclick="document.getElementById('fond').className='location'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
@@ -135,8 +131,6 @@
 								onclick="document.getElementById('fond').className='achat'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprAchat"
 								onclick="document.getElementById('fond').className='achat'" translate="supprimer">Supprimer</a></li>
-							<li><a href="#!modifAchat"
-								onclick="document.getElementById('fond').className='achat'" translate="modifier">Modifier</a></li>
 							<li><a href="#!cherchAchat"
 								onclick="document.getElementById('fond').className='achat'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
@@ -149,8 +143,6 @@
 								onclick="document.getElementById('fond').className='client'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!suppClient"
 								onclick="document.getElementById('fond').className='client'" translate="supprimer">Supprimer</a></li>
-							<li><a href="#!modifClient"
-								onclick="document.getElementById('fond').className='client'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechClient"
 								onclick="document.getElementById('fond').className='client'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
@@ -163,8 +155,6 @@
 								onclick="document.getElementById('fond').className='proprietaire'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprProprio"
 								onclick="document.getElementById('fond').className='proprietaire'" translate="supprimer">Supprimer</a></li>
-							<li><a href="#!modifProprio"
-								onclick="document.getElementById('fond').className='proprietaire'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechProprio"
 								onclick="document.getElementById('fond').className='proprietaire'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
@@ -177,8 +167,6 @@
 								onclick="document.getElementById('fond').className='visite'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprVisite"
 								onclick="document.getElementById('fond').className='visite'" translate="supprimer">Supprimer</a></li>
-							<li><a href="#!modifVisite"
-								onclick="document.getElementById('fond').className='visite'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechVisite"
 								onclick="document.getElementById('fond').className='visite'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
@@ -191,20 +179,18 @@
 								onclick="document.getElementById('fond').className='contrat'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!suppContrat"
 								onclick="document.getElementById('fond').className='contrat'" translate="supprimer">Supprimer</a></li>
-							<li><a href="#!modifContrat"
-								onclick="document.getElementById('fond').className='contrat'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechContrat"
 								onclick="document.getElementById('fond').className='contrat'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">LANGUE <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#" ng-click="changeLangue('fr')"
+								<li><a ng-click="changeLangue('fr')"
 									translate="BOUTON_LANG_FR">Français</a></li>
-								<li><a href="#" ng-click="changeLangue('es')"
+								<li><a ng-click="changeLangue('es')"
 									translate="BOUTON_LANG_ES">Español</a></li>
 							</ul>
 					</ul>

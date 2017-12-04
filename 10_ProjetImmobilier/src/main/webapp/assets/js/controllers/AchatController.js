@@ -137,7 +137,6 @@ immoApp.controller("afficheAchatCtrl", function($scope, achatProvider, $location
 			etat:""
 		};
 
-
 	if ($rootScope.achatModifLien.id_b == undefined) {
 		// Pas de passage par le lien
 
