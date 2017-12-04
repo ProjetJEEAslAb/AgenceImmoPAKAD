@@ -1,6 +1,6 @@
 'use strict';
 
-var immoApp = angular.module("immoApp", ["ngRoute", "ngCookies", "ngMap"])
+var immoApp = angular.module("immoApp", ["ngRoute", "ngCookies", "ngMap", "pascalprecht.translate"])
 
 .run(['$rootScope', '$location', '$cookieStore', '$http',
     function ($rootScope, $location, $cookieStore, $http) {

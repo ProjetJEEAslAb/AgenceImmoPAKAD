@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -22,6 +22,7 @@
 	src="assets/resources/angular/angular-route.js"></script>
 <script type="text/javascript"
 	src="assets/resources/angular/datetimepickerDirective.js"></script>
+<script src="assets/resources/angular/translate.js"></script>
 
 
 <!-- Mes scripts  -->
@@ -43,6 +44,7 @@
 	src="assets/js/providers/AchatProvider.js"></script>
 <script type="text/javascript"
 	src="assets/js/providers/ContratProvider.js"></script>
+<script src="assets/js/providers/traductionService.js"></script>
 
 <script type="text/javascript"
 	src="assets/js/controllers/LoginController.js"></script>
@@ -60,6 +62,7 @@
 	src="assets/js/controllers/AchatController.js"></script>
 <script type="text/javascript"
 	src="assets/js/controllers/ContratController.js"></script>
+<script src="assets/js/controllers/LangueController.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower"
 	rel="stylesheet">
@@ -72,13 +75,15 @@
 <!-- Style perso -->
 <link type="text/css" rel="stylesheet" href="assets/css/styleFich.css" />
 
+
+
 <!-- Google Map -->
 <script
 	src="http://rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js"></script>
 
 <title>Page d'accueil</title>
 </head>
-<body ng-app="immoApp" id="fond">
+<body ng-app="immoApp" ng-controller="langueCtrl" id="fond">
 	<div class="all">
 
 		<!-- ================================================ -->
@@ -92,106 +97,117 @@
 				</div>
 				<ul class="nav nav-pills">
 					<li class="active"><a href="#!accueil"
-						onclick="document.getElementById('fond').className=''">Accueil</a></li>
+						onclick="document.getElementById('fond').className=''" translate="home" >Page Accueil</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown">Classes Standard <span class="caret"></span></a>
+						data-toggle="dropdown" translate="classes" >Classes Standard <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#!listeClasses"
-								onclick="document.getElementById('fond').className='classe'">Afficher</a></li>
+								onclick="document.getElementById('fond').className='classe'" translate="afficher">Afficher</a></li>
 							<li><a href="#!ajoutClasses"
-								onclick="document.getElementById('fond').className='classe'">Ajouter</a></li>
+								onclick="document.getElementById('fond').className='classe'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprClasses"
-								onclick="document.getElementById('fond').className='classe'">Supprimer</a></li>
+								onclick="document.getElementById('fond').className='classe'" translate="supprimer">Supprimer</a></li>
 							<li><a href="#!modifClasses"
-								onclick="document.getElementById('fond').className='classe'">Modifier</a></li>
+								onclick="document.getElementById('fond').className='classe'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechClasses"
-								onclick="document.getElementById('fond').className='classe'">Rechercher</a></li>
+								onclick="document.getElementById('fond').className='classe'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown">Locations<span class="caret"></span></a>
+						data-toggle="dropdown" translate="location">Locations<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#!afficheLocation"
-								onclick="document.getElementById('fond').className='location'">Afficher</a></li>
+								onclick="document.getElementById('fond').className='location'" translate="afficher">Afficher</a></li>
 							<li><a href="#!ajoutLocation"
-								onclick="document.getElementById('fond').className='location'">Ajouter</a></li>
+								onclick="document.getElementById('fond').className='location'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprLocation"
-								onclick="document.getElementById('fond').className='location'">Supprimer</a></li>
+								onclick="document.getElementById('fond').className='location'" translate="supprimer">Supprimer</a></li>
 							<li><a href="#!modifLocation"
-								onclick="document.getElementById('fond').className='location'">Modifier</a></li>
+								onclick="document.getElementById('fond').className='location'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechLocation"
-								onclick="document.getElementById('fond').className='location'">Rechercher</a></li>
+								onclick="document.getElementById('fond').className='location'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown">Achats<span class="caret"></span></a>
+						data-toggle="dropdown" translate="achat">Achats<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#!afficheAchat"
-								onclick="document.getElementById('fond').className='achat'">Afficher</a></li>
+								onclick="document.getElementById('fond').className='achat'" translate="afficher">Afficher</a></li>
 							<li><a href="#!ajoutAchat"
-								onclick="document.getElementById('fond').className='achat'">Ajouter</a></li>
+								onclick="document.getElementById('fond').className='achat'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprAchat"
-								onclick="document.getElementById('fond').className='achat'">Supprimer</a></li>
+								onclick="document.getElementById('fond').className='achat'" translate="supprimer">Supprimer</a></li>
 							<li><a href="#!modifAchat"
-								onclick="document.getElementById('fond').className='achat'">Modifier</a></li>
+								onclick="document.getElementById('fond').className='achat'" translate="modifier">Modifier</a></li>
 							<li><a href="#!cherchAchat"
-								onclick="document.getElementById('fond').className='achat'">Rechercher</a></li>
+								onclick="document.getElementById('fond').className='achat'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown">Clients<span class="caret"></span></a>
+						data-toggle="dropdown" translate="client">Clients<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#!listeClients"
-								onclick="document.getElementById('fond').className='client'">Afficher</a></li>
+								onclick="document.getElementById('fond').className='client'" translate="afficher">Afficher</a></li>
 							<li><a href="#!ajoutClient"
-								onclick="document.getElementById('fond').className='client'">Ajouter</a></li>
+								onclick="document.getElementById('fond').className='client'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!suppClient"
-								onclick="document.getElementById('fond').className='client'">Supprimer</a></li>
+								onclick="document.getElementById('fond').className='client'" translate="supprimer">Supprimer</a></li>
 							<li><a href="#!modifClient"
-								onclick="document.getElementById('fond').className='client'">Modifier</a></li>
+								onclick="document.getElementById('fond').className='client'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechClient"
-								onclick="document.getElementById('fond').className='client'">Rechercher</a></li>
+								onclick="document.getElementById('fond').className='client'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown">Propriétaire<span class="caret"></span></a>
+						data-toggle="dropdown" translate="proprietaire">Propriétaire<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#!afficheProprio"
-								onclick="document.getElementById('fond').className='proprietaire'">Afficher</a></li>
+								onclick="document.getElementById('fond').className='proprietaire'" translate="afficher">Afficher</a></li>
 							<li><a href="#!ajoutProprio"
-								onclick="document.getElementById('fond').className='proprietaire'">Ajouter</a></li>
+								onclick="document.getElementById('fond').className='proprietaire'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprProprio"
-								onclick="document.getElementById('fond').className='proprietaire'">Supprimer</a></li>
+								onclick="document.getElementById('fond').className='proprietaire'" translate="supprimer">Supprimer</a></li>
 							<li><a href="#!modifProprio"
-								onclick="document.getElementById('fond').className='proprietaire'">Modifier</a></li>
+								onclick="document.getElementById('fond').className='proprietaire'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechProprio"
-								onclick="document.getElementById('fond').className='proprietaire'">Rechercher</a></li>
+								onclick="document.getElementById('fond').className='proprietaire'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown">Visites<span class="caret"></span></a>
+						data-toggle="dropdown" translate="visite">Visites<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#!afficheVisite"
-								onclick="document.getElementById('fond').className='visite'">Afficher</a></li>
+								onclick="document.getElementById('fond').className='visite'" translate="afficher">Afficher</a></li>
 							<li><a href="#!ajoutVisite"
-								onclick="document.getElementById('fond').className='visite'">Ajouter</a></li>
+								onclick="document.getElementById('fond').className='visite'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!supprVisite"
-								onclick="document.getElementById('fond').className='visite'">Supprimer</a></li>
+								onclick="document.getElementById('fond').className='visite'" translate="supprimer">Supprimer</a></li>
 							<li><a href="#!modifVisite"
-								onclick="document.getElementById('fond').className='visite'">Modifier</a></li>
+								onclick="document.getElementById('fond').className='visite'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechVisite"
-								onclick="document.getElementById('fond').className='visite'">Rechercher</a></li>
+								onclick="document.getElementById('fond').className='visite'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown">Contrats<span class="caret"></span></a>
+						data-toggle="dropdown" translate="contrat">Contrats<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#!afficheContrat"
-								onclick="document.getElementById('fond').className='contrat'">Afficher</a></li>
+								onclick="document.getElementById('fond').className='contrat'" translate="afficher">Afficher</a></li>
 							<li><a href="#!ajoutContrat"
-								onclick="document.getElementById('fond').className='contrat'">Ajouter</a></li>
+								onclick="document.getElementById('fond').className='contrat'" translate="ajouter">Ajouter</a></li>
 							<li><a href="#!suppContrat"
-								onclick="document.getElementById('fond').className='contrat'">Supprimer</a></li>
+								onclick="document.getElementById('fond').className='contrat'" translate="supprimer">Supprimer</a></li>
 							<li><a href="#!modifContrat"
-								onclick="document.getElementById('fond').className='contrat'">Modifier</a></li>
+								onclick="document.getElementById('fond').className='contrat'" translate="modifier">Modifier</a></li>
 							<li><a href="#!rechContrat"
-								onclick="document.getElementById('fond').className='contrat'">Rechercher</a></li>
+								onclick="document.getElementById('fond').className='contrat'" translate="rechercher">Rechercher</a></li>
 						</ul></li>
-				</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">LANGUE <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#" ng-click="changeLangue('fr')"
+									translate="BOUTON_LANG_FR">Français</a></li>
+								<li><a href="#" ng-click="changeLangue('es')"
+									translate="BOUTON_LANG_ES">Español</a></li>
+							</ul>
+					</ul>
 			</div>
 		</nav>
 
