@@ -2,16 +2,17 @@
 <h1>Formulaire de recherche des achats</h1>
 
 
-	<h2>{{msg}}</h2>
+<h2>{{msg}}</h2>
 
 
-	<form class="form-horizontal">
+<form class="form-horizontal">
 	<div class="form-group">
 		<label for="idId" class="control-label col-sm-2">ID</label>
 		<div class="col-sm-6">
-			<select class="form-control" id="idId"
-				ng-model="id">
-				<option ng-value = "achat.id_b" ng-repeat="achat in achatListe">{{achat.id_b}}, de {{achat.proprio.nom}} au {{achat.adresse.numero}} {{achat.adresse.rue}}, {{achat.adresse.cp}} {{achat.adresse.ville}}</option>
+			<select class="form-control" id="idId" ng-model="id">
+				<option ng-value="achat.id_b" ng-repeat="achat in achatListe">{{achat.id_b}},
+					de {{achat.proprio.nom}} au {{achat.adresse.numero}}
+					{{achat.adresse.rue}}, {{achat.adresse.cp}} {{achat.adresse.ville}}</option>
 			</select>
 		</div>
 	</div>
@@ -26,8 +27,8 @@
 	</div>
 </form>
 
-<div  ng-show="indice">
-	<table class="table table-hover" >
+<div ng-show="indice">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -67,35 +68,43 @@
 			</tr>
 		</tbody>
 	</table>
-	
-	<h3>Propriétaire du bien</h3>
-	
-	<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Nom</th>
-			<th>Numéro privé</th>
-			<th>Numéro travail</th>
-			<th>Adresse</th>
-			<th>Code postal</th>
-			<th>Ville</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>{{achatFind.proprio.id}}</td>
-			<td>{{achatFind.proprio.nom}}</td>
-			<td>{{achatFind.proprio.numPrive}}</td>
-			<td>{{achatFind.proprio.numTravail}}</td>
-			<td>{{achatFind.proprio.adresse.numero}}
-				{{achatFind.proprio.adresse.rue}}</td>
-			<td>{{achatFind.proprio.adresse.cp}}</td>
-			<td>{{achatFind.proprio.adresse.ville}}</td>
-		</tr>
-	</tbody>
-</table>
 
+	<h3>Propriétaire du bien</h3>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Numéro privé</th>
+				<th>Numéro travail</th>
+				<th>Adresse</th>
+				<th>Code postal</th>
+				<th>Ville</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{achatFind.proprio.id}}</td>
+				<td>{{achatFind.proprio.nom}}</td>
+				<td>{{achatFind.proprio.numPrive}}</td>
+				<td>{{achatFind.proprio.numTravail}}</td>
+				<td>{{achatFind.proprio.adresse.numero}}
+					{{achatFind.proprio.adresse.rue}}</td>
+				<td>{{achatFind.proprio.adresse.cp}}</td>
+				<td>{{achatFind.proprio.adresse.ville}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
+
+	<div style="margin-bottom:10px"
+		map-lazy-load="https://maps.google.com/maps/api/js"
+		map-lazy-load-params="https://maps.googleapis.com/maps/api/js?key=AIzaSyASNBnihSl_XIez0iJLVCOdPwntluZn5WU">
+		<ng-map zoom=13 center="{{achatFind.adresse.ville}}"> <marker
+			position="{{achatFind.adresse.numero}} {{achatFind.adresse.rue}} {{achatFind.adresse.ville}}"></marker>
+		</ng-map>
+	</div>
+	
 </body>
 </html>

@@ -79,9 +79,11 @@
 		</tbody>
 	</table>
 
-	<div map-lazy-load="https://maps.google.com/maps/api/js"
+	<div style="margin-bottom:10px" map-lazy-load="https://maps.google.com/maps/api/js"
 		map-lazy-load-params="https://maps.googleapis.com/maps/api/js?key=AIzaSyASNBnihSl_XIez0iJLVCOdPwntluZn5WU">
-		<ng-map center="41,-87" zoom="3"></ng-map>
+		<ng-map zoom=13 center="{{locationFind.adresse.ville}}">
+			<marker position="{{locationFind.adresse.numero}} {{locationFind.adresse.rue}} {{locationFind.adresse.ville}}"></marker>
+		</ng-map>
 	</div>
 
 </body>
