@@ -8,25 +8,27 @@
 
 	<h1>Formulaire de recherche des contrats</h1>
 
-	<h5 style="color: red;">Les champs précédés d'un * sont obligatoires</h5>
+	<h5 style="color: red;">Les champs précédés d'un * sont
+		obligatoires</h5>
 
 	<form class="form-horizontal" name="rechContratForm">
 
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Id">ID *</label>
 			<div class="col-sm-6">
-			<select class="form-control" id="Id" ng-model="idContrat">
-				<option ng-value="contrat.id_co"
-					ng-repeat="contrat in contratsListe">{{contrat.client.nom}}
-					{{contrat.achat.id_b}} / {{contrat.location.id_b}}</option>
-			</select>
+				<select class="form-control" id="Id" ng-model="idContrat">
+					<option ng-value="contrat.id_co"
+						ng-repeat="contrat in contratsListe">{{contrat.client.nom}}
+						{{contrat.achat.id_b}} / {{contrat.location.id_b}}</option>
+				</select>
 			</div>
 		</div>
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<button type="submit" class="btn btn-default"
-					ng-click="rechercherContrat()" ng-disabled="rechContratForm.$invalid">Rechercher</button>
+					ng-click="rechercherContrat()"
+					ng-disabled="rechContratForm.$invalid">Rechercher</button>
 			</div>
 		</div>
 	</form>
@@ -54,70 +56,89 @@
 		</tbody>
 	</table>
 
-<div>
-	<div id="table" ng-hide="true">
-	
-		<div style="width: 50%; float: right">
-			<h1 style="text-align: center">
-				Contrat de Location<br /> Agence Immobilière PAKAD
-			</h1>
+	<div>
+		<div id="table" ng-hide="true">
+
+			<div style="width: 50%; float: right">
+				<h1 style="text-align: center">
+					Contrat de Location<br /> Agence Immobilière PAKAD
+				</h1>
+			</div>
+
+			<div style="width: 50%">
+				<fieldset>
+					<legend> Propriètaire(s) </legend>
+					<form method="post" action="index.html">
+						Nom : {{contratFind.bien.proprietaire.nom}}<br /> Adresse:
+						{{contratFind.location.proprietaire.adresse.num}}
+						{{contratFind.location.proprietaire.adresse.rue}},{{contratFind.location.proprietaire.adresse.cp}}
+						{{}} {{contratFind.location.proprietaire.adresse.ville}}<br />
+						Téléphone: <br /> numero de dossier:
+						{{contratFind.location.proprietaire.id}}<br /> <br />
+					</form>
+				</fieldset>
+			</div>
+
+			<br />
+
+			<div style="width: 50%; float: right">
+				<fieldset>
+					<legend> Garant(s)(si necessaire) </legend>
+					<form method="post" action="index.html">
+						Nom : <br /> Adresse: <br /> Téléphone: <br /> numero de
+						dossier: <br /> <br />
+					</form>
+				</fieldset>
+			</div>
+
+			<div style="width: 50%">
+				<fieldset>
+					<legend> Locataires/Acheteurs</legend>
+					<form method="post" action="index.html">
+						Nom : {{contratFind.client.nom}} <br /> Adresse:
+						{{contratFind.client.adresse.num}}
+						{{contratFind.client.adresse.rue}},{{contratFind.client.adresse.cp}}
+						{{}} {{contratFind.client.adresse.ville}}<br />
+						Téléphone:{{contratFind.client.num}} <br /> numero de dossier:
+						{{contratFind.client.id_client}}<br /> <br />
+					</form>
+				</fieldset>
+			</div>
+
+			<br />
+
+			<div>
+				<fieldset>
+					<legend> Designations des locaux et equipements</legend>
+					<form method="post" action="index.html">
+						Type de biens: {{contratFind.bien}}<br /> Superficie:
+						{{contratFind.location.superficie}}<br /> Meublé/non meublé:
+						{{contratFind.location.meuble}}<br />
+					</form>
+				</fieldset>
+			</div>
+
+			<br />
+
+			<div>
+				<fieldset>
+					<legend> Durées et prise d'effet</legend>
+					<form method="post" action="index.html">
+						Disponible le : {{contratFind.dateAchat}}<br /> Bail:
+						{{contratFind.location.bail}} mois <br /> Caution:
+						{{contratFind.location.caution}} <br />
+						Charges:{{contratFind.location.charges}} <br /> Loyer :
+						{{contratFind.location.loyer}}<br />
+					</form>
+				</fieldset>
+			</div>
+
+			<br /> <br />
+			<div>
+				<h4>Signatures </h4>
+									
+			</div>
 		</div>
-
-		<div style="width: 50%">
-			<fieldset>
-				<legend> Propriètaire(s) </legend>
-				<form method="post" action="index.html">
-					Nom : {{contratFind.client.nom}}<br /> Adresse: {{contratFind.client.adresse.numero}} {{contratFind.client.adresse.rue}}, {{contratFind.client.adresse.cp}}{{contratFind.client.adresse.ville}}<br /> Téléphone:
-					<br /> numero de dossier: <br /> <br />
-				</form>
-			</fieldset>
-		</div>
-
-		<br />
-
-		<div style="width: 50%; float: right">
-			<fieldset>
-				<legend> Garant(s) </legend>
-				<form method="post" action="index.html">
-					Nom : <br /> Adresse: <br /> Téléphone: <br /> numero de
-					dossier: <br /> <br />
-				</form>
-			</fieldset>
-		</div>
-
-		<div style="width: 50%">
-			<fieldset>
-				<legend> Locataires</legend>
-				<form method="post" action="index.html">
-					Nom : <br /> Adresse: <br /> Téléphone: <br /> numero de
-					dossier: <br /> <br />
-				</form>
-			</fieldset>
-		</div>
-
-		<br />
-
-		<div>
-			<fieldset>
-				<legend> Designations des locaux et equipements</legend>
-				<form method="post" action="index.html">
-					Type de biens: <br /> Superficie: <br /> Meublé/non meublé: <br />
-				</form>
-			</fieldset>
-		</div>
-
-		<br />
-
-		<div>
-			<fieldset>
-				<legend> Durées et prise d'effet</legend>
-				<form method="post" action="index.html">
-					Disponible le : <br /> Bail: <br /> Caution: <br /> Charges: <br />
-					Loyer <br />
-				</form>
-			</fieldset>
-		</div>
-</div>
 		<input type="button" onclick="myFunction()"
 			value="Imprimer/télécharger"
 			style="position: center; width: 20%; left: 40%" ng-show="indice"></input>
