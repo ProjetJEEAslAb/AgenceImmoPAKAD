@@ -54,5 +54,74 @@
 		</tbody>
 	</table>
 
+<div>
+	<div id="table" ng-hide="true">
+	
+		<div style="width: 50%; float: right">
+			<h1 style="text-align: center">
+				Contrat de Location<br /> Agence Immobilière PAKAD
+			</h1>
+		</div>
+
+		<div style="width: 50%">
+			<fieldset>
+				<legend> Propriètaire(s) </legend>
+				<form method="post" action="index.html">
+					Nom : {{contratFind.client.nom}}<br /> Adresse: {{contratFind.client.adresse.numero}} {{contratFind.client.adresse.rue}}, {{contratFind.client.adresse.cp}}{{contratFind.client.adresse.ville}}<br /> Téléphone:
+					<br /> numero de dossier: <br /> <br />
+				</form>
+			</fieldset>
+		</div>
+
+		<br />
+
+		<div style="width: 50%; float: right">
+			<fieldset>
+				<legend> Garant(s) </legend>
+				<form method="post" action="index.html">
+					Nom : <br /> Adresse: <br /> Téléphone: <br /> numero de
+					dossier: <br /> <br />
+				</form>
+			</fieldset>
+		</div>
+
+		<div style="width: 50%">
+			<fieldset>
+				<legend> Locataires</legend>
+				<form method="post" action="index.html">
+					Nom : <br /> Adresse: <br /> Téléphone: <br /> numero de
+					dossier: <br /> <br />
+				</form>
+			</fieldset>
+		</div>
+
+		<br />
+
+		<div>
+			<fieldset>
+				<legend> Designations des locaux et equipements</legend>
+				<form method="post" action="index.html">
+					Type de biens: <br /> Superficie: <br /> Meublé/non meublé: <br />
+				</form>
+			</fieldset>
+		</div>
+
+		<br />
+
+		<div>
+			<fieldset>
+				<legend> Durées et prise d'effet</legend>
+				<form method="post" action="index.html">
+					Disponible le : <br /> Bail: <br /> Caution: <br /> Charges: <br />
+					Loyer <br />
+				</form>
+			</fieldset>
+		</div>
+</div>
+		<input type="button" onclick="myFunction()"
+			value="Imprimer/télécharger"
+			style="position: center; width: 20%; left: 40%" ng-show="indice"></input>
+	</div>
+
 </body>
 </html>
