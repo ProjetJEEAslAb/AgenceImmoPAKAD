@@ -1,6 +1,6 @@
 package fr.adaming.model;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 import java.util.Date;
 
 import javax.persistence.CascadeType;
